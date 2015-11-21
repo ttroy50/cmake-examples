@@ -1,6 +1,6 @@
 # CppCheck Static Analysis
 
-This example is for calling the (CppCheck)[http://cppcheck.sourceforge.net/] tool to do static analysis. 
+This example is for calling the [CppCheck](http://cppcheck.sourceforge.net/) tool to do static analysis. 
 
 It shows how to add cppcheck with a target for each sub-projects and also how to generate an overall "make analysis" target to do static analysis on all sub-projects.
 
