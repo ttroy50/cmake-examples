@@ -1,0 +1,117 @@
+# Hello CMake
+
+Shows a hello world example, which uses a seperate cpp file and include directory.
+
+## New Concepts
+
+### Directory Paths
+
+CMake syntax specifies a number of variables which can be used to help find useful directories in your project or source tree. Some of these include
+
+Variable | Info
+-------- | ------
+CMAKE_SOURCE_DIR | The root source directory 
+CMAKE_CURRENT_SOURCE_DIR | The current source directory if using sub-projects and directories
+PROJECT_SOURCE_DIR | The source director of the current cmake project.
+CMAKE_BINARY_DIR | The root binary / build directory. This is the directory you run the cmake command from
+CMAKE_CURRENT_BINARY_DIR | The build directory you are currently in.
+PROJECT_BINARY_DIR | The build directory for the current project.
+
+### Including Directories
+
+```
+include_directories(
+    ${PROJECT_SOURCE_DIR}/inc
+    )
+```
+
+When you have a seperate include folders, you can include them using the 'include_directories' function.
+This will add these directories to the compiler with the -I flag, e.g. -I/directory/path
+
+### Setting Source files
+
+```
+# Create a sources variable with a link to all cpp files to compile
+set(SOURCES
+    src/Hello.cpp
+    src/main.cpp
+)
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+```
+
+Creating a variable which includes the source files allows you to be clearer about these files and add them to various commands, for example, the 'add_executable()' function.
+
+An alternative to setting specific file names in the SOURCES variable is to use a GLOB command to find files using wildcard pattern matching. 
+
+```
+file(GLOB SOURCES "src/*.cpp")
+```
+
+## Building the example
+
+```
+$ mkdir build
+
+$ cd build
+
+$ cmake ..
+-- The C compiler identification is GNU 4.8.4
+-- The CXX compiler identification is GNU 4.8.4
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build
+
+$ make
+Scanning dependencies of target hello_headers
+[ 50%] Building CXX object CMakeFiles/hello_headers.dir/src/Hello.cpp.o
+[100%] Building CXX object CMakeFiles/hello_headers.dir/src/main.cpp.o
+Linking CXX executable hello_headers
+[100%] Built target hello_headers
+
+$ ./hello_headers 
+Hello Headers!
+```
+
+### Verbose Output
+
+In the previous examples, when running the make command the output only shows the status of the build. To see the full output for debugging purposes you can add 'VERBOSE=1' to the command to show all commands.
+
+The VERBOSE output is show below, and looking at the output lets you see the include directories being added to the g++ command.
+
+```
+$ make clean
+$ make VERBOSE=1
+/usr/bin/cmake -H/home/matrim/workspace/cmake-examples/01-basic/hello_headers -B/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+make -f CMakeFiles/hello_headers.dir/build.make CMakeFiles/hello_headers.dir/depend
+make[2]: Entering directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+cd /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/matrim/workspace/cmake-examples/01-basic/hello_headers /home/matrim/workspace/cmake-examples/01-basic/hello_headers /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles/hello_headers.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+make -f CMakeFiles/hello_headers.dir/build.make CMakeFiles/hello_headers.dir/build
+make[2]: Entering directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+/usr/bin/cmake -E cmake_progress_report /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles 1
+[ 50%] Building CXX object CMakeFiles/hello_headers.dir/src/Hello.cpp.o
+/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/inc    -o CMakeFiles/hello_headers.dir/src/Hello.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/Hello.cpp
+/usr/bin/cmake -E cmake_progress_report /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles 2
+[100%] Building CXX object CMakeFiles/hello_headers.dir/src/main.cpp.o
+/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/inc    -o CMakeFiles/hello_headers.dir/src/main.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/main.cpp
+Linking CXX executable hello_headers
+/usr/bin/cmake -E cmake_link_script CMakeFiles/hello_headers.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/hello_headers.dir/src/Hello.cpp.o CMakeFiles/hello_headers.dir/src/main.cpp.o  -o hello_headers -rdynamic 
+make[2]: Leaving directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+/usr/bin/cmake -E cmake_progress_report /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles  1 2
+[100%] Built target hello_headers
+make[1]: Leaving directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
+/usr/bin/cmake -E cmake_progress_start /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles 0
+```

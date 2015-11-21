@@ -3,3 +3,58 @@ CMakeFiles
 Makefile
 cmake_install.cmake
 install_manifest.txt
+
+#
+# Sublime Test
+#
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+#
+# C / C++
+#
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.ko
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+*.so.*
+*.dylib
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+*.lo
+
+# Executables
+*.exe
+*.out
+*.app
+
+/**/build
