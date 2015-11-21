@@ -6,7 +6,7 @@ Shows a very basic hello world example.
 
 ### Minimum CMake version
 
-```
+```cmake
 cmake_minimum_required(VERSION 2.6)
 ```
 
@@ -15,7 +15,7 @@ When creating a project using CMake, you can specify the minimum version of CMak
 
 ### Projects
 
-```
+```cmake
 project (hello_cmake)
 ```
 
@@ -23,7 +23,7 @@ A CMake build can include a project name to make referencing certain variables w
 
 ### Creating an executable
 
-```
+```cmake
 add_executable(hello_cmake main.cpp)
 ```
 
@@ -31,7 +31,7 @@ The add_executable() command specifies that an executable should be build from t
 
 HINT: A shorthand that some people use is to have the project name and executable name the same. This allows you to specify the CMakeLists.txt as follows,
  
-```
+```cmake
 cmake_minimum_required(VERSION 2.6)
 project (hello_cmake)
 add_executable(${PROJECT_NAME} main.cpp)
@@ -41,7 +41,7 @@ In this example, the project() function, will create a variable ${PROJECT_NAME} 
 
 ## Building the example
 
-```
+```{r, engine='bash', count_lines}
 $ mkdir build
 
 $ cd build
