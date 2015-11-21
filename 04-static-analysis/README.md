@@ -1,1 +1,14 @@
-How to call static analysis tools
+# Static Analysis
+
+Static analysis is the analysis of code without executing it. It can be used to find common programming errors and enforce coding guidelines. Examples of errors that can be found using static analysis tools include:
+
+  * Out of bounds errors
+  * Memory leaks
+  * Usage of uninitialized variables
+  * Use of unsafe functions
+
+Analysis tools can detect errors early and are becoming a standard tool in most build chains. Some build tools such as (Clang](http://clang-analyzer.llvm.org/) include a build in static analysis tool. However standalone tools also exist.
+
+The examples here include using the following tools:
+
+  * (CppCheck)[http://cppcheck.sourceforge.net/]
