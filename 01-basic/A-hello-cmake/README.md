@@ -41,7 +41,7 @@ In this example, the project() function, will create a variable ${PROJECT_NAME} 
 
 ## Building the example
 
-```{r, engine='bash', count_lines}
+```bash
 $ mkdir build
 
 $ cd build
