@@ -1,12 +1,21 @@
+
+:toc:
+:toc-placement!:
+
+toc::[]
+
 [[cppcheck-static-analysis]]
 CppCheck Static Analysis
 ------------------------
 
-This example is for calling the
+This example shows how to call the
 http://cppcheck.sourceforge.net/[CppCheck] tool to do static analysis.
 
-It shows how to add cppcheck with a target for each sub-projects and
-also how to generate an overall "make analysis" target to do static
+It includes code to
+
+  * Find the cppcheck binary
+  * Add cppcheck with a target for each sub-projects
+  * Generate an overall `make analysis` target to do static
 analysis on all sub-projects.
 
 [[requirements]]
@@ -33,19 +42,23 @@ Adding Custom Package Modules
 Adding a custom module
 ++++++++++++++++++++++
 
-The cmake/modules/FindCppCheck.cmake file contains the code to find and
-add variables for a custom package module. Custom modules can be used to
+include::cmake/modules/FindCppCheck.cmake
+
+The `cmake/modules/FindCppCheck.cmake` file contains the code to initialise a
+custom package module. Custom modules can be used to
 find programs, libraries and header files to include in your program.
 
-[source,cmake]
+The following is a breakdown of the file:
+
+[source,cmake,numbered]
 ----
 find_program(CPPCHECK_BIN NAMES cppcheck)
 ----
 
-Search the path for the program "cppcheck" and store the result in the
-CPPCHECK_BIN variable
+Search the path for the cppcheck binary. Once found store the result in the
++CPPCHECK_BIN+ variable
 
-[source,cmake]
+[source,cmake,numbered]
 ----
 set (CPPCHECK_THREADS "-j 4" CACHE STRING "The -j argument to have cppcheck use multiple threads / cores")
 
@@ -58,14 +71,14 @@ Set some custom arguments that can be later passed to cppcheck.
 ----
 include(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(
-    CPPCHECK 
-    DEFAULT_MSG 
+    CPPCHECK
+    DEFAULT_MSG
     CPPCHECK_BIN
     CPPCHECK_THREADS
     CPPCHECK_ARG)
 
 mark_as_advanced(
-    CPPCHECK_BIN  
+    CPPCHECK_BIN
     CPPCHECK_THREADS
     CPPCHECK_ARG)
 ----
@@ -84,7 +97,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules
                       ${CMAKE_MODULE_PATH})
 ----
 
-The $\{CMAKE_MODULE_PATH} points towards a folder which contains custom
+The variable +${CMAKE_MODULE_PATH}+ points towards a folder which contains custom
 cmake modules.
 
 To then add the package module you can call
@@ -111,7 +124,7 @@ set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 add_analysis macro
 ^^^^^^^^^^^^^^^^^^
 
-The add_analysis macro in cmake/analysis.cmake is the core idea for this
+The +add_analysis()+ macro in `cmake/analysis.cmake` is the core idea for this
 example. If cppcheck is available then a list of arguments are compiled
 and added to a custom command that calls cppcheck on the sources. These
 are then added to a custom target.
@@ -124,7 +137,7 @@ foreach(dir ${dirs})
 endforeach()
 ----
 
-Find the include files from and calls to include_directories() in the
+Find the include files from and calls to +include_directories()+ in the
 same project.
 
 [source,cmake]
@@ -134,19 +147,19 @@ set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 ----
 
 Export the target name into a variable that can later be used to add a
-global "make analysis" target.
+global `make analysis` target.
 
 [source,cmake]
 ----
 if (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VESION} GREATER 2.7)
     separate_arguments(tmp_args UNIX_COMMAND ${CPPCHECK_ARG})
 else ()
-    # cmake 2.6 has different arguments 
-    string(REPLACE " " ";" tmp_args ${CPPCHECK_ARG})         
+    # cmake 2.6 has different arguments
+    string(REPLACE " " ";" tmp_args ${CPPCHECK_ARG})
 endif ()
 ----
 
-Change the CPPCHECK_ARG so that the can be added to command correctly in
+Change the +CPPCHECK_ARG+ so that the can be added to command correctly in
 the custom command.
 
 [source,cmake]
@@ -174,7 +187,7 @@ you have provided. The sources that are analysed come from a _sources
 variable. This should be the name of the variable which holds your list
 of source files.
 
-To call the add_analysis marco add the following to your projects
+To call the +add_analysis()+ marco add the following to your projects
 CMakeLists.txt file:
 
 [source,cmake]
@@ -188,20 +201,20 @@ Creating a target to call other targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the root CMakeLists.txt a custom target is created, which will call
-all other analysis targets. This allows you to call "make analysis" and
+all other analysis targets. This allows you to call `make analysis` and
 scan all sub projects.
 
 To achieve this 2 things should be added to the root CMakeLists.txt
 
-First add an empty variable ALL_ANALYSIS_TARGETS before calling your
-add_subdirectories() function.
+First add an empty variable +ALL_ANALYSIS_TARGETS+ before calling your
++add_subdirectories()+ function.
 
 [source,cmake]
 ----
 set (ALL_ANALYSIS_TARGETS)
 ----
 
-Second add the following after your add_subdirectories() call.
+Second add the following after your +add_subdirectories()+ call.
 
 [source,cmake]
 ----
@@ -236,7 +249,7 @@ $ cmake ..
 -- Check for working CXX compiler: /usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
--- Found CPPCHECK: /usr/bin/cppcheck  
+-- Found CPPCHECK: /usr/bin/cppcheck
 adding cppcheck analysys target for subproject1
 adding cppcheck analysys target for subproject2
 analysis analysis targets are subproject1_analysis;subproject2_analysis
@@ -244,7 +257,7 @@ analysis analysis targets are subproject1_analysis;subproject2_analysis
 -- Generating done
 -- Build files have been written to: /home/matrim/workspace/cmake-examples/04-static-analysis/cppcheck/build
 
-$ make analysis 
+$ make analysis
 Scanning dependencies of target subproject1_analysis
 Running cppcheck: subproject1
 Checking main1.cpp...
@@ -277,8 +290,8 @@ main2.cpp includes an out-of-bounds error which shows the error.
 ------------------------------------------------------------------------------------
 
 By default cppcheck only prints warnings and exits with a successful
-exit code. If the $\{CPPCHECK_ARG} variable is set with
-"--error-exitcode=1", the make analysis will finish early as follows.
+exit code. If the +${CPPCHECK_ARG}+ variable is set with
+`--error-exitcode=1`, the make analysis will finish early as follows.
 
 [source,bash]
 ----
@@ -312,8 +325,8 @@ sub folders, such as below:
 │   │   │   ├── main.cpp
 ------------------------------
 
-You must add the following to the src/CMakeLists.txt file to correctly
-generate the "make analysis" target
+You must add the following to the `src/CMakeLists.txt` file to correctly
+generate the `make analysis` target
 
 [source,cmake]
 ----

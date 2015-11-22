@@ -1,3 +1,8 @@
+:toc:
+:toc-placement!:
+
+toc::[]
+
 [[cmake-examples]]
 cmake-examples
 --------------
@@ -31,4 +36,3 @@ Some specific examples may require other tools including:
 * boost `$ sudo apt-get libboost-all-dev`
 * protobuf `$ sudo apt-get install libprotobuf-dev`
 * cppcheck `$ sudo apt-get install cppcheck`
-

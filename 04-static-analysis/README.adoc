@@ -1,3 +1,8 @@
+:toc:
+:toc-placement!:
+
+toc::[]
+
 [[static-analysis]]
 Static Analysis
 ---------------
@@ -20,4 +25,3 @@ analysis tool. However standalone tools also exist.
 The examples here include using the following tools:
 
 * http://cppcheck.sourceforge.net/[CppCheck]
-
