@@ -10,7 +10,7 @@ toc::[]
 Introduction
 ------------
 
-CMake has a number of build in build configurations which can be used to compile
+CMake has a number of built in build configurations which can be used to compile
 your project. These specify the optimization levels and if debug information is
 to be included in the binary.
 
@@ -20,9 +20,6 @@ The levels provided are:
   * Debug - Adds the `-g` flag
   * MinSizeRel - Adds `-Os -DNDEBUG`
   * RelWithDebInfo - Adds `-O2 -g -DNDEBUG` flags
-
-
-Shows a hello world example which first creates and links a static library
 
 The files in this tutorial are below:
 
@@ -77,9 +74,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     "MinSizeRel" "RelWithDebInfo")
 endif()
 ----
-
-When creating an executable that will use your library you must tell the compiler
-about the library. This can be done using the +target_link_library()+ function.
 
 [[building-the-example]]
 Building the Example
