@@ -4,11 +4,11 @@
 toc::[]
 
 
-[[hello-cmake]]
-Hello CMake
------------
+[[hello-headers]]
+Hello Headers
+-------------
 
-Shows a hello world example, which uses a different folder for source and include
+Shows a hello world example which uses a different folder for source and include
 files.
 
 The files in this tutorial are below:
