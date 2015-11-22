@@ -1,12 +1,14 @@
+= Hello Headers
+
 :toc:
 :toc-placement!:
 
 toc::[]
 
 
-[[hello-headers]]
-Hello Headers
--------------
+[[intro]]
+Introduction
+------------
 
 Shows a hello world example which uses a different folder for source and include
 files.

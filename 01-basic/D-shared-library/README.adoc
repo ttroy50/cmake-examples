@@ -1,3 +1,4 @@
+= Shared Library
 
 :toc:
 :toc-placement!:
@@ -5,9 +6,9 @@
 toc::[]
 
 
-[[shared-lib]]
-Shared Library
---------------
+[[intro]]
+Introduction
+------------
 
 Shows a hello world example which first creates and links a shared library
 

@@ -1,12 +1,14 @@
+= Static Library
+
 :toc:
 :toc-placement!:
 
 toc::[]
 
 
-[[static-lib]]
-Static Library
---------------
+[[intro]]
+Introduction
+------------
 
 Shows a hello world example which first creates and links a static library
 

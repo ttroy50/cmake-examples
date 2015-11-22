@@ -1,11 +1,13 @@
+= Hello CMake
+
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[hello-cmake]]
-Hello CMake
------------
+[[intro]]
+Introduction
+------------
 
 Shows a very basic hello world example.
 

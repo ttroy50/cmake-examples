@@ -1,12 +1,13 @@
+= CppCheck Static Analysis
 
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[cppcheck-static-analysis]]
-CppCheck Static Analysis
-------------------------
+[[intro]]
+Introduction
+------------
 
 This example shows how to call the
 http://cppcheck.sourceforge.net/[CppCheck] tool to do static analysis.
@@ -18,6 +19,32 @@ It includes code to
   * Generate an overall `make analysis` target to do static
 analysis on all sub-projects.
 
+The files included in this example are:
+
+```
+cppcheck$ tree
+.
+├── cmake
+│   ├── analysis.cmake
+│   └── modules
+│       └── FindCppCheck.cmake
+├── CMakeLists.txt
+├── subproject1
+│   ├── CMakeLists.txt
+│   └── main1.cpp
+└── subproject2
+    ├── CMakeLists.txt
+    └── main2.cpp
+```
+
+  * CMakeLists.txt - Top level CMakeLists.txt
+  * cmake/analysis.cmake - Includes functions to add analysis targets
+  * cmake/modules/FindCppCheck.cmake - A custom package module to find CppCheck
+  * subproject1/CMakeLists.txt - CMake commands for subproject 1
+  * subproject1/main.cpp - source for a subproject with no errors
+  * subproject2/CMakeLists.txt - CMake commands for subproject 2
+  * subproject2/main2.cpp - source for a subproject that includes errors
+
 [[requirements]]
 Requirements
 ~~~~~~~~~~~~
@@ -25,7 +52,7 @@ Requirements
 To run this example you must have the CppCheck utility installed. On
 Ubuntu you can install it as
 
-[source,cmake]
+[source,bash]
 ----
 $ sudo apt-get install cppcheck
 ----
@@ -38,15 +65,15 @@ Concepts
 Adding Custom Package Modules
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Custom modules can be used to find programs, libraries and header files
+to include in your program.
+
 [[adding-a-custom-module]]
 Adding a custom module
 ++++++++++++++++++++++
 
-include::cmake/modules/FindCppCheck.cmake
-
 The `cmake/modules/FindCppCheck.cmake` file contains the code to initialise a
-custom package module. Custom modules can be used to
-find programs, libraries and header files to include in your program.
+custom package module.
 
 The following is a breakdown of the file:
 
@@ -91,16 +118,19 @@ view advanced flag is set.
 Setting path to custom modules
 ++++++++++++++++++++++++++++++
 
+The default path that CMake will search for modules is `/usr/share/cmake/Modules`.
+To include custom modules you must tell CMake where to search for them.
+This can be done using the variable +${CMAKE_MODULE_PATH}+ which
+contains the paths that CMake will search for modules.
+
 [source,cmake]
 ----
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules
                       ${CMAKE_MODULE_PATH})
 ----
 
-The variable +${CMAKE_MODULE_PATH}+ points towards a folder which contains custom
-cmake modules.
 
-To then add the package module you can call
+To then add the package module to your CMakeLists.txt you can call
 
 [source,cmake]
 ----
@@ -128,6 +158,8 @@ The +add_analysis()+ macro in `cmake/analysis.cmake` is the core idea for this
 example. If cppcheck is available then a list of arguments are compiled
 and added to a custom command that calls cppcheck on the sources. These
 are then added to a custom target.
+
+A breakdown of this macro is below:
 
 [source,cmake]
 ----
@@ -200,11 +232,11 @@ add_analysis(${PROJECT_NAME} SOURCES)
 Creating a target to call other targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the root CMakeLists.txt a custom target is created, which will call
+In the top level CMakeLists.txt a custom target is created, which will call
 all other analysis targets. This allows you to call `make analysis` and
 scan all sub projects.
 
-To achieve this 2 things should be added to the root CMakeLists.txt
+To achieve this 2 things should be added to the top level CMakeLists.txt
 
 First add an empty variable +ALL_ANALYSIS_TARGETS+ before calling your
 +add_subdirectories()+ function.
@@ -283,7 +315,7 @@ cd /path/to/subproject2 && /usr/bin/cppcheck -j 4 main2.cpp
 ----
 
 The main1.cpp has no errors so will complete correctly, however the
-main2.cpp includes an out-of-bounds error which shows the error.
+main2.cpp includes an out-of-bounds error. This is show with a warning as
 
 ------------------------------------------------------------------------------------
 [main2.cpp:7]: (error) Array 'tmp[10]' accessed at index 11, which is out of bounds.
@@ -317,18 +349,20 @@ sub folders, such as below:
 │   ├── CMakeLists.txt
 │   ├── src
 │   │   ├── CMakeLists.txt
-│   │   ├── project
+│   │   ├── project1
 │   │   │   ├── CMakeLists.txt
 │   │   │   ├── main.cpp
-│   │   ├── project
+│   │   ├── project2
 │   │   │   ├── CMakeLists.txt
 │   │   │   ├── main.cpp
 ------------------------------
 
-You must add the following to the `src/CMakeLists.txt` file to correctly
-generate the `make analysis` target
+To correctly generate the root `make analysis` target you must export the +ALL_ANALYSIS_TARGET+
+variable to the parent scope in `src/CMakeLists.txt`.
 
 [source,cmake]
 ----
-set(analysis_TARGETS "${analysis_TARGETS}" PARENT_SCOPE)
+add_subdirectory(project1)
+add_subdirectory(project2)
+set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 ----
