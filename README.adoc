@@ -1,17 +1,23 @@
+
+= CMake Examples
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[cmake-examples]]
-cmake-examples
---------------
+[[introduction]]
+Introduction
+------------
 
-This includes some example cmake configurations which I have picked up
+This repository includes some example https://cmake.org/[CMake] configurations which I have picked up
 when exploring it's usage for various projects.
 
+CMake is a cross-platform open-source build system which can build, test and package
+software. It can be used to support multiple native build environments including
+make, Apple's xcode and Microsoft Visual Studio.
+
 These examples have been tested on Ubuntu 14.04 but should work under
-any Linux system that supports cmake.
+any Linux system that supports CMake.
 
 [[requirements]]
 Requirements
@@ -27,12 +33,38 @@ The easiest way to install the above on Ubuntu is as follows
 
 [source,bash]
 ----
-$ sudo apt-get install cmake
 $ sudo apt-get install build-essential
+$ sudo apt-get install cmake
 ----
 
 Some specific examples may require other tools including:
 
-* boost `$ sudo apt-get libboost-all-dev`
-* protobuf `$ sudo apt-get install libprotobuf-dev`
-* cppcheck `$ sudo apt-get install cppcheck`
+* http://www.boost.org/[boost]
+
+  `$ sudo apt-get libboost-all-dev`
+
+* https://github.com/google/protobuf[protobuf]
+
+  `$ sudo apt-get install libprotobuf-dev`
+
+* http://cppcheck.sourceforge.net/[cppcheck]
+
+  `$ sudo apt-get install cppcheck`
+
+[[other-links]]
+Other Links
+~~~~~~~~~~~
+
+There are many CMake tutorials and examples online. The list below includes links
+to some of these which I have found helpful in my CMake journey.
+
+  * https://cmake.org/cmake-tutorial/[Official CMake Tutorial]
+  * https://cmake.org/Wiki/Main_Page[Official CMake Wiki]
+  * https://cmake.org/Wiki/CMake_Useful_Variables[CMake Useful Variables]
+  * http://derekmolloy.ie/hello-world-introductions-to-cmake/[Derek Molloy - Intro to CMake]
+  * http://techminded.net/blog/modular-c-projects-with-cmake.html[Modular C++ Projects]
+  * http://voices.canonical.com/jussi.pakkanen/2013/03/26/a-list-of-common-cmake-antipatterns/[Common CMake Anti-Patterns]
+  * http://baptiste-wicht.com/posts/2014/04/install-use-clang-static-analyzer-cmake.html[Using clang static analyser with CMake]
+  * https://cmake.org/pipermail/cmake/2011-April/043709.html[Static Analysis with CDash] - Includes some info about using CppCheck with CMake
+  * https://www.openfoundry.org/svn/cms/trunk/cmake/CppcheckTargets.cmake[CppCheck Targets]
+  * https://samthursfield.wordpress.com/2015/10/20/some-cmake-tips/[CMake Tips]

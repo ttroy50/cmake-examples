@@ -11,6 +11,24 @@ Hello CMake
 Shows a hello world example, which uses a different folder for source and include
 files.
 
+The files in this tutorial are below:
+
+```
+B-hello-headers$ tree
+.
+├── CMakeLists.txt
+├── inc
+│   └── Hello.h
+└── src
+    ├── Hello.cpp
+    └── main.cpp
+```
+
+  * CMakeLists.txt - Contains the CMake commands you wish to run
+  * inc/Hello.h - The header file to include
+  * src/Hello.cpp - A source file to compile
+  * src/main.cpp - The source file with main
+
 [[concepts]]
 Concepts
 ~~~~~~~~
