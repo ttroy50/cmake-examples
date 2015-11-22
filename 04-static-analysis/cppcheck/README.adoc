@@ -40,7 +40,7 @@ find programs, libraries and header files to include in your program.
 [source,cmake]
 ----
 find_program(CPPCHECK_BIN NAMES cppcheck)
----
+----
 
 Search the path for the program "cppcheck" and store the result in the
 CPPCHECK_BIN variable
@@ -50,7 +50,7 @@ CPPCHECK_BIN variable
 set (CPPCHECK_THREADS "-j 4" CACHE STRING "The -j argument to have cppcheck use multiple threads / cores")
 
 set (CPPCHECK_ARG "${CPPCHECK_THREADS}" CACHE STRING "The arguments to pass to cppcheck. If set will overwrite CPPCHECK_THREADS")
----
+----
 
 Set some custom arguments that can be later passed to cppcheck.
 
@@ -68,7 +68,7 @@ mark_as_advanced(
     CPPCHECK_BIN  
     CPPCHECK_THREADS
     CPPCHECK_ARG)
----
+----
 
 Export the variables so that they can be seen from ccmake / cmake-gui
 and set in the cache. By default these will not be visible unless the
@@ -82,7 +82,7 @@ Setting path to custom modules
 ----
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules
                       ${CMAKE_MODULE_PATH})
----
+----
 
 The $\{CMAKE_MODULE_PATH} points towards a folder which contains custom
 cmake modules.
@@ -92,7 +92,7 @@ To then add the package module you can call
 [source,cmake]
 ----
 find_package(CppCheck)
----
+----
 
 [[parent-scope-variables]]
 Parent Scope Variables
@@ -105,7 +105,7 @@ which is the caller of your scope, you should call it as follows:
 [source,cmake]
 ----
 set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
----
+----
 
 [[add_analysis-macro]]
 add_analysis macro
@@ -122,7 +122,7 @@ get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTO
 foreach(dir ${dirs})
     LIST(APPEND cppcheck_includes "-I${dir}")
 endforeach()
----
+----
 
 Find the include files from and calls to include_directories() in the
 same project.
@@ -131,7 +131,7 @@ same project.
 ----
 LIST(APPEND ALL_ANALYSIS_TARGETS "${_target}_analysis")
 set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
----
+----
 
 Export the target name into a variable that can later be used to add a
 global "make analysis" target.
@@ -144,7 +144,7 @@ else ()
     # cmake 2.6 has different arguments 
     string(REPLACE " " ";" tmp_args ${CPPCHECK_ARG})         
 endif ()
----
+----
 
 Change the CPPCHECK_ARG so that the can be added to command correctly in
 the custom command.
@@ -153,7 +153,7 @@ the custom command.
 ----
 add_custom_target(${_target}_analysis)
 set_target_properties(${_target}_analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
----
+----
 
 Add a custom target with a name you have passed in followed by
 _analysis. Do not include this in the all target.
@@ -166,7 +166,7 @@ add_custom_command(TARGET ${_target}_analysis PRE_BUILD
             DEPENDS ${${_sources}}
             COMMENT "Running cppcheck: ${_target}"
             VERBATIM)
----
+----
 
 Add a custom command which is called from the custom target added above.
 This will call cppcheck with any includes, arguments and sources that
@@ -181,7 +181,7 @@ CMakeLists.txt file:
 ----
 include(${CMAKE_SOURCE_DIR}/cmake/analysis.cmake)
 add_analysis(${PROJECT_NAME} SOURCES)
----
+----
 
 [[creating-a-target-to-call-other-targets]]
 Creating a target to call other targets
@@ -199,7 +199,7 @@ add_subdirectories() function.
 [source,cmake]
 ----
 set (ALL_ANALYSIS_TARGETS)
----
+----
 
 Second add the following after your add_subdirectories() call.
 
@@ -211,7 +211,7 @@ if( CPPCHECK_FOUND )
     set_target_properties(analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
     message("analysis analysis targets are ${ALL_ANALYSIS_TARGETS}")
 endif()
----
+----
 
 This adds the "make analysis" target which calls all the sub-targets.
 
@@ -256,7 +256,7 @@ Checking main2.cpp...
 Built target subproject2_analysis
 Scanning dependencies of target analysis
 Built target analysis
----
+----
 
 The above calls cppcheck in both subproject folders as
 
@@ -267,7 +267,7 @@ cd /path/to/subproject1 && /usr/bin/cppcheck -j 4 main1.cpp
 ...
 cd /path/to/subproject2 && /usr/bin/cppcheck -j 4 main2.cpp
 ...
----
+----
 
 The main1.cpp has no errors so will complete correctly, however the
 main2.cpp includes an out-of-bounds error which shows the error.
@@ -290,7 +290,7 @@ make[3]: *** [subproject2_analysis] Error 1
 make[2]: *** [subproject2/CMakeFiles/subproject2_analysis.dir/all] Error 2
 make[1]: *** [CMakeFiles/analysis.dir/rule] Error 2
 make: *** [analysis] Error 2
----
+----
 
 [[extra-notes]]
 Extra Notes
@@ -318,4 +318,4 @@ generate the "make analysis" target
 [source,cmake]
 ----
 set(analysis_TARGETS "${analysis_TARGETS}" PARENT_SCOPE)
----
+----
