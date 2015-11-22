@@ -42,13 +42,13 @@ The +add_library()+ function is used to create a library from some source files.
 This is called as follows:
 
 [source,cmake]
-====
+----
 set(library_SOURCES
     src/Hello.cpp
 )
 
 add_library(hello_library STATIC ${library_SOURCES})
-====
+----
 
 This will be used to create a static library with the name libhello_library.a with
 the sources from the +library_SOURCES+ variable.
@@ -61,13 +61,13 @@ When creating an executable that will use your library you must tell the compile
 about the library. This can be done using the +target_link_library()+ function.
 
 [source,cmake]
-====
+----
 add_executable(hello_binary ${binary_SOURCES})
 
 target_link_libraries( hello_binary
     hello_library
 )
-====
+----
 
 This tells CMake to link the hello_library against the hello_binary executable
 during link time.
