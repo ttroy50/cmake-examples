@@ -24,7 +24,7 @@ The easiest way to install the above on Ubuntu is as follows
 ----
 $ sudo apt-get install cmake
 $ sudo apt-get install build-essential
----
+----
 
 Some specific examples may require other tools including:
 
