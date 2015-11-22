@@ -20,10 +20,11 @@ The basic requirements for most examples are:
 
 The easiest way to install the above on Ubuntu is as follows
 
---------------------------------------
+[source,bash]
+----
 $ sudo apt-get install cmake
 $ sudo apt-get install build-essential
---------------------------------------
+---
 
 Some specific examples may require other tools including:
 
