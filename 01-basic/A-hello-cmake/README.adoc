@@ -232,7 +232,7 @@ A-hello-cmake$ tree
 │   └── Makefile
 ├── CMakeLists.txt
 ├── main.cpp
-``
+```
 
 All examples in this tutorial will use out-of-source builds.
 
