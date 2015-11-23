@@ -1,0 +1,162 @@
+= Basic Sub-Project
+
+:toc:
+:toc-placement!:
+
+toc::[]
+
+[[intro]]
+Introduction
+------------
+
+This example shows how to setup a CMake project that includes sub-projects. The
+top level CMakeLists.txt calls the CMakeLists.txt in the sub directories to
+create the following:
+
+  * sublibrary1 - A static library
+  * sublibrary2 - A header only library
+  * subbinary - An executable
+
+The files included in this example are:
+
+```
+.
+├── CMakeLists.txt
+├── subbinary
+│   ├── CMakeLists.txt
+│   └── main.cpp
+├── sublibrary1
+│   ├── CMakeLists.txt
+│   ├── inc
+│   │   └── sublib1.h
+│   └── src
+│       └── sublib1.cpp
+└── sublibrary2
+    ├── CMakeLists.txt
+    └── inc
+        └── sublib2.h
+```
+
+  * CMakeLists.txt - Top level CMakeLists.txt
+  * subbinary/CMakeLists.txt - to make the executable
+  * subbinary/main.cpp - source for the executable
+  * sublibrary1/CMakeLists.txt - to make a static library
+  * sublibrary1/inc/sublib1.h
+  * sublibrary1/src/sublib2.cpp
+  * sublibrary2/CMakeLists.txt - to setup header only library
+  * sublibrary2/inc/sublib2.h
+
+[[concepts]]
+Concepts
+~~~~~~~~
+
+[[add-sub-dir]]
+Adding a Sub-Directory
+^^^^^^^^^^^^^^^^^^^^^^
+
+A CMakeLists.txt file can include and call sub-directories which include a CMakeLists.txt
+files.
+
+[source,cmake]
+----
+add_subdirectory(sublibrary1)
+add_subdirectory(sublibrary2)
+add_subdirectory(subbinary)
+----
+
+[[referencing-sub-project-directories]]
+Referencing Sub-Project Directories
++++++++++++++++++++++++++++++++++++
+
+When a project is created using the `project()` command, CMake will automatically
+create a number of variables which can be used to reference details about the project.
+These variables can then be used by other sub-projects or the main project. For exampe,
+to include header files between projects.
+
+[source,cmake]
+----
+include_directories(
+    ${sublibrary1_SOURCE_DIR}/inc
+    ${sublibrary2_SOURCE_DIR}/inc
+    )
+----
+
+The variables created by CMake include:
+
+[cols=",",options="header",]
+|=======================================================================
+|Variable |Info
+|PROJECT_NAME | The name of the project set by the current `project()`.
+
+|CMAKE_PROJECT_NAME |the name of the first project set by the `project()`
+command, i.e. the top level project.
+
+|PROJECT_SOURCE_DIR |The source director of the current project.
+
+|PROJECT_BINARY_DIR |The build directory for the current project.
+
+|name_SOURCE_DIR | The source directory of the project called "name".
+In this example the source directories created would be `sublibrary1_SOURCE_DIR`,
+`sublibrary2_SOURCE_DIR`, and `subbinary_SOURCE_DIR`
+
+|name_BINARY_DIR | The binary directory of the project called "name".
+In this example the binary directories created would be `sublibrary1_BINARY_DIR`,
+`sublibrary2_BINARY_DIR`, and `subbinary_BINARY_DIR`
+
+|=======================================================================
+
+
+
+
+[[referencing-libraries-from-sub-projects]]
+Referencing Libraries from Sub-Projects
++++++++++++++++++++++++++++++++++++++++
+
+If a sub-project creates a library, it can be referenced by other projects by
+calling the name of the project in the `target_link_libraries()` command. This
+means that you don't have to reference the full path of the new library and it
+is added as a dependency.
+
+[source,cmake]
+----
+target_link_libraries(subbinary
+    sublibrary1
+)
+----
+
+[[building-the-example]]
+Building the example
+~~~~~~~~~~~~~~~~~~~~
+
+[source,bash]
+----
+$ mkdir build
+
+$ cd build/
+
+$ cmake ..
+-- The C compiler identification is GNU 4.8.4
+-- The CXX compiler identification is GNU 4.8.4
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/matrim/workspace/cmake-examples/02-sub-projects/A-basic/build
+
+$ make
+Scanning dependencies of target sublibrary1
+[ 50%] Building CXX object sublibrary1/CMakeFiles/sublibrary1.dir/src/sublib1.cpp.o
+Linking CXX static library libsublibrary1.a
+[ 50%] Built target sublibrary1
+Scanning dependencies of target subbinary
+[100%] Building CXX object subbinary/CMakeFiles/subbinary.dir/main.cpp.o
+Linking CXX executable subbinary
+[100%] Built target subbinary
+
+----
