@@ -10,7 +10,7 @@ toc::[]
 Introduction
 ------------
 
-This example shows how to generate class information using https://github.com/google/protobuf[protobuf].
+This example shows how to generate source files using https://github.com/google/protobuf[protobuf].
 Protocol Buffers is a data serialization format from Google. A user provides a
 `.proto` file with a description of the data. Then using the protobuf compiler, the proto file
 can be translated into source code in a number of languages including C++.
@@ -37,9 +37,10 @@ This example requires the protocol buffers binary and libraries to be installed.
 
 This can be installed on Ubuntu using
 
-```
+[source,bash]
+----
 sudo apt-get install protobuf-compiler sudo apt-get install protobuf-compiler
-```
+----
 
 [[concepts]]
 Concepts
@@ -62,7 +63,7 @@ top of your `FindProtobuf.cmake` file.
 Generating Source
 ^^^^^^^^^^^^^^^^^
 
-The protobuf CMake package, includes a number of helper functions to make the
+The protobuf CMake package includes a number of helper functions to make the
 code generation easier. In this example we are generating C++ source and use
 the following code:
 
@@ -94,7 +95,7 @@ add_executable(protobuf_example
     main.cpp
     ${PROTO_SRCS}
     ${PROTO_HDRS})
----
+----
 
 This will cause the protobuf compiler to be called when you call `make` on that
 executables target.
