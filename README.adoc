@@ -9,15 +9,16 @@ toc::[]
 Introduction
 ------------
 
-This repository includes some example https://cmake.org/[CMake] configurations which I have picked up
-when exploring it's usage for various projects.
-
-CMake is a cross-platform open-source build system which can build, test and package
+https://cmake.org/[CMake] is a cross-platform open-source build system which can build, test and package
 software. It can be used to support multiple native build environments including
 make, Apple's xcode and Microsoft Visual Studio.
 
-These examples have been tested on Ubuntu 14.04 but should work under
-any Linux system that supports CMake.
+This repository includes some example CMake configurations which I have picked up
+when exploring it's usage for various projects. The examples are laid out in a tutorial like format.
+The first examples are very basic and slowly increase in complexity drawing on previous examples to show
+more complex use cases.
+
+These examples have been tested on Ubuntu 14.04 but should work under any Linux system that supports CMake.
 
 [[requirements]]
 Requirements
