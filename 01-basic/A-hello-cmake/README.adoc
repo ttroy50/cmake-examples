@@ -1,13 +1,10 @@
 = Hello CMake
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Shows a very basic hello world example.
 
@@ -23,22 +20,15 @@ A-hello-cmake$ tree
   * CMakeLists.txt - Contains the CMake commands you wish to run
   * main.cpp - A simple "Hello World" cpp file.
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-
-[[cmakelist-txt]]
-CMakeLists.txt
-^^^^^^^^^^^^^^
+### CMakeLists.txt
 
 CMakeLists.txt is the file which should store all your CMake commands. When
 cmake is run in a folder it will look for this file and if it does not exist cmake
 will exit with an error.
 
-[[minimum-cmake-version]]
-Minimum CMake version
-^^^^^^^^^^^^^^^^^^^^^
+### Minimum CMake version
 
 When creating a project using CMake, you can specify the minimum version
 of CMake that is supported.
@@ -48,9 +38,8 @@ of CMake that is supported.
 cmake_minimum_required(VERSION 2.6)
 ----
 
-[[projects]]
-Projects
-^^^^^^^^
+
+### Projects
 
 A CMake build can include a project name to make referencing certain
 variables easier when using multiple projects.
@@ -60,9 +49,8 @@ variables easier when using multiple projects.
 project (hello_cmake)
 ----
 
-[[creating-an-executable]]
-Creating an Executable
-^^^^^^^^^^^^^^^^^^^^^^
+
+### Creating an Executable
 
 The +add_executable()+ command specifies that an executable should be
 build from the specified source files, in this example main.cpp. The
@@ -93,25 +81,24 @@ In this example, the +project()+ function, will create a variable
 the +add_executable()+ function to output a 'hello_cmake' executable.
 ====
 
-[[binary-directory]]
-Binary Directory
-^^^^^^^^^^^^^^^^
+
+### Binary Directory
 
 The root or top level folder that you run the cmake command from is known as your
 CMAKE_BINARY_DIR and is the root folder for all your binary files.
 CMake supports building and generating your binary files both in-place and also
 out-of-source.
 
-[[in-place-build]]
-In-Place Build
-**************
+
+#### In-Place Build
 
 In-place builds generate all temporary build files in the same directory structure
 as the source code. This means that all Makefiles and object files are interspersed
 with your normal code. To create an in-place build target run the cmake command
 in your root directory. For example:
 
-```
+[source,bash]
+----
 A-hello-cmake$ cmake .
 -- The C compiler identification is GNU 4.8.4
 -- The CXX compiler identification is GNU 4.8.4
@@ -163,11 +150,10 @@ A-hello-cmake$ tree
 ├── CMakeLists.txt
 ├── main.cpp
 ├── Makefile
-```
+----
 
-[[out-of-source-build]]
-Out-of-Source Build
-*******************
+
+#### Out-of-Source Build
 
 Out-of-source builds allow you to create a single build folder that can be anywhere on
 your file system. All temporary build and object files are located in this directory keeping
@@ -178,7 +164,8 @@ from scratch, you only need to delete your build directory and then rerun cmake.
 
 For example:
 
-```
+[source,bash]
+----
 A-hello-cmake$ mkdir build
 
 A-hello-cmake$ cd build/
@@ -239,13 +226,14 @@ A-hello-cmake$ tree
 │   └── Makefile
 ├── CMakeLists.txt
 ├── main.cpp
-```
+----
 
 All examples in this tutorial will use out-of-source builds.
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+
+# Building the Examples
+
+Below is sample output from building this example. 
 
 [source,bash]
 ----
