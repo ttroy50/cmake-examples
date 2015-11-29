@@ -5,9 +5,7 @@
 
 toc::[]
 
-[[introduction]]
-Introduction
-------------
+# Introduction
 
 https://cmake.org/[CMake] is a cross-platform open-source build system which can build, test and package
 software. It can be used to support multiple native build environments including
@@ -20,9 +18,8 @@ more complex use cases.
 
 These examples have been tested on Ubuntu 14.04 but should work under any Linux system that supports CMake.
 
-[[requirements]]
-Requirements
-~~~~~~~~~~~~
+
+# Requirements
 
 The basic requirements for most examples are:
 
@@ -52,9 +49,8 @@ Some specific examples may require other tools including:
 
   `$ sudo apt-get install cppcheck`
 
-[[other-links]]
-Other Links
-~~~~~~~~~~~
+
+# Other Links
 
 There are many CMake tutorials and examples online. The list below includes links
 to some of these which I have found helpful in my CMake journey.
