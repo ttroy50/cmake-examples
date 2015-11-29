@@ -93,18 +93,22 @@ In this example, the +project()+ function, will create a variable
 the +add_executable()+ function to output a 'hello_cmake' executable.
 ====
 
-[[out-of-source-builds]]
-Out-of-Source Builds
-^^^^^^^^^^^^^^^^^^^^
+[[binary-directory]]
+Binary Directory
+^^^^^^^^^^^^^^^^
 
 The root or top level folder that you run the cmake command from is known as your
 CMAKE_BINARY_DIR and is the root folder for all your binary files.
 CMake supports building and generating your binary files both in-place and also
 out-of-source.
 
-In place builds generate all temporary build files in the same directory structure
-as your source code. This means that all Makefiles and object files are interspersed
-with your normal code. To create an in source build target run the cmake command
+[[in-place-build]]
+In-Place Build
+**************
+
+In-place builds generate all temporary build files in the same directory structure
+as the source code. This means that all Makefiles and object files are interspersed
+with your normal code. To create an in-place build target run the cmake command
 in your root directory. For example:
 
 ```
@@ -161,6 +165,9 @@ A-hello-cmake$ tree
 ├── Makefile
 ```
 
+[[out-of-source-build]]
+Out-of-Source Build
+*******************
 
 Out-of-source builds allow you to create a single build folder that can be anywhere on
 your file system. All temporary build and object files are located in this directory keeping
