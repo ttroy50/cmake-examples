@@ -1,19 +1,16 @@
 = Hello Headers
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
 
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Shows a hello world example which uses a different folder for source and include
 files.
 
-The files in this tutorial are below:
+The files in this tutorial include:
 
 ```
 B-hello-headers$ tree
@@ -26,18 +23,15 @@ B-hello-headers$ tree
     └── main.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * inc/Hello.h - The header file to include
-  * src/Hello.cpp - A source file to compile
-  * src/main.cpp - The source file with main
+  * CMakeLists.txt - Contains the CMake commands you wish to run.
+  * inc/Hello.h - The header file to include.
+  * src/Hello.cpp - A source file to compile.
+  * src/main.cpp - The source file with main.
 
-[[concepts]]
-Concepts
-~~~~~~~~
 
-[[directory-paths]]
-Directory Paths
-^^^^^^^^^^^^^^^
+# Concepts
+
+## Directory Paths
 
 CMake syntax specifies a number of https://cmake.org/Wiki/CMake_Useful_Variables[variables]
 which can be used to help find useful directories in your project or source tree.
@@ -49,21 +43,19 @@ Some of these include:
 |CMAKE_SOURCE_DIR |The root source directory
 
 |CMAKE_CURRENT_SOURCE_DIR |The current source directory if using
-sub-projects and directories
+sub-projects and directories.
 
-|PROJECT_SOURCE_DIR |The source director of the current cmake project.
+|PROJECT_SOURCE_DIR |The source directory of the current cmake project.
 
 |CMAKE_BINARY_DIR |The root binary / build directory. This is the
-directory you run the cmake command from
+directory where you ran the cmake command.
 
 |CMAKE_CURRENT_BINARY_DIR |The build directory you are currently in.
 
 |PROJECT_BINARY_DIR |The build directory for the current project.
 |=======================================================================
 
-[[including-directories]]
-Including Directories
-^^^^^^^^^^^^^^^^^^^^^
+## Including Directories
 
 When you have different include folders, you can make your compiler aware of them using the
 +include_directories()+ function. This will add these directories to the
@@ -76,11 +68,7 @@ include_directories(
     )
 ----
 
-
-
-[[setting-source-files]]
-Source Files Variable
-^^^^^^^^^^^^^^^^^^^^
+## Source Files Variable
 
 Creating a variable which includes the source files allows you to be
 clearer about these files and easily add them to multiple commands, for example,
@@ -102,16 +90,17 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 An alternative to setting specific file names in the +SOURCES+ variable is
 to use a GLOB command to find files using wildcard pattern matching.
 
-
 [source,cmake]
 ----
 file(GLOB SOURCES "src/*.cpp")
 ----
 ====
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
+
+## Standard Output
+
+The standard output from building this example is presented below.
 
 [source,bash]
 ----
@@ -145,9 +134,8 @@ $ ./hello_headers
 Hello Headers!
 ----
 
-[[verbose-output]]
-Verbose Output
-^^^^^^^^^^^^^^
+
+## Verbose Output
 
 In the previous examples, when running the make command the output only
 shows the status of the build. To see the full output for debugging
