@@ -1,14 +1,10 @@
 = Static Library
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Shows a hello world example which first creates and links a static library
 
@@ -30,13 +26,10 @@ $ tree
   * src/Hello.cpp - A source file to compile
   * src/main.cpp - The source file with main
 
-[[concepts]]
-Concepts
-~~~~~~~~
 
-[[adding-static-library]]
-Adding a Static Library
-^^^^^^^^^^^^^^^^^^^^^^^
+# Concepts
+
+## Adding a Static Library
 
 The +add_library()+ function is used to create a library from some source files.
 This is called as follows:
@@ -53,9 +46,7 @@ add_library(hello_library STATIC ${library_SOURCES})
 This will be used to create a static library with the name libhello_library.a with
 the sources from the +library_SOURCES+ variable.
 
-[[linking-library]]
-Linking a Library
-^^^^^^^^^^^^^^^^^
+## Linking a Library
 
 When creating an executable that will use your library you must tell the compiler
 about the library. This can be done using the +target_link_library()+ function.
@@ -79,9 +70,7 @@ An example of this being called by the compiler is
 ```
 
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
