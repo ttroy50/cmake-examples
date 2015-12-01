@@ -18,6 +18,7 @@ more complex use cases.
 
 These examples have been tested on Ubuntu 14.04 but should work under any Linux system that supports CMake.
 
+image:https://travis-ci.org/ttroy50/cmake-examples.svg?branch=master["Build Status", link="https://travis-ci.org/ttroy50/cmake-examples"]
 
 # Requirements
 
