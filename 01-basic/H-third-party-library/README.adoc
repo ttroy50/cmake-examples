@@ -1,14 +1,10 @@
 = Including Third Party Library
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Nearly all non-trivial projects will have a requirement for including third party
 libraries, headers, or programs. CMake has support for finding the path to these tools using
@@ -30,20 +26,14 @@ $ tree
   * CMakeLists.txt - Contains the CMake commands you wish to run
   * main.cpp - The source file with main
 
-[[requirements]]
-Requirements
-~~~~~~~~~~~~
+# Requirements
 
 This example requires the boost libraries to be installed in a default system
 location.
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[find_package]]
-Finding a Package
-^^^^^^^^^^^^^^^^^
+## Finding a Package
 
 As mentioned above the `find_package()` function will search for CMake modules in the formant
 "FindXXX.cmake" from the list of folders in `CMAKE_MODULE_PATH`. The exact
@@ -68,9 +58,7 @@ Boost includes can take more arguments and also make use of other variables.
 More complex setups are provided in later examples.
 
 
-[[include-found]]
-Checking if the package is found
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+## Checking if the package is found
 
 Most included packages will set a variable `XXX_FOUND`, which can used to check
 if the package is available on the system.
@@ -87,9 +75,7 @@ else()
 endif()
 ----
 
-[[exported_variables]]
-Exported Variables
-^^^^^^^^^^^^^^^^^^
+## Exported Variables
 
 After a package is found it will often export variables which can inform the user
 where to find the library, header, or executable files. Similar to the `XXX_FOUND`
@@ -105,9 +91,7 @@ The variables exported in this example include:
 In some cases you can also check these variables by examining the cache using
 ccmake or cmake-gui.
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
