@@ -5,5 +5,5 @@ can be organised into multiple folders and sub-projects to ease development.
 
 The examples included are
 
-  - basic - This basic example includes a static library, a header only library
+  - link:A-basic[basic] - This basic example includes a static library, a header only library
   and an executable
