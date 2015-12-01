@@ -1,13 +1,10 @@
 = Basic Sub-Project
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[intro]]
-Introduction
-------------
+# Introduction
 
 This example shows how to setup a CMake project that includes sub-projects. The
 top level CMakeLists.txt calls the CMakeLists.txt in the sub directories to
@@ -46,13 +43,9 @@ The files included in this example are:
   * sublibrary2/CMakeLists.txt - to setup header only library
   * sublibrary2/inc/sublib2.h
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[add-sub-dir]]
-Adding a Sub-Directory
-^^^^^^^^^^^^^^^^^^^^^^
+## Adding a Sub-Directory
 
 A CMakeLists.txt file can include and call sub-directories which include a CMakeLists.txt
 files.
@@ -64,9 +57,7 @@ add_subdirectory(sublibrary2)
 add_subdirectory(subbinary)
 ----
 
-[[referencing-sub-project-directories]]
-Referencing Sub-Project Directories
-+++++++++++++++++++++++++++++++++++
+## Referencing Sub-Project Directories
 
 When a project is created using the `project()` command, CMake will automatically
 create a number of variables which can be used to reference details about the project.
@@ -106,11 +97,7 @@ In this example the binary directories created would be `sublibrary1_BINARY_DIR`
 |=======================================================================
 
 
-
-
-[[referencing-libraries-from-sub-projects]]
-Referencing Libraries from Sub-Projects
-+++++++++++++++++++++++++++++++++++++++
+## Referencing Libraries from Sub-Projects
 
 If a sub-project creates a library, it can be referenced by other projects by
 calling the name of the project in the `target_link_libraries()` command. This
@@ -124,9 +111,7 @@ target_link_libraries(subbinary
 )
 ----
 
-[[building-the-example]]
-Building the example
-~~~~~~~~~~~~~~~~~~~~
+# Building the example
 
 [source,bash]
 ----
