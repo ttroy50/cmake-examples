@@ -3,9 +3,9 @@ sudo: required
 compiler:
 - gcc
 before_install:
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake protobuf-compiler cppcheck; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake libboost-all-dev libprotobuf-dev protobuf-compiler cppcheck; fi
 script:
-- cd 01-basic/A-hello-cmake && mkdir build && cd build && cmake .. && make
+- test.sh
 branches:
   only:
   - master
