@@ -1,13 +1,10 @@
 = Static Analysis
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Static analysis is the analysis of code without executing it. It can be
 used to find common programming errors and enforce coding guidelines.
