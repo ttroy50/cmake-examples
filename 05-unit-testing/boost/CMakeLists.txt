@@ -5,7 +5,7 @@ project (boost_unit_test)
 
 
 # find a boost install with the libraries unit_test_framework
-find_package(Boost 1.49.1 REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost 1.46.1 REQUIRED COMPONENTS unit_test_framework)
 
 set (SOURCES
     Reverse.cpp
