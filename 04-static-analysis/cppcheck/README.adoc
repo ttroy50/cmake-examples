@@ -1,13 +1,10 @@
 = CppCheck Static Analysis
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-[[intro]]
-Introduction
-------------
+# Introduction
 
 This example shows how to call the
 http://cppcheck.sourceforge.net/[CppCheck] tool to do static analysis.
@@ -45,9 +42,7 @@ cppcheck$ tree
   * subproject2/CMakeLists.txt - CMake commands for subproject 2
   * subproject2/main2.cpp - source for a subproject that includes errors
 
-[[requirements]]
-Requirements
-~~~~~~~~~~~~
+# Requirements
 
 To run this example you must have the CppCheck utility installed. On
 Ubuntu you can install it as
@@ -57,20 +52,14 @@ Ubuntu you can install it as
 $ sudo apt-get install cppcheck
 ----
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[adding-custom-package-modules]]
-Adding Custom Package Modules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+## Adding Custom Package Modules
 
 Custom modules can be used to find programs, libraries and header files
 to include in your program.
 
-[[adding-a-custom-module]]
-Adding a custom module
-++++++++++++++++++++++
+### Adding a custom module
 
 The `cmake/modules/FindCppCheck.cmake` file contains the code to initialise a
 custom package module.
@@ -114,9 +103,7 @@ Export the variables so that they can be seen from ccmake / cmake-gui
 and set in the cache. By default these will not be visible unless the
 view advanced flag is set.
 
-[[setting-path-to-custom-modules]]
-Setting path to custom modules
-++++++++++++++++++++++++++++++
+### Setting path to custom modules
 
 The default path that CMake will search for modules is `/usr/share/cmake/Modules`.
 To include custom modules you must tell CMake where to search for them.
@@ -137,9 +124,7 @@ To then add the package module to your CMakeLists.txt you can call
 find_package(CppCheck)
 ----
 
-[[parent-scope-variables]]
-Parent Scope Variables
-^^^^^^^^^^^^^^^^^^^^^^
+## Parent Scope Variables
 
 The scope of variables when they are declared / changed is typically in
 the function of file the are called. To make a change to a variable
@@ -150,9 +135,7 @@ which is the caller of your scope, you should call it as follows:
 set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 ----
 
-[[add_analysis-macro]]
-add_analysis macro
-^^^^^^^^^^^^^^^^^^
+## add_analysis macro
 
 The +add_analysis()+ macro in `cmake/analysis.cmake` is the core idea for this
 example. If cppcheck is available then a list of arguments are compiled
@@ -228,9 +211,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/analysis.cmake)
 add_analysis(${PROJECT_NAME} SOURCES)
 ----
 
-[[creating-a-target-to-call-other-targets]]
-Creating a target to call other targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+## Creating a target to call other targets
 
 In the top level CMakeLists.txt a custom target is created, which will call
 all other analysis targets. This allows you to call `make analysis` and
@@ -260,9 +241,7 @@ endif()
 
 This adds the "make analysis" target which calls all the sub-targets.
 
-[[building-the-example]]
-Building the example
-~~~~~~~~~~~~~~~~~~~~
+# Building the example
 
 [source,bash]
 ----
@@ -337,9 +316,7 @@ make[1]: *** [CMakeFiles/analysis.dir/rule] Error 2
 make: *** [analysis] Error 2
 ----
 
-[[extra-notes]]
-Extra Notes
-~~~~~~~~~~~
+# Extra Notes
 
 If you have a multiple folders levels, where one folder just points to
 sub folders, such as below:
