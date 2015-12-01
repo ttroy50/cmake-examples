@@ -1,14 +1,10 @@
 = Configure Files Generation
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 During the call to cmake it is possible to create files that use variables from
 the CMakeLists.txt and cmake cache. During CMake generation the file is copied to a
@@ -30,13 +26,9 @@ $ tree
   * path.h.in - File to contain a path to the build directory
   * ver.h.in - File to contain the version of the project
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[configure_files]]
-Configure Files
-^^^^^^^^^^^^^^^
+## Configure Files
 
 To do variable substitution in a file you can use the `configure_file()` function
 in CMake. This core arguments for this function are source file and destination file.
@@ -63,9 +55,7 @@ After generation a new file path.h will be available in the `PROJECT_BINARY_DIR`
 const char* path = "@CMAKE_SOURCE_DIR@";
 ```
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
