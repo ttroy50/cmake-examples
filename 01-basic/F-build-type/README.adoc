@@ -1,14 +1,10 @@
 = Build Type
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 CMake has a number of built in build configurations which can be used to compile
 your project. These specify the optimization levels and if debug information is
@@ -33,13 +29,9 @@ $ tree
   * CMakeLists.txt - Contains the CMake commands you wish to run
   * main.cpp - The source file with main
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[set-build]]
-Set Build Type
-^^^^^^^^^^^^^^
+## Set Build Type
 
 The build type can be set using the following methods.
 
@@ -54,9 +46,7 @@ image::cmake-gui-build-type.png[cmake-gui build type]
 cmake .. -DCMAKE_BUILD_TYPE=Release
 ----
 
-[[set-default]]
-Set Default Build Type
-^^^^^^^^^^^^^^^^^^^^^^
+## Set Default Build Type
 
 The default build type provided by CMake is to include no compiler flags for
 optimization. For some projects you may want to
@@ -75,9 +65,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 ----
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
