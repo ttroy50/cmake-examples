@@ -1,14 +1,10 @@
 = Shared Library
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 Shows a hello world example which first creates and links a shared library
 
@@ -30,13 +26,11 @@ $ tree
   * src/Hello.cpp - A source file to compile
   * src/main.cpp - The source file with main
 
-[[concepts]]
-Concepts
-~~~~~~~~
 
-[[adding-shared-library]]
-Adding a Shared Library
-^^^^^^^^^^^^^^^^^^^^^^^
+# Concepts
+
+## Adding a Shared Library
+
 
 As with the previous example on static libraries, the +add_library()+ function
 is also used to create a shared library from some source files.
@@ -54,9 +48,7 @@ add_library(hello_library SHARED ${library_SOURCES})
 This will be used to create a shared library with the name libhello_library.so with
 the sources from the +library_SOURCES+ variable.
 
-[[linking-library]]
-Linking a Shared Library
-^^^^^^^^^^^^^^^^^^^^^^^^
+## Linking a Shared Library
 
 Linking a shared library is the same as linking a static library. When creating your
 executable use the the +target_link_library()+ function to point to your library
@@ -79,10 +71,7 @@ An example of this being called by the linker is
 /usr/bin/c++ CMakeFiles/hello_binary.dir/src/main.cpp.o -o hello_binary -rdynamic libhello_library.so -Wl,-rpath,/home/matrim/workspace/cmake-examples/01-basic/D-shared-library/build
 ```
 
-
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
