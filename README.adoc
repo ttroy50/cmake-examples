@@ -44,6 +44,7 @@ Some specific examples may require other tools including:
 * https://github.com/google/protobuf[protobuf]
 
   `$ sudo apt-get install libprotobuf-dev`
+   $ sudo apt-get install protobuf-compiler
 
 * http://cppcheck.sourceforge.net/[cppcheck]
 
