@@ -39,16 +39,16 @@ Some specific examples may require other tools including:
 
 * http://www.boost.org/[boost]
 
-  `$ sudo apt-get libboost-all-dev`
+  $ sudo apt-get libboost-all-dev
 
 * https://github.com/google/protobuf[protobuf]
 
-  `$ sudo apt-get install libprotobuf-dev`
-   $ sudo apt-get install protobuf-compiler
+  $ sudo apt-get install libprotobuf-dev
+  $ sudo apt-get install protobuf-compiler
 
 * http://cppcheck.sourceforge.net/[cppcheck]
 
-  `$ sudo apt-get install cppcheck`
+  $ sudo apt-get install cppcheck
 
 
 # Other Links
