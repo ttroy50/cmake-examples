@@ -1,14 +1,10 @@
 = Installing
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 This example shows how to generate a `make install` target to install files and
 binaries on your system. This is based on the previous shared library example.
@@ -34,13 +30,9 @@ $ tree
   * src/Hello.cpp - A source file to compile
   * src/main.cpp - The source file with main
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[install]]
-Installing
-^^^^^^^^^^
+## Installing
 
 CMake offers the ability to add a `make install` target to allow a user to
 install binaries, libraries and other files. The base install location is controlled
@@ -97,9 +89,7 @@ If you run the `make install` command as root, the install_manifest.txt file wil
 be owned by root.
 ====
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
