@@ -1,0 +1,14 @@
+language: cpp
+compiler:
+- gcc
+before_install:
+- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake protobuf-compiler cppcheck; fi
+script:
+- cd 01-basic/A-hello-cmake && mkdir build && cd build && cmake .. && make
+branches:
+  only:
+  - master
+notifications:
+  email: true
+os:
+- linux
