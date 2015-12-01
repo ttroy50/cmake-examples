@@ -1,14 +1,10 @@
 = Compile Flags
-
 :toc:
 :toc-placement!:
 
 toc::[]
 
-
-[[intro]]
-Introduction
-------------
+# Introduction
 
 CMake supports setting compile flags using the +CMAKE_C_FLAGS+ and +CMAKE_CXX_FLAGS+
 variables. Similarly linker flags can be set using the +CMAKE_LINKER_FLAGS+.
@@ -25,13 +21,10 @@ $ tree
   * CMakeLists.txt - Contains the CMake commands you wish to run
   * main.cpp - The source file with main
 
-[[concepts]]
-Concepts
-~~~~~~~~
+# Concepts
 
-[[set-cpp-flag]]
-Set C++ Flag
-^^^^^^^^^^^^
+
+## Set C++ Flag
 
 Similar to the build type a C++ compiler flag can be set using the following methods.
 
@@ -46,9 +39,7 @@ image::cmake-gui-set-cxx-flag.png[cmake-gui set cxx flag]
 cmake .. -DCMAKE_CXX_FLAGS="-DEX3"
 ----
 
-[[set-default-flag]]
-Set Default C++ Flags
-^^^^^^^^^^^^^^^^^^^^^
+## Set Default C++ Flags
 
 The default `CMAKE_CXX_FLAGS` is either empty or contains the appropriate flags
 for the build type.
@@ -69,9 +60,7 @@ are used to force this variable to be set in the CMakeCache.txt file.
 For more details, see https://cmake.org/cmake/help/v3.0/command/set.html[here]
 ====
 
-[[building-the-example]]
-Building the Example
-~~~~~~~~~~~~~~~~~~~~
+# Building the Example
 
 [source,bash]
 ----
