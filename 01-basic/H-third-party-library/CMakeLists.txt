@@ -5,7 +5,7 @@ project (third_party_include)
 
 
 # find a boost install with the libraries filesystem and system
-find_package(Boost 1.54.0 REQUIRED COMPONENTS filesystem system)
+find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 
 # check if boost was found
 if(Boost_FOUND)
