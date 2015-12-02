@@ -67,3 +67,4 @@ to some of these which I have found helpful in my CMake journey.
   * https://cmake.org/pipermail/cmake/2011-April/043709.html[Static Analysis with CDash] - Includes some info about using CppCheck with CMake
   * https://www.openfoundry.org/svn/cms/trunk/cmake/CppcheckTargets.cmake[CppCheck Targets]
   * https://samthursfield.wordpress.com/2015/10/20/some-cmake-tips/[CMake Tips]
+  * https://www.johnlamp.net/cmake-tutorial.html[John Lamp - CMake Tutorial]
