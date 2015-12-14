@@ -13,6 +13,7 @@ dirs=( ./01-basic/A-hello-cmake \
 ./03-code-generation/configure-files \
 ./04-static-analysis/cppcheck \
 ./05-unit-testing/boost \
+./06-installer/deb \
 )
 
 ROOT_DIR=`pwd`
@@ -30,7 +31,11 @@ do
 
     if [ -f "$dir/pre_test.sh" ]; then
         echo "running pre test"
-        $dir/pre_test.sh
+        $ROOT_DIR/$dir/pre_test.sh
+        if [ $? -ne 0 ]; then
+            echo "Error running pre_test for $dir"
+            exit 1
+        fi
     fi
 
     cd $dir && mkdir -p build && cd build && cmake .. && make
@@ -42,5 +47,9 @@ do
     if [ -f "$ROOT_DIR/$dir/post_test.sh" ]; then
         echo "running post test"
         $ROOT_DIR/$dir/post_test.sh
+        if [ $? -ne 0 ]; then
+            echo "Error running post_test for $dir"
+            exit 1
+        fi
     fi
 done
