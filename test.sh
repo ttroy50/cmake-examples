@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# print out cmake information to help with debugging.
+
+cmake --version
+cmake --help
+
+
 dirs=( ./01-basic/A-hello-cmake \
 ./01-basic/B-hello-headers \
 ./01-basic/C-static-library \
@@ -8,6 +14,8 @@ dirs=( ./01-basic/A-hello-cmake \
 ./01-basic/F-build-type \
 ./01-basic/G-compile-flags \
 ./01-basic/H-third-party-library \
+./01-basic/I-compiling-with-clang \
+./01-basic/J-building-with-ninja \
 ./02-sub-projects/A-basic \
 ./03-code-generation/protobuf \
 ./03-code-generation/configure-files \
@@ -38,10 +46,19 @@ do
         fi
     fi
 
-    cd $dir && mkdir -p build && cd build && cmake .. && make
-    if [ $? -ne 0 ]; then
-        echo "Error running example $dir"
-        exit 1
+    if [ -f "$dir/run_test.sh" ]; then
+        echo "running run_test"
+        cd $dir && $ROOT_DIR/$dir/run_test.sh
+        if [ $? -ne 0 ]; then
+            echo "Error running run_test for $dir"
+            exit 1
+        fi
+    else
+        cd $dir && mkdir -p build && cd build && cmake .. && make
+        if [ $? -ne 0 ]; then
+            echo "Error running example $dir"
+            exit 1
+        fi
     fi
 
     if [ -f "$ROOT_DIR/$dir/post_test.sh" ]; then

@@ -7,8 +7,8 @@ toc::[]
 
 # Introduction
 
-https://cmake.org/[CMake] is a cross-platform open-source build system which can build, test and package
-software. It can be used to support multiple native build environments including
+https://cmake.org/[CMake] is a cross-platform open-source meta-build system which
+can build, test and package software. It can be used to support multiple native build environments including
 make, Apple's xcode and Microsoft Visual Studio.
 
 This repository includes some example CMake configurations which I have picked up
@@ -51,6 +51,13 @@ Some specific examples may require other tools including:
 
   $ sudo apt-get install cppcheck
 
+* http://clang.llvm.org/[clang]
+
+  $ sudo apt-get install clang-3.6
+
+* https://ninja-build.org/[ninja]
+
+  $ sudo apt-get install ninja-build
 
 # Other Links
 
