@@ -3,12 +3,12 @@ sudo: required
 compiler:
 - gcc
 before_install:
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake libboost-all-dev libprotobuf-dev protobuf-compiler cppcheck; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake libboost-all-dev libprotobuf-dev protobuf-compiler cppcheck ninja-build clang; fi
 script:
 - ./test.sh
 branches:
-  only:
-  - master
+  except:
+  - gh-pages
 notifications:
   email: true
 os:
