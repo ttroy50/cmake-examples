@@ -21,10 +21,10 @@ $ tree
 ├── ver.h.in
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * main.cpp - The source file with main
-  * path.h.in - File to contain a path to the build directory
-  * ver.h.in - File to contain the version of the project
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:main.cpp[] - The source file with main
+  * link:path.h.in[] - File to contain a path to the build directory
+  * link:ver.h.in[] - File to contain the version of the project
 
 # Concepts
 

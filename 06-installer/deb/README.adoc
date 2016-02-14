@@ -23,11 +23,11 @@ $ tree
     └── main.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * cmake-examples.conf - An example configuration file
-  * inc/Hello.h - The header file to include
-  * src/Hello.cpp - A source file to compile
-  * src/main.cpp - The source file with main
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:cmake-examples.conf[] - An example configuration file
+  * link:inc/Hello.h[] - The header file to include
+  * link:src/Hello.cpp[] - A source file to compile
+  * link:src/main.cpp[] - The source file with main
 
 # Concepts
 

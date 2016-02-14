@@ -21,9 +21,9 @@ $ tree
 ├── main.cpp
 ```
 
-  * AddressBook.proto - proto file from main protocol buffer https://developers.google.com/protocol-buffers/docs/cpptutorial[example]
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * main.cpp - The source file from the protobuf example.
+  * link:AddressBook.proto[] - proto file from main protocol buffer https://developers.google.com/protocol-buffers/docs/cpptutorial[example]
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:main.cpp[] - The source file from the protobuf example.
 
 # Requirements
 
