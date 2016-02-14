@@ -2,7 +2,7 @@
 # Ubuntu supports multiple versions of clang to be installed at the same time.
 # The tests need to determin the clang binary before calling cmake
 clang_bin=`which clang`
-clang_xx_bin="which clang++"
+clang_xx_bin=`which clang++`
 
 if [ -z $clang_bin ]; then
     clang_ver=`dpkg --get-selections | grep clang | grep -v -m1 libclang | cut -f1 | cut -d '-' -f2`
