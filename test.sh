@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# print out cmake information to help with debugging.
+
+cmake --version
+cmake --help
+
+
 dirs=( ./01-basic/A-hello-cmake \
 ./01-basic/B-hello-headers \
 ./01-basic/C-static-library \
