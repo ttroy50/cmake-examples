@@ -17,8 +17,8 @@ A-hello-cmake$ tree
 ├── main.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * main.cpp - A simple "Hello World" cpp file.
+  * link:CMakeLists.txt[CMakeLists.txt] - Contains the CMake commands you wish to run
+  * link:main.cpp[main.cpp] - A simple "Hello World" cpp file.
 
 # Concepts
 
@@ -233,7 +233,7 @@ All examples in this tutorial will use out-of-source builds.
 
 # Building the Examples
 
-Below is sample output from building this example. 
+Below is sample output from building this example.
 
 [source,bash]
 ----

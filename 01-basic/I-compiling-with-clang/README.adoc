@@ -13,14 +13,14 @@ method of changing the compiler from the default gcc to http://clang.llvm.org/[c
 The files in this tutorial are below:
 
 ```
-A-hello-cmake$ tree
+$ tree
 .
 ├── CMakeLists.txt
 ├── main.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * main.cpp - A simple "Hello World" cpp file.
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:main.cpp[] - A simple "Hello World" cpp file.
 
 # Concepts
 

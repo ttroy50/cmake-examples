@@ -6,21 +6,21 @@ toc::[]
 
 # Introduction
 
-As mentioned in the introduction, CMake is a meta-build system that can be used to
+As mentioned, CMake is a meta-build system that can be used to
  create the build files for many other build tools. This example shows how
  to have CMake use the https://ninja-build.org/[ninja build] tool.
 
 The files in this tutorial are below:
 
 ```
-A-hello-cmake$ tree
+$ tree
 .
 ├── CMakeLists.txt
 ├── main.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * main.cpp - A simple "Hello World" cpp file.
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:main.cpp[] - A simple "Hello World" cpp file.
 
 # Concepts
 

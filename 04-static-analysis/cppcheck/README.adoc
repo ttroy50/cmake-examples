@@ -19,7 +19,7 @@ analysis on all sub-projects.
 The files included in this example are:
 
 ```
-cppcheck$ tree
+$ tree
 .
 ├── cmake
 │   ├── analysis.cmake
@@ -34,13 +34,13 @@ cppcheck$ tree
     └── main2.cpp
 ```
 
-  * CMakeLists.txt - Top level CMakeLists.txt
-  * cmake/analysis.cmake - Includes functions to add analysis targets
-  * cmake/modules/FindCppCheck.cmake - A custom package module to find CppCheck
-  * subproject1/CMakeLists.txt - CMake commands for subproject 1
-  * subproject1/main.cpp - source for a subproject with no errors
-  * subproject2/CMakeLists.txt - CMake commands for subproject 2
-  * subproject2/main2.cpp - source for a subproject that includes errors
+  * link:CMakeLists.txt[] - Top level CMakeLists.txt
+  * link:cmake/analysis.cmake[] - Includes functions to add analysis targets
+  * link:cmake/modules/FindCppCheck.cmake[] - A custom package module to find CppCheck
+  * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
+  * link:subproject1/main.cpp[] - source for a subproject with no errors
+  * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
+  * link:subproject2/main2.cpp[] - source for a subproject that includes errors
 
 # Requirements
 

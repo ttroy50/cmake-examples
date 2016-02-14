@@ -17,6 +17,7 @@ create the following:
 The files included in this example are:
 
 ```
+$ tree
 .
 ├── CMakeLists.txt
 ├── subbinary
@@ -34,14 +35,14 @@ The files included in this example are:
         └── sublib2.h
 ```
 
-  * CMakeLists.txt - Top level CMakeLists.txt
-  * subbinary/CMakeLists.txt - to make the executable
-  * subbinary/main.cpp - source for the executable
-  * sublibrary1/CMakeLists.txt - to make a static library
-  * sublibrary1/inc/sublib1.h
-  * sublibrary1/src/sublib2.cpp
-  * sublibrary2/CMakeLists.txt - to setup header only library
-  * sublibrary2/inc/sublib2.h
+  * link:CMakeLists.txt[] - Top level CMakeLists.txt
+  * link:subbinary/CMakeLists.txt[] - to make the executable
+  * link:subbinary/main.cpp[] - source for the executable
+  * link:sublibrary1/CMakeLists.txt[] - to make a static library
+  * link:sublibrary1/inc/sublib1.h[]
+  * link:sublibrary1/src/sublib2.cpp[]
+  * link:sublibrary2/CMakeLists.txt[] - to setup header only library
+  * link:sublibrary2/inc/sublib2.h[]
 
 # Concepts
 

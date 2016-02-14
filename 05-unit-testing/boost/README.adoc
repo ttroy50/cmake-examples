@@ -25,10 +25,10 @@ $ tree
 ├── unit_tests.cpp
 ```
 
-  * CMakeLists.txt - Contains the CMake commands you wish to run
-  * Reverse.h / .cpp - Class to reverse a string
-  * Palindrome.h / .cpp - Class to test if a string is a palindrome
-  * unit_test.cpp - Unit Tests using boost unit test framework
+  * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
+  * link:Reverse.h[] / link:Reverse.cpp[.cpp] - Class to reverse a string
+  * link:Palindrome.h[] / link:Palindrome.cpp[.cpp] - Class to test if a string is a palindrome
+  * link:unit_test.cpp[] - Unit Tests using boost unit test framework
 
 # Requirements
 
