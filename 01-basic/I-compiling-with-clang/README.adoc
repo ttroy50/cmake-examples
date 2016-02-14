@@ -6,9 +6,9 @@ toc::[]
 
 # Introduction
 
-When building with CMake, it is possible to set the C and C++ compiler. This example
-is the same as the link:../A-hello-cmake[hello-cmake] example exccept shows the most basic
-method of changing the compiler from the default gcc to clang.
+When building with CMake it is possible to set the C and C++ compiler. This example
+is the same as the link:../A-hello-cmake[hello-cmake] example except that it shows the most basic
+method of changing the compiler from the default gcc to http://clang.llvm.org/[clang].
 
 The files in this tutorial are below:
 
