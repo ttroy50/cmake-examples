@@ -42,7 +42,7 @@ do
 
     if [ -f "$dir/run_test.sh" ]; then
         echo "running run_test"
-        $ROOT_DIR/$dir/run_test.sh
+        cd $dir && $ROOT_DIR/$dir/run_test.sh
         if [ $? -ne 0 ]; then
             echo "Error running run_test for $dir"
             exit 1
