@@ -5,6 +5,11 @@
 cmake --version
 cmake --help
 
+# Find the directory this test script is in and then run them from there
+EXAMPLES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "running examples in $EXAMPLES_DIR"
+
+cd $EXAMPLES_DIR
 
 dirs=( ./01-basic/A-hello-cmake \
 ./01-basic/B-hello-headers \
@@ -70,3 +75,7 @@ do
         fi
     fi
 done
+
+echo ""
+echo ""
+echo "All Tests Completed"
