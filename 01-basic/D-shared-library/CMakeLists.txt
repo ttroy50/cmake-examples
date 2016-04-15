@@ -1,10 +1,6 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.0)
 
 project(hello_library)
-
-include_directories(
-    ${PROJECT_SOURCE_DIR}/inc
-    )
 
 ############################################################
 # Create a library
@@ -17,6 +13,11 @@ set(library_SOURCES
 
 #Generate the shared library from the library sources
 add_library(hello_library SHARED ${library_SOURCES})
+add_library(hello::library ALIAS hello_library)
+
+target_include_directories(hello_library
+    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+)
 
 ############################################################
 # Create an executable
@@ -32,5 +33,5 @@ add_executable(hello_binary ${binary_SOURCES})
 
 # link the new hello_library target with the hello_binary target
 target_link_libraries( hello_binary
-    hello_library
+    PRIVATE hello::library
 )

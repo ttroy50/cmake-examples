@@ -46,6 +46,20 @@ add_library(hello_library STATIC ${library_SOURCES})
 This will be used to create a static library with the name libhello_library.a with
 the sources from the +library_SOURCES+ variable.
 
+## Populating Including Directories
+
+In this example, we include directories in the library using the +target_include_directories()+ function with the scope set to +PUBLIC+. This will cause the included directory used in the following places:
+
+* When compiling the library
+* When compiling any additional target that links the library.
+
+The meaning of scopes are:
+
+* +PRIVATE_ - the directory is added to this target's include directories
+* +INTERFACE+ - the directory is added to the include directores for any targets that link this library.
+* +PUBLIC+ - As above, it is included int his library and also any targets that link this library.
+
+
 ## Linking a Library
 
 When creating an executable that will use your library you must tell the compiler
@@ -56,7 +70,7 @@ about the library. This can be done using the +target_link_library()+ function.
 add_executable(hello_binary ${binary_SOURCES})
 
 target_link_libraries( hello_binary
-    hello_library
+   PRIVATE  hello_library
 )
 ----
 
