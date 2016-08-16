@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 # Set the project name
 project (protobuf_example)
@@ -9,8 +9,6 @@ find_package(Protobuf REQUIRED)
 # check if protobuf was found
 if(PROTOBUF_FOUND)
     message ("protobuf found")
-    include_directories(${PROTOBUF_INCLUDE_DIRS})
-    include_directories(${CMAKE_CURRENT_BINARY_DIR})
 else()
     message (FATAL_ERROR "Cannot find Protobuf")
 endif()
@@ -28,6 +26,14 @@ add_executable(protobuf_example
     ${PROTO_SRCS}
     ${PROTO_HDRS})
 
+target_include_directories(protobuf_example
+    PUBLIC
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
+
 # link the exe against the libraries
 target_link_libraries(protobuf_example
-    ${PROTOBUF_LIBRARIES})
+    PUBLIC
+    ${PROTOBUF_LIBRARIES}
+)

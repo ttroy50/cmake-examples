@@ -59,4 +59,5 @@ install_manifest.txt
 
 /**/build
 /**/build.*
-/1
+
+.tags
