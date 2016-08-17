@@ -1,11 +1,13 @@
 language: cpp
+services:
+  - docker
 sudo: required
 compiler:
 - gcc
 before_install:
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y cmake libboost-all-dev libprotobuf-dev protobuf-compiler cppcheck ninja-build clang; fi
+- docker pull matrim/cmake-examples:3.4.3
 script:
-- ./test.sh
+- docker run --rm -v $PWD:/data/code -it matrim/cmake-examples:3.4.3 /data/code/test.sh
 branches:
   except:
   - gh-pages
