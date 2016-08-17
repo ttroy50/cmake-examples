@@ -9,9 +9,9 @@ cmake --help
 EXAMPLES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "running examples in $EXAMPLES_DIR"
 
-cd $EXAMPHLES_DIR
+cd $EXAMPLES_DIR
 
-dirs=( ./01-basic/A-hello-cmake \
+dirs=(./01-basic/A-hello-cmake \
 ./01-basic/B-hello-headers \
 ./01-basic/C-static-library \
 ./01-basic/D-shared-library \
