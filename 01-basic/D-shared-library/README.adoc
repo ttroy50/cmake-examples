@@ -33,7 +33,6 @@ $ tree
 
 ## Adding a Shared Library
 
-
 As with the previous example on static libraries, the +add_library()+ function
 is also used to create a shared library from some source files.
 This is called as follows:
@@ -52,14 +51,14 @@ the sources from the +library_SOURCES+ variable.
 
 ## Alias Target
 
-As the name suggests an alias target is an alternative name for a target that can be used instead of the real target name in read-only contexts.
+As the name suggests an link:https://cmake.org/cmake/help/v3.0/manual/cmake-buildsystem.7.html#alias-targets[alias target] is an alternative name for a target that can be used instead of the real target name in read-only contexts.
 
 [source,cmake]
 ----
 add_library(hello::library ALIAS hello_library)
 ----
 
-As show below, this allows you to reference the target using the alias name when linking it against other targets.
+As shown below, this allows you to reference the target using the alias name when linking it against other targets.
 
 ## Linking a Shared Library
 

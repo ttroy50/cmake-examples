@@ -91,6 +91,27 @@ The variables exported in this example include:
 In some cases you can also check these variables by examining the cache using
 ccmake or cmake-gui.
 
+## Alias variables
+
+Some modern CMake libraries export +ALIAS+ targets in their module files. For example, starting in later versions of CMake (v3.5+),
+Boost uses this. +ALIAS+ targets make referencing found targets eaiser. This is similar to using your own alias targets for libraries.
+
+In the case of Boost, you could replace the following from this example:
+
+  * `Boost_INCLUDE_DIRS` with `Boost::boost` for header only libraries
+  * `Boost_FILESYSTEM_LIBRARY` with `Boost::filesystem`
+  * `Boost_SYSTEM_LIBRARY` with `Boost::system`. If you include `Boost::filesystem` it automatically includes `Boost::system`
+
+Using the new alias sytem, to replicate this example you only have to link the following: 
+
+[source,cmake]
+----
+  target_link_libraries( third_party_include
+      PRIVATE
+      Boost::filesystem
+  )
+----
+
 # Building the Example
 
 [source,bash]

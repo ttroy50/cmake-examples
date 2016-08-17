@@ -86,7 +86,7 @@ file(GLOB SOURCES "src/*.cpp")
 ## Including Directories
 
 When you have different include folders, you can make your compiler aware of them using the
-+target_include_directories()+ function. When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
++target_include_directories()+ link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[function]. When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
 
 [source,cmake]
 ----

@@ -48,7 +48,16 @@ the sources from the +library_SOURCES+ variable.
 
 ## Populating Including Directories
 
-In this example, we include directories in the library using the +target_include_directories()+ function with the scope set to +PUBLIC+. This will cause the included directory used in the following places:
+In this example, we include directories in the library using the +target_include_directories()+ function with the scope set to +PUBLIC+.
+
+[source,cmake]
+----
+target_include_directories(hello_library
+    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+)
+----
+
+This will cause the included directory used in the following places:
 
 * When compiling the library
 * When compiling any additional target that links the library.
