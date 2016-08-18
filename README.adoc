@@ -65,7 +65,7 @@ Some specific examples may require other tools including:
 
 ## Docker
 
-Docker container will all requirements and different versions of CMake are generated to help make testing the examples easier. These are available from the docker hub repository link:https://hub.docker.com/r/matrim/cmake-examples/[matrim/cmake-examples].
+Docker containers with all requirements and various versions of CMake are generated to help make testing the examples easier. These are available from the docker hub repository link:https://hub.docker.com/r/matrim/cmake-examples/[matrim/cmake-examples].
 
 To build the full set of cmake-examples test cases you can run:
 
