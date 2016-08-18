@@ -55,19 +55,6 @@ directory where you ran the cmake command.
 |PROJECT_BINARY_DIR |The build directory for the current project.
 |=======================================================================
 
-## Including Directories
-
-When you have different include folders, you can make your compiler aware of them using the
-+include_directories()+ function. This will add these directories to the
-compiler with the -I flag e.g. `-I/directory/path`
-
-[source,cmake]
-----
-include_directories(
-    ${PROJECT_SOURCE_DIR}/inc
-    )
-----
-
 ## Source Files Variable
 
 Creating a variable which includes the source files allows you to be
@@ -95,6 +82,20 @@ to use a GLOB command to find files using wildcard pattern matching.
 file(GLOB SOURCES "src/*.cpp")
 ----
 ====
+
+## Including Directories
+
+When you have different include folders, you can make your compiler aware of them using the
++target_include_directories()+ link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[function]. When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
+
+[source,cmake]
+----
+target_include_directories(target
+    PRIVATE ${PROJECT_SOURCE_DIR}/inc
+    )
+----
+
+The +PRIVATE+ identifier specifies the scope of the include. This is important for libraries and is exlpained in the next example. More details on the function is available link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[here]
 
 # Building the Example
 

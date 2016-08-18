@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.0)
 
 project(cmake_examples_deb)
 
@@ -39,6 +39,7 @@ add_executable(cmake_examples_deb_bin ${binary_SOURCES})
 
 # link the new hello_library target with the hello_binary target
 target_link_libraries( cmake_examples_deb_bin
+    PUBLIC
     cmake_examples_deb
 )
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 # Set the project name
 project (cf_example)
@@ -17,10 +17,13 @@ configure_file(ver.h.in ${PROJECT_BINARY_DIR}/ver.h)
 # This file can only use the @VARIABLE@ syntax in the file
 configure_file(path.h.in ${PROJECT_BINARY_DIR}/path.h @ONLY)
 
-# include the directory with the new files
-include_directories(${CMAKE_BINARY_DIR})
-
 # Add an executable
 add_executable(cf_example
     main.cpp
     )
+
+# include the directory with the new files
+target_include_directories( cf_example
+    PUBLIC
+    ${CMAKE_BINARY_DIR}
+)

@@ -18,15 +18,19 @@ more complex use cases.
 
 These examples have been tested on Ubuntu 14.04 but should work under any Linux system that supports CMake.
 
+This branch works with the CMake version 3.x onwards. For examples that use CMake version 2.x see the branch link:https://github.com/ttroy50/cmake-examples/tree/v2-style-includes[v2-style-includes].
+
 image:https://travis-ci.org/ttroy50/cmake-examples.svg?branch=master["Build Status", link="https://travis-ci.org/ttroy50/cmake-examples"]
 
 # Requirements
 
 The basic requirements for most examples are:
 
-* CMake
+* CMake v3.x
 * A c++ compiler (defaults to gcc)
 * make
+
+## Installation on Ubuntu
 
 The easiest way to install the above on Ubuntu is as follows
 
@@ -59,11 +63,29 @@ Some specific examples may require other tools including:
 
   $ sudo apt-get install ninja-build
 
+## Docker
+
+Docker containers with all requirements and various versions of CMake are generated to help make testing the examples easier. These are available from the docker hub repository link:https://hub.docker.com/r/matrim/cmake-examples/[matrim/cmake-examples].
+
+To build the full set of cmake-examples test cases you can run:
+
+[source,bash]
+----
+docker run -it matrim/cmake-examples:3.4.3
+git clone https://github.com/ttroy50/cmake-examples.git
+cd cmake-examples
+./test.sh
+----
+
+For more details on build and running the docker containers link:here[dockerfiles].
+
 # Other Links
 
 There are many CMake tutorials and examples online. The list below includes links
 to some of these which I have found helpful in my CMake journey.
 
+  * http://www.kdab.com/~stephen/moderncmake.pdf[Modern CMake Slides]
+  * https://rix0r.nl/blog/2015/08/13/cmake-guide/[rix0r Modern CMake Blog]
   * https://cmake.org/cmake-tutorial/[Official CMake Tutorial]
   * https://cmake.org/Wiki/Main_Page[Official CMake Wiki]
   * https://cmake.org/Wiki/CMake_Useful_Variables[CMake Useful Variables]

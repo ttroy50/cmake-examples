@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 # Set the project name
 project (boost_unit_test)
@@ -35,6 +35,9 @@ target_link_libraries(unit_tests
     ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 )
 
-add_definitions (-DBOOST_TEST_DYN_LINK)
+target_compile_definitions(unit_tests
+    PRIVATE
+        BOOST_TEST_DYN_LINK
+)
 
 add_test(test_all unit_tests)

@@ -63,14 +63,12 @@ add_subdirectory(subbinary)
 When a project is created using the `project()` command, CMake will automatically
 create a number of variables which can be used to reference details about the project.
 These variables can then be used by other sub-projects or the main project. For exampe,
-to include header files between projects.
+to reference the source directory for a different project you can use.
 
 [source,cmake]
 ----
-include_directories(
-    ${sublibrary1_SOURCE_DIR}/inc
-    ${sublibrary2_SOURCE_DIR}/inc
-    )
+    ${sublibrary1_SOURCE_DIR}
+    ${sublibrary2_SOURCE_DIR}
 ----
 
 The variables created by CMake include:
@@ -97,6 +95,28 @@ In this example the binary directories created would be `sublibrary1_BINARY_DIR`
 
 |=======================================================================
 
+## Header only Libraries
+
+If you have a library that is created as a header only library, cmake supports the +INTERFACE+
+target to allow creating a target without any build output. More details can be found from
+link:https://cmake.org/cmake/help/v3.4/command/add_library.html#interface-libraries[here]
+
+[source,cmake]
+----
+add_library(${PROJECT_NAME} INTERFACE)
+----
+
+When creating the target you can also include directories for that target using
+the +INTERFACE+ scope. The +INTERFACE+ scope is use to make target requirements that are used in any Libraries
+that link this target but not in the complation of the target itself.
+
+[source,cmake]
+----
+target_include_directories(${PROJECT_NAME}
+    INTERFACE
+        ${PROJECT_SOURCE_DIR}/inc
+)
+----
 
 ## Referencing Libraries from Sub-Projects
 
@@ -108,9 +128,41 @@ is added as a dependency.
 [source,cmake]
 ----
 target_link_libraries(subbinary
+    PUBLIC
     sublibrary1
 )
 ----
+
+Alternatively, you can create an alias target which allows you to reference the
+target in read only contexts.
+
+To create an alias target run:
+
+[source,cmake]
+----
+add_library(sublibrary2)
+add_library(sub::lib2 ALIAS sublibrary2)
+----
+
+To reference the alias, just it as follows:
+[source,cmake]
+----
+target_link_libraries(subbinary
+    sublibrary1
+)
+----
+
+## Include directories from sub-projects
+
+When adding the libraries from the sub-projects, starting from cmake v3, there is
+no need to add the projects include directores in the include directories of the
+binary using them.
+
+This is controlled by the scope in the `target_include_directories()` command when creating
+the libraries. In this example because the subbinary executable links the sublibrary1
+and sublibrary2 libraries it will automatically include the `${sublibrary1_SOURCE_DIR}/inc`
+and `${sublibrary2_SOURCE_DIR}/inc` folders as they are exported with the
+ +PUBLIC+ and +INTERFACE+ scopes of the libraries.
 
 # Building the example
 

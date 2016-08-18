@@ -1,10 +1,6 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.0)
 
 project(cmake_examples_install)
-
-include_directories(
-    ${PROJECT_SOURCE_DIR}/inc
-    )
 
 ############################################################
 # Create a library
@@ -17,6 +13,11 @@ set(library_SOURCES
 
 #Generate the shared library from the library sources
 add_library(cmake_examples_inst SHARED ${library_SOURCES})
+
+
+target_include_directories(cmake_examples_inst
+    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+)
 
 ############################################################
 # Create an executable
@@ -32,7 +33,7 @@ add_executable(cmake_examples_inst_bin ${binary_SOURCES})
 
 # link the new hello_library target with the hello_binary target
 target_link_libraries( cmake_examples_inst_bin
-    cmake_examples_inst
+    PRIVATE cmake_examples_inst
 )
 
 ############################################################
