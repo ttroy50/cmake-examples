@@ -44,7 +44,7 @@ A basic example of finding boost is below:
 
 [source,cmake]
 ----
-find_package(Boost 1.54.0 REQUIRED COMPONENTS filesystem system)
+find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 ----
 
 The arguments are:
@@ -93,8 +93,8 @@ ccmake or cmake-gui.
 
 ## Alias variables
 
-Some modern CMake libraries export +ALIAS+ targets in their module files. For example, starting in later versions of CMake (v3.5+),
-Boost uses this. +ALIAS+ targets make referencing found targets eaiser. This is similar to using your own alias targets for libraries.
+Some modern CMake libraries export +ALIAS+ targets in their module files. For example, starting from v3.5+ of CMake, the
+Boost module supports this. Similar to using your own ALIAS target for libraires, an +ALIAS+ in a module can make referencing found targets eaiser.
 
 In the case of Boost, you could replace the following from this example:
 
@@ -102,7 +102,7 @@ In the case of Boost, you could replace the following from this example:
   * `Boost_FILESYSTEM_LIBRARY` with `Boost::filesystem`
   * `Boost_SYSTEM_LIBRARY` with `Boost::system`. If you include `Boost::filesystem` it automatically includes `Boost::system`
 
-Using the new alias sytem, to replicate this example you only have to link the following: 
+Using the new alias sytem, to replicate this example you only have to link the following:
 
 [source,cmake]
 ----

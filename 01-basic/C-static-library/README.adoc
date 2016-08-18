@@ -84,7 +84,8 @@ target_link_libraries( hello_binary
 ----
 
 This tells CMake to link the hello_library against the hello_binary executable
-during link time.
+during link time. It will also propogate any include directries with +PUBLIC+ or +INTERFACE+ scope
+ from the linked library target.
 
 An example of this being called by the compiler is
 

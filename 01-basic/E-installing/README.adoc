@@ -80,7 +80,7 @@ install (FILES cmake-examples.conf
 
 Install a configuration file to the destination +${CMAKE_INSTALL_PREFIX}/etc+
 
-After `make install` has been run, CMake generated an install_manifest.txt file
+After `make install` has been run, CMake generates an install_manifest.txt file
 which includes details on all installed files.
 
 [NOTE]
