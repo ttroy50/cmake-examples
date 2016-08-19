@@ -21,6 +21,7 @@ dirs=(./01-basic/A-hello-cmake \
 ./01-basic/H-third-party-library \
 ./01-basic/I-compiling-with-clang \
 ./01-basic/J-building-with-ninja \
+./01-basic/K-imported-targets \
 ./02-sub-projects/A-basic \
 ./03-code-generation/protobuf \
 ./03-code-generation/configure-files \

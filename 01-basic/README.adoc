@@ -15,3 +15,4 @@ The examples included are
   - link:H-third-party-library[third-party-library]. Shows an example of how to link third party libraries.
   - link:I-compiling-with-clang[compiling-with-clang]. An example of invoking the clang compiler.
   - link:J-building-with-ninja[building-with-ninja] - Shows how to generate ninja build files
+  - link:K-imported-targets[imported-targets] - Shows how to link boost using the new imported targets

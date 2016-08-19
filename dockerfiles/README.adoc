@@ -22,7 +22,7 @@ For example:
 
 [source,bash]
 ----
-$ docker build --rm -f ubuntu14.04-cmake-3.4.3 t matrim/cmake-examples:3.4.3 .
+$ docker build --rm -f ubuntu14.04-cmake-3.4.3 -t matrim/cmake-examples:3.4.3 .
 ----
 
 In this example the tag is created as follows
@@ -44,6 +44,10 @@ The images available include the following versions of cmake:
 * Ubuntu 14.04 with CMake 3.4.3
 
     $ docker pull docker pull matrim/cmake-examples:3.4.3
+
+* Ubuntu 16.04 with CMake 3.5.1
+
+    $ docker pull docker pull matrim/cmake-examples:3.5.1
 
 # Running
 
@@ -76,5 +80,5 @@ Below is an example of loading a volume and automatically running all cmake-exam
 
 [source,bash]
 ----
-docker run -e DEV_UID=`id -u` -e DEV_GID=`id -u` -v /checkout/directory:/data/code -it matrim/cmake-examples:3.4.3 /data/code/test.sh
+docker run --rm -e DEV_UID=`id -u` -e DEV_GID=`id -u` -v /checkout/directory:/data/code -it matrim/cmake-examples:3.4.3 /data/code/test.sh
 ----
