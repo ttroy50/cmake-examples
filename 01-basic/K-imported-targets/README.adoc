@@ -23,7 +23,10 @@ $ tree
 
 # Requirements
 
-This example requires the boost libraries to be installed in a default system location.
+This example requires the following:
+
+  * CMake v3.5+
+  * The boost libraries to be installed in a default system location. 
 
 # Concepts
 
