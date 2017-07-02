@@ -14,7 +14,7 @@ The files in this tutorial are below:
 $ tree
 .
 ├── CMakeLists.txt
-├── inc
+├── include
 │   └── Hello.h
 └── src
     ├── Hello.cpp
@@ -22,7 +22,7 @@ $ tree
 ```
 
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
-  * link:inc/Hello.h[] - The header file to include
+  * link:include/Hello.h[] - The header file to include
   * link:src/Hello.cpp[] - A source file to compile
   * link:src/main.cpp[] - The source file with main
 
@@ -53,7 +53,7 @@ In this example, we include directories in the library using the +target_include
 [source,cmake]
 ----
 target_include_directories(hello_library
-    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+    PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 ----
 

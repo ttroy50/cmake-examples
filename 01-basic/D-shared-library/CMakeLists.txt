@@ -16,7 +16,7 @@ add_library(hello_library SHARED ${library_SOURCES})
 add_library(hello::library ALIAS hello_library)
 
 target_include_directories(hello_library
-    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+    PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
 ############################################################

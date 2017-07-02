@@ -16,7 +16,7 @@ The files in this tutorial include:
 B-hello-headers$ tree
 .
 ├── CMakeLists.txt
-├── inc
+├── include
 │   └── Hello.h
 └── src
     ├── Hello.cpp
@@ -24,7 +24,7 @@ B-hello-headers$ tree
 ```
 
   * link:CMakeLists.txt[CMakeLists.txt] - Contains the CMake commands you wish to run.
-  * link:inc/Hello.h[inc/Hello.h] - The header file to include.
+  * link:include/Hello.h[include/Hello.h] - The header file to include.
   * link:src/Hello.cpp[src/Hello.cpp] - A source file to compile.
   * link:src/main.cpp[src/main.cpp] - The source file with main.
 
@@ -91,7 +91,7 @@ When you have different include folders, you can make your compiler aware of the
 [source,cmake]
 ----
 target_include_directories(target
-    PRIVATE ${PROJECT_SOURCE_DIR}/inc
+    PRIVATE ${PROJECT_SOURCE_DIR}/include
     )
 ----
 
@@ -162,10 +162,10 @@ make -f CMakeFiles/hello_headers.dir/build.make CMakeFiles/hello_headers.dir/bui
 make[2]: Entering directory `/home/matrim/workspace/cmake-examples/01-basic/hello_headers/build'
 /usr/bin/cmake -E cmake_progress_report /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles 1
 [ 50%] Building CXX object CMakeFiles/hello_headers.dir/src/Hello.cpp.o
-/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/inc    -o CMakeFiles/hello_headers.dir/src/Hello.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/Hello.cpp
+/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/include    -o CMakeFiles/hello_headers.dir/src/Hello.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/Hello.cpp
 /usr/bin/cmake -E cmake_progress_report /home/matrim/workspace/cmake-examples/01-basic/hello_headers/build/CMakeFiles 2
 [100%] Building CXX object CMakeFiles/hello_headers.dir/src/main.cpp.o
-/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/inc    -o CMakeFiles/hello_headers.dir/src/main.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/main.cpp
+/usr/bin/c++    -I/home/matrim/workspace/cmake-examples/01-basic/hello_headers/include    -o CMakeFiles/hello_headers.dir/src/main.cpp.o -c /home/matrim/workspace/cmake-examples/01-basic/hello_headers/src/main.cpp
 Linking CXX executable hello_headers
 /usr/bin/cmake -E cmake_link_script CMakeFiles/hello_headers.dir/link.txt --verbose=1
 /usr/bin/c++       CMakeFiles/hello_headers.dir/src/Hello.cpp.o CMakeFiles/hello_headers.dir/src/main.cpp.o  -o hello_headers -rdynamic

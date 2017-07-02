@@ -15,7 +15,7 @@ set(library_SOURCES
 add_library(hello_library STATIC ${library_SOURCES})
 
 target_include_directories(hello_library
-    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+    PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
 

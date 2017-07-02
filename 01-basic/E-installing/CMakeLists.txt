@@ -16,7 +16,7 @@ add_library(cmake_examples_inst SHARED ${library_SOURCES})
 
 
 target_include_directories(cmake_examples_inst
-    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+    PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
 ############################################################

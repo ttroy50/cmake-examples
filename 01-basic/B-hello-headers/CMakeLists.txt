@@ -19,5 +19,5 @@ add_executable(hello_headers ${SOURCES})
 # Set the direcoties that should be included in the build command for this target
 # when running g++ these will be included as -I/directory/path/
 target_include_directories(hello_headers
-    PRIVATE ${PROJECT_SOURCE_DIR}/inc
+    PRIVATE ${PROJECT_SOURCE_DIR}/include
 )

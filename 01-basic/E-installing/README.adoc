@@ -16,7 +16,7 @@ $ tree
 .
 ├── cmake-examples.conf
 ├── CMakeLists.txt
-├── inc
+├── include
 │   └── Hello.h
 ├── README.adoc
 └── src
@@ -26,7 +26,7 @@ $ tree
 
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
   * link:cmake-examples.conf[] - An example configuration file
-  * link:inc/Hello.h[] - The header file to include
+  * link:include/Hello.h[] - The header file to include
   * link:src/Hello.cpp[] - A source file to compile
   * link:src/main.cpp[] - The source file with main
 
