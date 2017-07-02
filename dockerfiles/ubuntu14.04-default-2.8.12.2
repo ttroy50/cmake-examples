@@ -28,6 +28,10 @@ RUN cd /usr/local/src \
     && rm -rf tini-* \
     && rm -rf v0.9.0.tar.gz
 
+RUN cd /usr/local/src \
+    && wget https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 \
+    && mv gosu-amd64 /usr/local/bin/gosu \
+    && chmod +x /usr/local/bin/gosu
 
 ADD setup.sh /setup.sh
 RUN chmod +x /setup.sh

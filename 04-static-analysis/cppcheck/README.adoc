@@ -8,6 +8,7 @@ toc::[]
 
 This example shows how to call the
 http://cppcheck.sourceforge.net/[CppCheck] tool to do static analysis.
+This shows how to make an analysis target for each project in your repository.
 
 It includes code to
 
@@ -318,6 +319,8 @@ make: *** [analysis] Error 2
 
 # Extra Notes
 
+## Multiple Folders
+
 If you have a multiple folders levels, where one folder just points to
 sub folders, such as below:
 
@@ -343,3 +346,20 @@ add_subdirectory(project1)
 add_subdirectory(project2)
 set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 ----
+
+## Include Directories
+
+In the +add_analysis+ macro in `analysis.cmake` we extract the +INCLUDE_DIRECTORIES+ from the 
+target and add them to the call to cppcheck.
+
+[source,cmake]
+----
+    get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+        foreach(dir ${dirs})
+            LIST(APPEND cppcheck_includes "-I${dir}")
+        endforeach()
+----
+
+This works for basic examples but if you use some CMake features such as 
+generator expressions this will not add the include directory.
+

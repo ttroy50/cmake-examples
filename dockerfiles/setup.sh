@@ -4,7 +4,7 @@
 # variables and give them sudo access
 #
 ret=false
-output=`getent passwd devuser 2&>1`
+output=`getent passwd devuser 2>&1`
 result=$?
 if [ $result -ne 0 ] ; then
     echo "Creating devuser"
@@ -23,4 +23,4 @@ if [ $result -ne 0 ] ; then
     echo "%sudo ALL=NOPASSWD: ALL" >> /etc/sudoers
 fi
 
-exec /bin/su - devuser -c "$@"
+exec gosu devuser "$@"

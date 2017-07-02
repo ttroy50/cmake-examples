@@ -29,6 +29,7 @@ dirs=(./01-basic/A-hello-cmake \
 ./03-code-generation/protobuf \
 ./03-code-generation/configure-files \
 ./04-static-analysis/cppcheck \
+./04-static-analysis/cppcheck \
 ./05-unit-testing/boost \
 ./06-installer/deb \
 )
