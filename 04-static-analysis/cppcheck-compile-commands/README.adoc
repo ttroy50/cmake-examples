@@ -128,9 +128,9 @@ The JSON file will look like:
 ----
 
 [NOTE]
-----
+====
 This is only available for the `Makefile` and `ninja` generators.
-----
+====
 
 ## CppCheck Projects
 
