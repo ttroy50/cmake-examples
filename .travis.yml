@@ -8,8 +8,8 @@ before_install:
 - docker pull matrim/cmake-examples:3.4.3
 - docker pull matrim/cmake-examples:3.5.1
 script:
-- docker run --rm -v $PWD:/data/code -it matrim/cmake-examples:3.4.3 /data/code/test.sh
-- docker run --rm -v $PWD:/data/code -it matrim/cmake-examples:3.5.1 /data/code/test.sh
+- docker run --rm -v $PWD:/data/code -e DEV_UID=`id -u` -e DEV_GID=`id -g` -it matrim/cmake-examples:3.4.3 /data/code/test.sh
+- docker run --rm -v $PWD:/data/code -e DEV_UID=`id -u` -e DEV_GID=`id -g` -it matrim/cmake-examples:3.5.1 /data/code/test.sh
 branches:
   except:
   - gh-pages
