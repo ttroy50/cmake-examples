@@ -25,24 +25,40 @@ $ tree
 │   └── main.cpp
 ├── sublibrary1
 │   ├── CMakeLists.txt
-│   ├── inc
-│   │   └── sublib1.h
+│   ├── include
+│   │   └── sublib1
+│   │       └── sublib1.h
 │   └── src
 │       └── sublib1.cpp
 └── sublibrary2
     ├── CMakeLists.txt
-    └── inc
-        └── sublib2.h
+    └── include
+        └── sublib2
+            └── sublib2.h
 ```
 
   * link:CMakeLists.txt[] - Top level CMakeLists.txt
   * link:subbinary/CMakeLists.txt[] - to make the executable
   * link:subbinary/main.cpp[] - source for the executable
   * link:sublibrary1/CMakeLists.txt[] - to make a static library
-  * link:sublibrary1/inc/sublib1.h[]
+  * link:sublibrary1/include/sublib1/sublib1.h[]
   * link:sublibrary1/src/sublib2.cpp[]
   * link:sublibrary2/CMakeLists.txt[] - to setup header only library
-  * link:sublibrary2/inc/sublib2.h[]
+  * link:sublibrary2/include/sublib2/sublib2.h[]
+
+[TIP]
+====
+In this example I have moved the header files to a subfolder under each projects +include+
+directory, while leaving the target include as the root +include+ folder. This is a good idea to prevent 
+filename clashes because you have to include a file like below:
+[source,cpp]
+----
+#include "sublib1/sublib1.h"
+----
+
+This also means that if you install your library for other users the default install location would be
++/usr/local/include/sublib1/sublib1.h+.
+====
 
 # Concepts
 
@@ -114,7 +130,7 @@ that link this target but not in the complation of the target itself.
 ----
 target_include_directories(${PROJECT_NAME}
     INTERFACE
-        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/include
 )
 ----
 

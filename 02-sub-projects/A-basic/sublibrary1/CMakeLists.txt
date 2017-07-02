@@ -10,6 +10,6 @@ set(SOURCES
 add_library(${PROJECT_NAME} ${SOURCES})
 add_library(sub::lib1 ALIAS ${PROJECT_NAME})
 
-include_directories( ${PROJECT_NAME}
-    PUBLIC ${PROJECT_SOURCE_DIR}/inc
+target_include_directories( ${PROJECT_NAME}
+    PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
