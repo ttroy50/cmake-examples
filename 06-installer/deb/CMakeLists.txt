@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project(cmake_examples_deb)
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/inc
+    ${PROJECT_SOURCE_DIR}/include
     )
 
 # set a project version
