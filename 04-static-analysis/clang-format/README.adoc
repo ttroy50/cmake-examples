@@ -32,10 +32,10 @@ $ tree
 ```
 
   * link:CMakeLists.txt[] - Top level CMakeLists.txt
-  * link:.clang-format - The file describing the stype guide
-  * link:cmake/modules/FindClangFormat.cmake - Script to find the clang-format binary
-  * link:cmake/modules/clang-format.cmake - Script to setup the format targets
-  * link:cmake/scripts/clang-format-check-changed - A helper script to check against changed files in git
+  * link:.clang-format[] - The file describing the stype guide
+  * link:cmake/modules/FindClangFormat.cmake[] - Script to find the clang-format binary
+  * link:cmake/modules/clang-format.cmake[] - Script to setup the format targets
+  * link:cmake/scripts/clang-format-check-changed[] - A helper script to check against changed files in git
   * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
   * link:subproject1/main.cpp[] - source for a subproject with no errors
   * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
@@ -73,13 +73,6 @@ AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-----
-
-By default this will run the standard compiler for your platform, i.e. `gcc` on linux. However, if you want to override this you can change the command to:
-
-[source,bash]
-----
-$ scan-build-3.6 --use-cc=clang-3.6 --use-c++=clang++-3.6 -o ./scanbuildout/ make
 ----
 
 ## format style

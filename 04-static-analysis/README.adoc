@@ -25,3 +25,4 @@ The examples here include using the following tools:
 
 * http://cppcheck.sourceforge.net/[CppCheck]
 * https://clang-analyzer.llvm.org/[Clang Static Analyzer]
+* https://clang.llvm.org/docs/ClangFormat.html[Clang Format]
