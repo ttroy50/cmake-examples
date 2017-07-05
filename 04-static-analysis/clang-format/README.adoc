@@ -1,0 +1,142 @@
+= clang-format
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+This example shows how to call the
+https://clang.llvm.org/docs/ClangFormat.html[Clang Format] to check if your source code
+matches against your code style guidelines.
+
+The files included in this example are:
+
+```
+$ tree
+.
+├── .clang-format
+├── CMakeLists.txt
+├── cmake
+│   ├── modules
+│   │   ├── clang-format.cmake
+│   │   └── FindClangFormat.cmake
+│   └── scripts
+│       └── clang-format-check-changed
+├── subproject1
+│   ├── CMakeLists.txt
+│   └── main1.cpp
+└── subproject2
+    ├── CMakeLists.txt
+    └── main2.cpp
+```
+
+  * link:CMakeLists.txt[] - Top level CMakeLists.txt
+  * link:.clang-format - The file describing the stype guide
+  * link:cmake/modules/FindClangFormat.cmake - Script to find the clang-format binary
+  * link:cmake/modules/clang-format.cmake - Script to setup the format targets
+  * link:cmake/scripts/clang-format-check-changed - A helper script to check against changed files in git
+  * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
+  * link:subproject1/main.cpp[] - source for a subproject with no errors
+  * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
+  * link:subproject2/main2.cpp[] - source for a subproject that includes errors
+
+# Requirements
+
+To run this example you must have clang format tool installed. This can be installed on Ubuntu using the following command.
+
+[source,bash]
+----
+$ sudo apt-get install clang-format
+----
+
+It will result in the tool being available as:
+
+[source,bash]
+----
+$ clang-format
+----
+
+# Concepts
+
+## clang-format
+
++clang-format+ can scan a source file then find and optionally format it to match your 
+companys style guidelines. There are default styles build in but you can also setup a style guide using a custom file called +.clang-format+, for example a snipped from this
+repositories +.clang-format+ is below:
+
+[source]
+----
+Language:        Cpp
+# BasedOnStyle:  LLVM
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+----
+
+By default this will run the standard compiler for your platform, i.e. `gcc` on linux. However, if you want to override this you can change the command to:
+
+[source,bash]
+----
+$ scan-build-3.6 --use-cc=clang-3.6 --use-c++=clang++-3.6 -o ./scanbuildout/ make
+----
+
+## format style
+
+As mentioned, the style in this example is based on the +.clang-format+ file. This can be changed by editing link:cmake/modules/clang-format.cmake[clang-format.cmake] and changing
+the `-style=file` to the required style; 
+
+# Targets
+
+This example will setup 3 targets:
+
+ * format
+ * format-check
+ * format-check-changed
+
+## format
+
+The format target will find any C++ source files and in place modify them to match the 
++.clang-format+ style. The source files are found using the following cmake code
+
+[source,cmake]
+----
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.cxx *.hxx *.hpp *.cc)
+
+# Don't include some common build folders
+set(CLANG_FORMAT_EXCLUDE_PATTERNS ${CLANG_FORMAT_EXCLUDE_PATTERNS} "build/" "/CMakeFiles/")
+
+# get all project files file
+foreach (SOURCE_FILE ${ALL_SOURCE_FILES}) 
+    foreach (EXCLUDE_PATTERN ${CLANG_FORMAT_EXCLUDE_PATTERNS})
+        string(FIND ${SOURCE_FILE} ${EXCLUDE_PATTERN} EXCLUDE_FOUND) 
+        if (NOT ${EXCLUDE_FOUND} EQUAL -1) 
+            list(REMOVE_ITEM ALL_SOURCE_FILES ${SOURCE_FILE})
+        endif () 
+    endforeach ()
+endforeach ()
+----
+
+This will find files matching the common C++ suffixes and then remove any that match some
+common CMake build directories.
+
+## format-check 
+
+This target will work as above but instead of formatting the files it will cause a failure
+if any files don't match the clang-format style
+
+## format-check-changed
+
+This target will check the output of `git status` and scan the files to check if they match the style. This can be used by developers to make sure their changed files match the correct style.
+
+In this example the actual check is done with a helper script +clang-format-check-changed+. This calls the following command to check files:
+
+[source,bash]
+----
+git status --porcelain \
+  | egrep '*\.cpp|*\.h|*\.cxx|*\.hxx|*\.hpp|*\.cc' \
+  | awk -F " " '{print $NF}' \
+  | xargs -r clang-format -style=file -output-replacements-xml \
+  | grep "replacement offset" 2>&1 > /dev/null
+----
