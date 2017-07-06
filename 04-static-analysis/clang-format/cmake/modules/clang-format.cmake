@@ -33,8 +33,6 @@ add_custom_target(format-check
     | grep "replacement offset" 2>&1 > /dev/null
 )
 
-# This is a hack because our CMake root dir isn't the same as our git root dir
-
 # Get the path to this file
 get_filename_component(_clangcheckpath ${CMAKE_CURRENT_LIST_FILE} PATH)
 # call the script to chech changed files in git
