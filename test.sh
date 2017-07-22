@@ -31,6 +31,7 @@ dirs=(./01-basic/A-hello-cmake \
 ./04-static-analysis/cppcheck \
 ./04-static-analysis/cppcheck-compile-commands \
 ./04-static-analysis/clang-analyzer \
+./04-static-analysis/clang-format \
 ./05-unit-testing/boost \
 ./06-installer/deb \
 )

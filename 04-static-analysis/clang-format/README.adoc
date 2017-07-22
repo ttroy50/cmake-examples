@@ -32,14 +32,15 @@ $ tree
 ```
 
   * link:CMakeLists.txt[] - Top level CMakeLists.txt
-  * link:.clang-format[] - The file describing the stype guide
+  * link:.clang-format[] - The file describing the style guide
   * link:cmake/modules/FindClangFormat.cmake[] - Script to find the clang-format binary
   * link:cmake/modules/clang-format.cmake[] - Script to setup the format targets
-  * link:cmake/scripts/clang-format-check-changed[] - A helper script to check against changed files in git
+  * link:cmake/scripts/clang-format-check-changed.py[] - A helper script to check against changed files in git
+  * link:cmake/scripts/clang-format-check-changed.py[] - An old simplified version of the above helper script
   * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
-  * link:subproject1/main.cpp[] - source for a subproject with no errors
+  * link:subproject1/main.cpp[] - source for a subproject with no style errors
   * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
-  * link:subproject2/main2.cpp[] - source for a subproject that includes errors
+  * link:subproject2/main2.cpp[] - source for a subproject that includes style errors
 
 # Requirements
 
@@ -47,15 +48,17 @@ To run this example you must have clang format tool installed. This can be insta
 
 [source,bash]
 ----
-$ sudo apt-get install clang-format
+$ sudo apt-get install clang-format-3.6
 ----
 
 It will result in the tool being available as:
 
 [source,bash]
 ----
-$ clang-format
+$ clang-format-3.6
 ----
+
+If you install a different version, you can edit the `CLANG_FORMAT_BIN_NAME` variable in the root CMakeLists.txt
 
 # Concepts
 
@@ -95,10 +98,10 @@ The format target will find any C++ source files and in place modify them to mat
 
 [source,cmake]
 ----
-file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.cxx *.hxx *.hpp *.cc)
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.cxx *.hxx *.hpp *.cc *.ipp)
 
 # Don't include some common build folders
-set(CLANG_FORMAT_EXCLUDE_PATTERNS ${CLANG_FORMAT_EXCLUDE_PATTERNS} "build/" "/CMakeFiles/")
+set(CLANG_FORMAT_EXCLUDE_PATTERNS ${CLANG_FORMAT_EXCLUDE_PATTERNS} "/CMakeFiles/" "cmake")
 
 # get all project files file
 foreach (SOURCE_FILE ${ALL_SOURCE_FILES}) 
@@ -112,7 +115,14 @@ endforeach ()
 ----
 
 This will find files matching the common C++ suffixes and then remove any that match some
-common CMake build directories.
+common CMake directories.
+
+In the root `CMakeList.txt` we also exclude the build directory by adding the line 
+
+[source,cmake]
+----
+set(CLANG_FORMAT_EXCLUDE_PATTERNS  "build/")
+----
 
 ## format-check 
 
@@ -123,13 +133,20 @@ if any files don't match the clang-format style
 
 This target will check the output of `git status` and scan the files to check if they match the style. This can be used by developers to make sure their changed files match the correct style.
 
-In this example the actual check is done with a helper script +clang-format-check-changed+. This calls the following command to check files:
+In this example the actual check is done with a helper script +clang-format-check-changed.py+. This script will run `git status --porcelain --ignore-submodules`
+to get a list of changed files, match them against the allowed extensions from the above list, and finally remove any
+that match the exclude pattern from +CLANG_FORMAT_EXCLUDE_PATTERNS+. It will then run these files through clang-format and 
+exit with an error if the files do not match the style.
+
+An example call to the +clang-format-check-changed.py+ script is:
 
 [source,bash]
 ----
-git status --porcelain \
-  | egrep '*\.cpp|*\.h|*\.cxx|*\.hxx|*\.hpp|*\.cc' \
-  | awk -F " " '{print $NF}' \
-  | xargs -r clang-format -style=file -output-replacements-xml \
-  | grep "replacement offset" 2>&1 > /dev/null
+cmake/scripts/clang-format-check-changed.py --file-extensions ".cpp,*.cpp,*.h,*.cxx,*.hxx,*.hpp,*.cc,*.ipp" --exclude=build/ --exclude=/CMakeFiles/ --exclude=cmake --clang-format-bin /usr/bin/clang-format-3.6
 ----
+
+[NOTE]
+====
+This will include all changed files in your git repository that match the patterns. In this example repository this can include files that 
+are part of different examples.
+====

@@ -6,7 +6,7 @@ if(NOT CLANG_FORMAT_BIN_NAME)
 endif()
 
 # if custom path check there first
-if(CPPCHECK_ROOT_DIR)
+if(CLANG_FORMAT_ROOT_DIR)
     find_program(CLANG_FORMAT_BIN 
         NAMES
         ${CLANG_FORMAT_BIN_NAME}
