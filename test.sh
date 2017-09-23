@@ -33,6 +33,7 @@ dirs=(./01-basic/A-hello-cmake \
 ./04-static-analysis/clang-analyzer \
 ./04-static-analysis/clang-format \
 ./05-unit-testing/boost \
+./05-unit-testing/google-test-download \
 ./06-installer/deb \
 )
 

@@ -24,3 +24,4 @@ some of these frameworks and call them using the CMake testing utility CTest.
 The examples here include using the following frameworks:
 
 * http://www.boost.org/doc/libs/1_56_0/libs/test/doc/html/utf/user-guide.html[Boost Unit Test Framework]
+* https://github.com/google/googletest[Google Test - Download]
