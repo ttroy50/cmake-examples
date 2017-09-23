@@ -29,8 +29,8 @@ $ tree
 ├── unit_tests.cpp
 ```
 
-  * link:3rd_party/google-test/CMakeLists.txt - CMake commands to build and prepare the google test library
-  * link:3rd_party/google-test/CMakeLists.txt.in - Helper script to do the download of google test
+  * link:3rd_party/google-test/CMakeLists.txt[] - CMake commands to build and prepare the google test library
+  * link:3rd_party/google-test/CMakeLists.txt.in[] - Helper script to do the download of google test
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
   * link:Reverse.h[] / link:Reverse.cpp[.cpp] - Class to reverse a string
   * link:Palindrome.h[] / link:Palindrome.cpp[.cpp] - Class to test if a string is a palindrome
@@ -38,7 +38,7 @@ $ tree
 
 # Requirements
 
-An internet connection. This example will download the google test library the first time it is built. See the 
+An internet connection. This example will download the google test library the first time you run the CMake configure step. See the 
 link:https://github.com/google/googletest/blob/master/googletest/README.md[google test readme] and link:http://crascit.com/2015/07/25/cmake-gtest/[here] for details. 
 
 # Concepts
@@ -55,9 +55,9 @@ more details from link:https://github.com/google/googletest/blob/master/googlete
 
 Alternatives to this method include:
 
-  * Use something like +git submodule+ to download the source to a folder in your tree and then do +add_subdirectory+
+  * Use something like `git submodule` to download the source to a folder in your tree and then do `add_subdirectory`
   * Vendor the google test source code within your repository
-  * Build google test externally and link it using +find_package(GTest)+ - Not recommended by the google test authors anymore
+  * Build google test externally and link it using `find_package(GTest)` - Not recommended by the google test authors anymore
 
 ## Enabling testing
 
@@ -87,7 +87,7 @@ target_link_libraries(unit_tests
 ----
 
 In the above code, a unit test binary is added, which links against the google test unit-test-framework using the
-alias target setup during the link:3rd_party/google-test/CMakeLists.txt[download and build] of GTest.
+ALIAS target setup during the link:3rd_party/google-test/CMakeLists.txt[download and build] of GTest.
 
 ## Add A test
 
