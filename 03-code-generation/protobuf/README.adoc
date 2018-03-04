@@ -33,7 +33,7 @@ This can be installed on Ubuntu using
 
 [source,bash]
 ----
-sudo apt-get install protobuf-compiler sudo apt-get install protobuf-compiler
+sudo apt-get install protobuf-compiler libprotobuf-dev
 ----
 
 # Concepts
