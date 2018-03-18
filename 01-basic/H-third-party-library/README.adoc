@@ -85,31 +85,61 @@ variable, these are package specific and are typically documented at the top of 
 The variables exported in this example include:
 
   * `Boost_INCLUDE_DIRS` - The path to the boost header files.
-  * `Boost_SYSTEM_LIBRARY` - The path to the boost system library.
-  * `Boost_FILESYSTEM_LIBRARY` - The path to the boost filesystem library.
 
 In some cases you can also check these variables by examining the cache using
 ccmake or cmake-gui.
 
-## Alias variables
+## Alias / Imported targets
 
-Some modern CMake libraries export +ALIAS+ targets in their module files. For example, starting from v3.5+ of CMake, the
+Most modern CMake libraries link:https://cmake.org/cmake/help/v3.6/prop_tgt/IMPORTED.html#prop_tgt:IMPORTED[export] +ALIAS+ targets in their module files. 
+The benefit of imported targets are that they can also populate include directories and linked libraries.
+
+For example, starting from v3.5+ of CMake, the
 Boost module supports this. Similar to using your own ALIAS target for libraires, an +ALIAS+ in a module can make referencing found targets eaiser.
 
-In the case of Boost, you could replace the following from this example:
+In the case of Boost, all targets are exported using the `Boost::` identifier and then the name 
+of the subsystem. For example you can use:
 
-  * `Boost_INCLUDE_DIRS` with `Boost::boost` for header only libraries
-  * `Boost_FILESYSTEM_LIBRARY` with `Boost::filesystem`
-  * `Boost_SYSTEM_LIBRARY` with `Boost::system`. If you include `Boost::filesystem` it automatically includes `Boost::system`
+  * `Boost::boost` for header only libraries
+  * `Boost::system` for the boost system library.
+  * `Boost::filesystem` for filesystem library.
 
-Using the new alias sytem, to replicate this example you only have to link the following:
+As with your own targets, these targets include their dependencies, so linking against
+`Boost::filesystem` will automatically add `Boost::boost` and `Boost::system` dependencies.
+
+To link against an imported target you can use the following:
 
 [source,cmake]
 ----
   target_link_libraries( third_party_include
       PRIVATE
-      Boost::filesystem
+          Boost::filesystem
   )
+----
+
+## Non-alias targets
+
+While most modern libraries use imported targets, not all modules have been updated. In the
+case where a library hasn't been updated you will often find the following variables available:
+
+  * xxx_INCLUDE_DIRS - A varialble pointing to the include directory for the library.
+  * xxx_LIBRARY - A variable pointing to the library path.
+
+These can then be added to your +target_include_directories+ and +target_link_libraries+ as:
+
+[source,cmake]
+----
+# Include the boost headers
+target_include_directories( third_party_include
+    PRIVATE ${Boost_INCLUDE_DIRS}
+)
+
+# link against the boost libraries
+target_link_libraries( third_party_include
+    PRIVATE
+    ${Boost_SYSTEM_LIBRARY}
+    ${Boost_FILESYSTEM_LIBRARY}
+)
 ----
 
 # Building the Example

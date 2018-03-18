@@ -1,11 +1,7 @@
 project(subbinary)
 
-set(SOURCES
-    main.cpp
-)
-
 # Create the executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} main.cpp)
 
 # Link the static library from subproject1 using it's alias sub::lib1
 # Link the header only library from subproject2 using it's alias sub::lib2

@@ -6,7 +6,9 @@ toc::[]
 
 # Introduction
 
-Shows a hello world example which first creates and links a static library
+Shows a hello world example which first creates and links a static library. This is a 
+simplified example showing the library and binary in the same folder. Typically
+these would be in sub-projects as described in section link:../../02-sub-projects[02-sub-projects]
 
 The files in this tutorial are below:
 
@@ -15,14 +17,15 @@ $ tree
 .
 ├── CMakeLists.txt
 ├── include
-│   └── Hello.h
+│   └── static
+│       └── Hello.h
 └── src
     ├── Hello.cpp
     └── main.cpp
 ```
 
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
-  * link:include/Hello.h[] - The header file to include
+  * link:include/static/Hello.h[] - The header file to include
   * link:src/Hello.cpp[] - A source file to compile
   * link:src/main.cpp[] - The source file with main
 
@@ -36,15 +39,19 @@ This is called as follows:
 
 [source,cmake]
 ----
-set(library_SOURCES
+add_library(hello_library STATIC 
     src/Hello.cpp
 )
-
-add_library(hello_library STATIC ${library_SOURCES})
 ----
 
 This will be used to create a static library with the name libhello_library.a with
-the sources from the +library_SOURCES+ variable.
+the sources in the +add_library+ call.
+
+[NOTE]
+====
+As mentioned in the prevoius example, we pass the source files directly to the
++add_library+ call, as recommended for modern CMake.
+====
 
 ## Populating Including Directories
 
@@ -53,7 +60,8 @@ In this example, we include directories in the library using the +target_include
 [source,cmake]
 ----
 target_include_directories(hello_library
-    PUBLIC ${PROJECT_SOURCE_DIR}/include
+    PUBLIC 
+        ${PROJECT_SOURCE_DIR}/include
 )
 ----
 
@@ -64,10 +72,28 @@ This will cause the included directory used in the following places:
 
 The meaning of scopes are:
 
-* +PRIVATE_ - the directory is added to this target's include directories
+* +PRIVATE+ - the directory is added to this target's include directories
 * +INTERFACE+ - the directory is added to the include directores for any targets that link this library.
 * +PUBLIC+ - As above, it is included int his library and also any targets that link this library.
 
+
+[TIP]
+====
+For public headers it is often a good idea to have your include folder be "namespaced"
+with sub-directories. 
+
+The directory passed to +target_include_directories+ will be the root of your 
+include directory tree and your C++ files should include the path from there to your header.
+
+For this example you can see that we do it as follows:
+[source,cpp]
+----
+#include "static/Hello.h"
+----
+
+Using this method means that there is less chance of header filename clashes when
+you use multiple libraries in your project. 
+====
 
 ## Linking a Library
 
@@ -76,10 +102,13 @@ about the library. This can be done using the +target_link_library()+ function.
 
 [source,cmake]
 ----
-add_executable(hello_binary ${binary_SOURCES})
+add_executable(hello_binary 
+    src/main.cpp
+)
 
 target_link_libraries( hello_binary
-   PRIVATE  hello_library
+    PRIVATE  
+        hello_library
 )
 ----
 

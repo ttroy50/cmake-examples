@@ -145,7 +145,7 @@ is added as a dependency.
 ----
 target_link_libraries(subbinary
     PUBLIC
-    sublibrary1
+        sublibrary1
 )
 ----
 
@@ -164,7 +164,7 @@ To reference the alias, just it as follows:
 [source,cmake]
 ----
 target_link_libraries(subbinary
-    sublibrary1
+    sub::lib2
 )
 ----
 

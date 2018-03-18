@@ -1,4 +1,4 @@
-#include "Hello.h"
+#include "static/Hello.h"
 
 int main(int argc, char *argv[])
 {

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 # Set the project name
 project (third_party_include)
@@ -17,14 +17,8 @@ endif()
 # Add an executable
 add_executable(third_party_include main.cpp)
 
-# Include the boost headers
-target_include_directories( third_party_include
-    PRIVATE ${Boost_INCLUDE_DIRS}
-)
-
 # link against the boost libraries
 target_link_libraries( third_party_include
     PRIVATE
-    ${Boost_SYSTEM_LIBRARY}
-    ${Boost_FILESYSTEM_LIBRARY}
+        Boost::filesystem
 )

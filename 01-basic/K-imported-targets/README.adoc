@@ -32,8 +32,7 @@ This example requires the following:
 
 ## Imported Target
 
-Imported targets are read-only targets that are exported by FindXXX modules. The benefit of imported
-targets are that they can also populate include directories and linked libraries.
+Imported targets are read-only targets that are exported by FindXXX modules. 
 
 To include boost filesystem you can do the following:
 
@@ -41,7 +40,7 @@ To include boost filesystem you can do the following:
 ----
   target_link_libraries( imported_targets
       PRIVATE
-      Boost::filesystem
+          Boost::filesystem
   )
 ----
 
