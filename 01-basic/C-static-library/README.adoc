@@ -83,7 +83,7 @@ For public headers it is often a good idea to have your include folder be "names
 with sub-directories. 
 
 The directory passed to +target_include_directories+ will be the root of your 
-include directory and your C++ files should include the path from there to your header.
+include directory tree and your C++ files should include the path from there to your header.
 
 For this example you can see that we do it as follows:
 [source,cpp]
