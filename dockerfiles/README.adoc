@@ -22,7 +22,7 @@ For example:
 
 [source,bash]
 ----
-$ docker build --rm -f ubuntu14.04-cmake-3.4.3 -t matrim/cmake-examples:3.4.3 .
+$ docker build --rm -f ubuntu14.04-cmake-3.5.1 -t matrim/cmake-examples:3.5.1 .
 ----
 
 In this example the tag is created as follows
@@ -35,7 +35,17 @@ This will tag the container as belong to my repositry with the label of the cont
 
 I have pre-build images and pushed them to the https://hub.docker.com[docker hub] in the repository https://hub.docker.com/r/matrim/cmake-examples/[matrim/cmake-examples].
 
-The images available include the following versions of cmake:
+The current usable images include the following versions of cmake:
+
+* Ubuntu 16.04 with CMake 3.5.1
+
+    $ docker pull docker pull matrim/cmake-examples:3.5.1
+
+* Ubuntu 16.04 with CMake 3.10.3
+
+    $ docker pull docker pull matrim/cmake-examples:3.10.3
+
+Some old images which work with older version of the repository include:
 
 * Ubuntu 14.04 with CMake 2.8.12.2
 
@@ -44,10 +54,6 @@ The images available include the following versions of cmake:
 * Ubuntu 14.04 with CMake 3.4.3
 
     $ docker pull docker pull matrim/cmake-examples:3.4.3
-
-* Ubuntu 16.04 with CMake 3.5.1
-
-    $ docker pull docker pull matrim/cmake-examples:3.5.1
 
 # Running
 
@@ -59,7 +65,7 @@ For example
 
 [source,bash]
 ----
-docker run -e DEV_UID=`id -u` -e DEV_GID=`id -u` -it matrim/cmake-examples:3.4.3
+docker run -e DEV_UID=`id -u` -e DEV_GID=`id -u` -it matrim/cmake-examples:3.5.1
 ----
 
 
@@ -67,7 +73,7 @@ To build the full set of cmake-examples test cases you can run:
 
 [source,bash]
 ----
-docker run -it matrim/cmake-examples:3.4.3
+docker run -it matrim/cmake-examples:3.5.1
 git clone https://github.com/ttroy50/cmake-examples.git
 cd cmake-examples
 ./test.sh
@@ -80,5 +86,5 @@ Below is an example of loading a volume and automatically running all cmake-exam
 
 [source,bash]
 ----
-docker run --rm -e DEV_UID=`id -u` -e DEV_GID=`id -u` -v /checkout/directory:/data/code -it matrim/cmake-examples:3.4.3 /data/code/test.sh
+docker run --rm -e DEV_UID=`id -u` -e DEV_GID=`id -u` -v /checkout/directory:/data/code -it matrim/cmake-examples:3.5.1 /data/code/test.sh
 ----

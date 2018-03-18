@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 # Set the project name
 project (cf_example)
@@ -20,10 +20,10 @@ configure_file(path.h.in ${PROJECT_BINARY_DIR}/path.h @ONLY)
 # Add an executable
 add_executable(cf_example
     main.cpp
-    )
+)
 
 # include the directory with the new files
 target_include_directories( cf_example
     PUBLIC
-    ${CMAKE_BINARY_DIR}
+        ${CMAKE_BINARY_DIR}
 )

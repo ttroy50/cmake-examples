@@ -16,9 +16,12 @@ when exploring it's usage for various projects. The examples are laid out in a t
 The first examples are very basic and slowly increase in complexity drawing on previous examples to show
 more complex use cases.
 
-These examples have been tested on Ubuntu 14.04 but should work under any Linux system that supports CMake.
+These examples have been tested on Ubuntu 16.04 but should work under any Linux system that supports CMake v3.5+.
 
-This branch works with the CMake version 3.x onwards. For examples that use CMake version 2.x see the branch link:https://github.com/ttroy50/cmake-examples/tree/v2-style-includes[v2-style-includes].
+This branch works with the CMake version 3.5 onwards. 
+
+* For examples that use CMake version 2.x see the branch link:https://github.com/ttroy50/cmake-examples/tree/v2-style-includes[v2-style-includes].
+* For examples that use CMake version 3.0 see the branch link:https://github.com/ttroy50/cmake-examples/tree/v3.0-minimum[v3.0-minimum]
 
 image:https://travis-ci.org/ttroy50/cmake-examples.svg?branch=master["Build Status", link="https://travis-ci.org/ttroy50/cmake-examples"]
 
@@ -26,7 +29,7 @@ image:https://travis-ci.org/ttroy50/cmake-examples.svg?branch=master["Build Stat
 
 The basic requirements for most examples are:
 
-* CMake v3.x
+* CMake v3.5+
 * A c++ compiler (defaults to gcc)
 * make
 
@@ -71,7 +74,7 @@ To build the full set of cmake-examples test cases you can run:
 
 [source,bash]
 ----
-docker run -it matrim/cmake-examples:3.4.3
+docker run -it matrim/cmake-examples:3.5.1
 git clone https://github.com/ttroy50/cmake-examples.git
 cd cmake-examples
 ./test.sh

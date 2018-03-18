@@ -59,10 +59,13 @@ add_executable(unit_tests unit_tests.cpp)
 
 target_link_libraries(unit_tests
     example_boost_unit_test
-    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+    Boost::unit_test_framework
 )
 
-add_definitions (-DBOOST_TEST_DYN_LINK)
+target_compile_definitions(unit_tests
+    PRIVATE
+        BOOST_TEST_DYN_LINK
+)
 ----
 
 In the above code, a unit test binary is added, which links against the boost unit-test-framework

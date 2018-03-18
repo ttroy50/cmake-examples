@@ -17,7 +17,8 @@ $ tree
 ├── cmake-examples.conf
 ├── CMakeLists.txt
 ├── include
-│   └── Hello.h
+│   └── installing
+│       └── Hello.h
 ├── README.adoc
 └── src
     ├── Hello.cpp
@@ -26,7 +27,7 @@ $ tree
 
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
   * link:cmake-examples.conf[] - An example configuration file
-  * link:include/Hello.h[] - The header file to include
+  * link:include/installing/Hello.h[] - The header file to include
   * link:src/Hello.cpp[] - A source file to compile
   * link:src/main.cpp[] - The source file with main
 
@@ -71,6 +72,16 @@ install (TARGETS cmake_examples_inst
     RUNTIME DESTINATION bin)
 ----
 ====
+
+
+[source,cmake]
+----
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ 
+    DESTINATION include)
+----
+
+Install the header files for developing against the +cmake_examples_inst+ library
+into the +${CMAKE_INSTALL_PREFIX}/include+ directory.
 
 [source,cmake]
 ----
