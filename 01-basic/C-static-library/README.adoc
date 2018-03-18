@@ -72,7 +72,7 @@ This will cause the included directory used in the following places:
 
 The meaning of scopes are:
 
-* +PRIVATE_ - the directory is added to this target's include directories
+* +PRIVATE+ - the directory is added to this target's include directories
 * +INTERFACE+ - the directory is added to the include directores for any targets that link this library.
 * +PUBLIC+ - As above, it is included int his library and also any targets that link this library.
 
