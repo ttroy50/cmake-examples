@@ -11,7 +11,7 @@ https://cmake.org/[CMake] is a cross-platform open-source meta-build system whic
 can build, test and package software. It can be used to support multiple native build environments including
 make, Apple's xcode and Microsoft Visual Studio.
 
-This repository includes some example CMake configurations which I have picked up
+This repository includes some example modern CMake configurations which I have picked up
 when exploring it's usage for various projects. The examples are laid out in a tutorial like format.
 The first examples are very basic and slowly increase in complexity drawing on previous examples to show
 more complex use cases.

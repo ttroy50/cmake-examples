@@ -7,8 +7,8 @@ toc::[]
 # Introduction
 
 Shows a hello world example which first creates and links a static library. This is a 
-simplified example showing the libray and binary in the same folder. Typically
-these would be in sub-projects as described in section 02-sub-projects
+simplified example showing the library and binary in the same folder. Typically
+these would be in sub-projects as described in section link:../../02-sub-projects[02-sub-projects]
 
 The files in this tutorial are below:
 
