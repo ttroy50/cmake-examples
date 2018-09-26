@@ -7,7 +7,7 @@ toc::[]
 # Introduction
 
 As previously mentioned in the link:../H-third-party-library[third party library], newer
-versions of CMake alow you to link third party libraries using link:https://cmake.org/cmake/help/v3.6/prop_tgt/IMPORTED.html#prop_tgt:IMPORTED[imported] +ALIAS+ targets.
+versions of CMake allow you to link third party libraries using link:https://cmake.org/cmake/help/v3.6/prop_tgt/IMPORTED.html#prop_tgt:IMPORTED[imported] +ALIAS+ targets.
 
 The files in this tutorial are below:
 
