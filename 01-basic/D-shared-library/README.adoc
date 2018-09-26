@@ -46,7 +46,7 @@ add_library(hello_library SHARED
 ----
 
 This will be used to create a shared library with the name libhello_library.so with
-the sources passed to teh +add_library()+ function.
+the sources passed to the +add_library()+ function.
 
 ## Alias Target
 
