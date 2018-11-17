@@ -111,3 +111,12 @@ mark_as_advanced(
     CPPCHECK_SUPPRESSIONS
     CPPCHECK_CHECKS_ARGS
     CPPCHECK_OTHER_ARGS)
+
+if(CPPCHECK_FOUND)
+    file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/analysis/cppcheck)
+    add_custom_target(cppcheck-analysis 
+        COMMAND ${CPPCHECK_COMMAND})
+    message("cppcheck found. Use cppccheck-analysis targets to run it")
+else()
+    message("cppcheck not found. No cppccheck-analysis targets")
+endif()
