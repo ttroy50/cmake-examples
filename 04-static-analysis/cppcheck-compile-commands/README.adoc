@@ -88,6 +88,18 @@ When cppcheck finds an error it can cause it to exit with a specific error. In t
 example, by default, it will exit with `1`. To change this you can set the 
 +CPPCHECK_ERROR_EXITCODE_ARG+ argument when running CMake.
 
+### Exitcode suppressions
+
+Sometimes you wish to display an error in the log, but to not have that error cause a failed build. To do this you can create a file `.cppcheck_exitcode_suppressions` and add suppressions to it. This file must be in your +CMAKE_SOURCE_DIR+
+
+### CppCheck arguments
+
+The default enabled checks are `--enabled=warning`. To change this you can override the `CPPCHECK_CHECK_ARGS` variable before calling `find(cppcheck)`.
+
+### Excluding files / folders
+
+Many projects include some vendored 3rd party code. To exclude this from you check you can create a list `CPPCHECK_EXCLUDES` before calling the find module. This will add all files and folders in the list into the list of excluded folders.
+
 ### CppCheck build dir
 
 In this example, we set +CPPCHECK_BUILD_DIR_ARG+, to `${PROJECT_BINARY_DIR}/analysis/cppcheck`. This will output details of the build to this folder and can be used to 

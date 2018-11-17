@@ -15,7 +15,9 @@
 #   CPPCHECK_CHECKS_ARGS - The checks to run
 #   CPPCHECK_OTHER_ARGS - Any other arguments
 #   CPPCHECK_COMMAND - The full command to run the default cppcheck configuration
-#
+#   CPPCHECK_EXCLUDES - A list of files or folders to exclude from the scan. Must be the full path
+#   
+# if CPPCHECK_XML_OUTPUT is set before calling this. CppCheck will create an xml file with that name
 # find the cppcheck binary
 
 # if custom path check there first
@@ -39,14 +41,29 @@ if(CPPCHECK_BIN)
     set(CPPCHECK_THREADS_ARG "-j4" CACHE STRING "The number of threads to use")
     set(CPPCHECK_PROJECT_ARG "--project=${PROJECT_BINARY_DIR}/compile_commands.json")
     set(CPPCHECK_BUILD_DIR_ARG "--cppcheck-build-dir=${PROJECT_BINARY_DIR}/analysis/cppcheck" CACHE STRING "The build directory to use")
+    # Don't show thise errors
     if(EXISTS "${CMAKE_SOURCE_DIR}/.cppcheck_suppressions")
         set(CPPCHECK_SUPPRESSIONS "--suppressions-list=${CMAKE_SOURCE_DIR}/.cppcheck_suppressions" CACHE STRING "The suppressions file to use")
     else()
         set(CPPCHECK_SUPPRESSIONS "" CACHE STRING "The suppressions file to use")
     endif()
+
+    # Show these errors but don't fail the build
+    # These are mainly going to be from the "warning" category that is enabled by default later
+    if(EXISTS "${CMAKE_SOURCE_DIR}/.cppcheck_exitcode_suppressions")
+        set(CPPCHECK_EXITCODE_SUPPRESSIONS "--exitcode-suppressions=${CMAKE_SOURCE_DIR}/.cppcheck_exitcode_suppressions" CACHE STRING "The exitcode suppressions file to use")
+    else()
+        set(CPPCHECK_EXITCODE_SUPPRESSIONS "" CACHE STRING "The exitcode suppressions file to use")
+    endif()
+
     set(CPPCHECK_ERROR_EXITCODE_ARG "--error-exitcode=1" CACHE STRING "The exitcode to use if an error is found")
-    set(CPPCHECK_CHECKS_ARGS "" CACHE STRING "Arguments for the checks to run")
-    set(CPPCHECK_OTHER_ARGS "--quiet" CACHE STRING "Other arguments")
+    set(CPPCHECK_CHECKS_ARGS "--enable=warning" CACHE STRING "Arguments for the checks to run")
+    set(CPPCHECK_OTHER_ARGS "" CACHE STRING "Other arguments")
+    set(_CPPCHECK_EXCLUDES)
+
+    foreach(ex ${CPPCHECK_EXCLUDES})
+        list(APPEND _CPPCHECK_EXCLUDES "-i${ex}")
+    endforeach(ex)
 
     set(CPPCHECK_ALL_ARGS 
         ${CPPCHECK_THREADS_ARG} 
@@ -54,17 +71,28 @@ if(CPPCHECK_BIN)
         ${CPPCHECK_BUILD_DIR_ARG} 
         ${CPPCHECK_ERROR_EXITCODE_ARG} 
         ${CPPCHECK_SUPPRESSIONS} 
+        ${CPPCHECK_EXITCODE_SUPPRESSIONS}
         ${CPPCHECK_CHECKS_ARGS} 
         ${CPPCHECK_OTHER_ARGS}
+        ${_CPPCHECK_EXCLUDES}
     )
 
-    set(CPPCHECK_COMMAND 
-        ${CPPCHECK_BIN}
-        ${CPPCHECK_ALL_ARGS}
-    )
+    if(NOT CPPCHECK_XML_OUTPUT)
+        set(CPPCHECK_COMMAND 
+            ${CPPCHECK_BIN}
+            ${CPPCHECK_ALL_ARGS}
+        )
+    else()
+        set(CPPCHECK_COMMAND
+            ${CPPCHECK_BIN}
+            ${CPPCHECK_ALL_ARGS}
+            --xml 
+            --xml-version=2
+            2> ${CPPCHECK_XML_OUTPUT})
+    endif()
     
-    #TODO add version check on the binary
 endif()
+
 
 
 # handle the QUIETLY and REQUIRED arguments and set YAMLCPP_FOUND to TRUE if all listed variables are TRUE
