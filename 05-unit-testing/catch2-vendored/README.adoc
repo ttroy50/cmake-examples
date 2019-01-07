@@ -1,4 +1,4 @@
-= Catch Unit Testing Framework
+= Catch2 Unit Testing Framework
 :toc:
 :toc-placement!:
 
@@ -9,7 +9,7 @@ toc::[]
 
 Using link:https://cmake.org/Wiki/CMake/Testing_With_CTest[CTest] you can generate
 a `make test` target to run automated unit-tests. This example shows how to
-find the https://github.com/philsquared/Catch[catch framework],
+find the https://github.com/catchorg/Catch2[catch2 framework],
 create tests and run them.
 
 The files in this tutorial are below:
@@ -18,8 +18,8 @@ The files in this tutorial are below:
 $ tree
 .
 ├── 3rd_party
-│   └── catch
-│       ├── catch
+│   └── catch2
+│       ├── catch2
 │       │   └── catch.hpp
 │       └── CMakeLists.txt
 ├── CMakeLists.txt
@@ -30,12 +30,12 @@ $ tree
 ├── unit_tests.cpp
 ```
 
-  * link:3rd_party/catch/catch/catch.hpp[] - Vendored copy of the https://github.com/philsquared/Catch/releases/download/v2.0.0-develop.4/catch.hpp[single header version of catch]
-  * link:3rd_party/catch/CMakeLists.txt[] - CMake file to make Catch available as a library
+  * link:3rd_party/catch2/catch2/catch.hpp[] - Vendored copy of the https://github.com/catchorg/Catch2/blob/v2.5.0/single_include/catch2/catch.hpp[single header version of catch2]
+  * link:3rd_party/catch2/CMakeLists.txt[] - CMake file to make Catch2 available as a library
   * link:CMakeLists.txt[] - Contains the CMake commands you wish to run
   * link:Reverse.h[] / link:Reverse.cpp[.cpp] - Class to reverse a string
   * link:Palindrome.h[] / link:Palindrome.cpp[.cpp] - Class to test if a string is a palindrome
-  * link:unit_test.cpp[] - Unit Tests using catch unit test framework
+  * link:unit_test.cpp[] - Unit Tests using catch2 unit test framework
 
 # Requirements
 
@@ -43,27 +43,27 @@ A C++11 compatible compiler
 
 # Concepts
 
-## Vendoring catch
+## Vendoring catch2
 
-As catch is available as a single header file I have downloaded it and checked it into my repository. This mean
-that I don't have any external dependencies when building my project. This is one of the 
-https://github.com/philsquared/Catch/blob/master/docs/build-systems.md#cmake[recommended] ways to use Catch.
+As catch2 is available as a single header file I have downloaded it and checked it into my repository. This mean
+that I don't have any external dependencies when building my project. This is one of the
+https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#getting-catch2[simplest] ways to use Catch2.
 
-## Catch Interface Library
+## Catch2 Interface Library
 
-The CMakeLists in the catch directory creates an `INTERFACE` library and `ALIAS` library to make it
-easy to add Catch to your executable.
+The CMakeLists in the catch2 directory creates an `INTERFACE` library and `ALIAS` library to make it
+easy to add Catch2 to your executable.
 
 [source,cmake]
 ----
-add_library(Catch INTERFACE)
-add_library(Catch::Test ALIAS Catch)
-target_include_directories(Catch INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(Catch2 INTERFACE)
+add_library(Catch2::Test ALIAS Catch2)
+target_include_directories(Catch2 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 ----
 
 ## Build with C++11
 
-As Catch requires C++11 to build, I have used the `CMAKE_CXX_STANDARD` to set C++11. As described
+As Catch2 requires C++11 to build, I have used the `CMAKE_CXX_STANDARD` to set C++11. As described
 in earlier examples you can use other methods to set this standard.
 
 ## Enabling testing
@@ -80,7 +80,7 @@ This will enable testing for the current folder and all folders below it.
 ## Adding a testing executable
 
 The requirement for this step will depend on your unit-test framework. In the example
-of catch, you can create binary(s) which includes all the unit tests that you want to run.
+of catch2, you can create binary(s) which includes all the unit tests that you want to run.
 
 [source,cmake]
 ----
@@ -88,11 +88,11 @@ add_executable(unit_tests unit_tests.cpp)
 
 target_link_libraries(unit_tests
     example_unit_test
-    Catch::Test
+    Catch2::Test
 )
 ----
 
-In the above code, a unit test binary is added, which links against the catch `ALIAS` target created earlier.
+In the above code, a unit test binary is added, which links against the catch2 `ALIAS` target created earlier.
 
 ## Add A test
 
@@ -132,7 +132,7 @@ $ cmake ..
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /data/code/cmake-examples/05-unit-testing/catch-vendored/build
+-- Build files have been written to: /data/code/cmake-examples/05-unit-testing/catch2-vendored/build
 
 
 $ make
@@ -149,7 +149,7 @@ Scanning dependencies of target unit_tests
 
 $ make test
 Running tests...
-Test project /data/code/cmake-examples/05-unit-testing/catch-vendored/build
+Test project /data/code/cmake-examples/05-unit-testing/catch2-vendored/build
     Start 1: test_all
 1/1 Test #1: test_all .........................   Passed    0.00 sec
 
@@ -164,7 +164,7 @@ Then when running the tests you will see the following output.
 [source,bash]
 ----
 Running tests...
-Test project /data/code/cmake-examples/05-unit-testing/catch-vendored/build
+Test project /data/code/cmake-examples/05-unit-testing/catch2-vendored/build
     Start 1: test_all
 1/1 Test #1: test_all .........................***Failed    0.00 sec
 
