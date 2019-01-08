@@ -34,7 +34,7 @@ dirs=(./01-basic/A-hello-cmake \
 ./04-static-analysis/clang-format \
 ./05-unit-testing/boost \
 ./05-unit-testing/google-test-download \
-./05-unit-testing/catch-vendored \
+./05-unit-testing/catch2-vendored \
 ./06-installer/deb \
 )
 
