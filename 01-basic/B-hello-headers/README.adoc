@@ -86,7 +86,7 @@ file(GLOB SOURCES "src/*.cpp")
 
 [TIP]
 ====
-For modern CMake it is NOT recommended to use a variable for sources. Insead it is 
+For modern CMake it is NOT recommended to use a variable for sources. Instead it is 
 typical to directly declare the sources in the add_xxx function.
 
 This is particularly important for glob commands which may not always show you the
