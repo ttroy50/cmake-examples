@@ -47,7 +47,7 @@ Some specific examples may require other tools including:
 
 * http://www.boost.org/[boost]
 
-  $ sudo apt-get libboost-all-dev
+  $ sudo apt-get install libboost-all-dev
 
 * https://github.com/google/protobuf[protobuf]
 
