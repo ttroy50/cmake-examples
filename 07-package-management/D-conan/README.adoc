@@ -1,0 +1,24 @@
+= Conan
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+link:https://conan.io[Conan] is an open source, decentralized, and multi-platform package manager that can be used to create and share native libraries and binaries. It supports multiple build systems (CMake, Visual Studio, Makefiles) and OSes (Linux, Windows, and Mac). 
+
+Conan servers can be installed privately or you can use public servers and packages made available by link:https://bintray.com/conan/conan-center[Jfrog bintray].
+
+Full documentation for conan can be found from link:https://docs.conan.io/en/latest/[here]
+
+# Installing
+
+Conan is a python application and can be installed using pip.
+
+[source,bash]
+----
+$ pip install conan
+----
+
+Alternatively, native packages are available for most operating systems. Full details are available link:https://docs.conan.io/en/latest/installation.html[here].

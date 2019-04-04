@@ -1,5 +1,4 @@
 = Package Management
-
 :toc:
 :toc-placement!:
 
