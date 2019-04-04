@@ -1,5 +1,4 @@
 = Vendoring Code
-
 :toc:
 :toc-placement!:
 
