@@ -1,5 +1,4 @@
 = Using System Provided Package Manager
-
 :toc:
 :toc-placement!:
 
