@@ -1,0 +1,43 @@
+= Vendoring Code
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Vendoring code means to include the third party code inside your repository and build it as part of your project. It is a way to ensure that all files required to build your project are part of the development environment.
+
+# Implementation
+
+## Including 3rd Party Code
+
+Typically, this might take the form or a `3rd_party` or `vendor` directory, in which you copy the source of the libraries you want to include. For example, you may do something like:
+
+```
+$ tree
+.
+├── 3rd_party
+│   └── catch2
+│       ├── catch2
+│       │   └── catch.hpp
+│       └── CMakeLists.txt
+├── CMakeLists.txt
+├── src
+│   └── example.cpp
+```
+
+
+If these projects support CMake directly, it may be possible to do `add_subdirectory()` on the libraries folder and have that project build and be made available to your code. 
+
+If the third party code doesn't support CMake, you may need to create a "shim" layer on top of the project to allow it to be build and discovered from CMake.
+
+## Using git to vendor code
+
+A slightly different method to include the third party code can be to use your SCM software to manage the process for you. 
+
+In the case of git, you can use link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[git sub-modules] or link:https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging[git subtree]. These can pull the correct version of the third party code into your repository on initialisation / update.  
+
+# Examples
+
+A simple example of vendoring code can already be seen in the link:https://github.com/ttroy50/cmake-examples/tree/master/05-unit-testing/catch2-vendored[catch2] testing tutorial.

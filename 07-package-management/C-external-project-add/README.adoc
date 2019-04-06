@@ -1,0 +1,40 @@
+= External Project
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+CMake supports downloading and building an external project using the link:https://cmake.org/cmake/help/latest/module/ExternalProject.html[External Project] commands. By adding +ExternalProject_Add+ to your code you can have CMake automatically download a source file from either HTTP or a source control system (e.g. git). 
+
+Once configured an external project will generate a custom target which can be used to control the download, update, build, test, and install phases of the external project.
+
+# Implementation
+
+## Standard
+
+A simple example of an external project is as follows:
+
+[source,cmake]
+----
+include(ExternalProject)
+ExternalProject_Add(googletest
+  URL    https://github.com/google/googletest/archive/bfc0ffc8a698072c794ae7299db9cb6866f4c0bc.tar.gz_
+)
+----
+
+Once added you will have a target `googletest` which will attempt to download, build, and install google test when your build your project. 
+
+[NOTE]
+====
+This will attempt to install google test to your standard locations e.g. `/usr/` and may fail if you are not root. To skip the install step you can add a line `INSTALL_COMMAND ""`
+====
+
+By default the project is assumed to work via CMake and external project will know how to build using standard CMake commands. If the external project uses a different build system, you can set the various commands using +INSTALL_COMMAND+, +CONFIGURE_COMMAND+, +BUILD_COMMAND+, etc.
+
+## Alternative
+
+An alternative method to install packages is to have the ExternalProject command run at CMake configure time. This can cause the download to happen at the configure step and you may then use +add_subdirectory+ to add the project to your code (assuming it uses CMake). An example of this can be found in the link:https://github.com/ttroy50/cmake-examples/tree/master/05-unit-testing/google-test-download[google-test-download] tutorial.
+
+A more generic version of the download code can be found link:https://github.com/Crascit/DownloadProject[here].
