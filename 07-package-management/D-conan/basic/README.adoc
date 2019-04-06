@@ -6,7 +6,7 @@ toc::[]
 
 # Introduction
 
-link:http://conan.io[Conan] supports downloading libraries and making them available to an application developers. Packages are defined in the +link:https://docs.conan.io/en/latest/using_packages/conanfile_txt.htm[conanfile.txt]+ file, which defines packages, options, and the link:https://docs.conan.io/en/latest/reference/generators.html#generators-reference[generators] for your project.
+link:http://conan.io[Conan] supports downloading libraries and making them available to an application developers. Packages are defined in the link:https://docs.conan.io/en/latest/using_packages/conanfile_txt.html[+conanfile.txt+] file, which defines packages, options, and the link:https://docs.conan.io/en/latest/reference/generators.html#generators-reference[generators] for your project.
 
 The files in this tutorial are below:
 

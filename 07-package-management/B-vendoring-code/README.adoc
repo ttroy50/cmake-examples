@@ -6,7 +6,7 @@ toc::[]
 
 # Introduction
 
-Vendoring code means to include the third party code inside your repository and building it as part of your project. It is a way to insure that all files required to build your project are part of the development environment.
+Vendoring code means to include the third party code inside your repository and build it as part of your project. It is a way to ensure that all files required to build your project are part of the development environment.
 
 # Implementation
 
@@ -34,9 +34,9 @@ If the third party code doesn't support CMake, you may need to create a "shim" l
 
 ## Using git to vendor code
 
-An slightly different method to maintain the third party code can be to use your SCM software to manage the process for you. 
+A slightly different method to include the third party code can be to use your SCM software to manage the process for you. 
 
-In the case of git, you can use link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[git sub-modules] or link:https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging[git subtree] to pull the correct version of the third party code into your repository on initialisation / update.  
+In the case of git, you can use link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[git sub-modules] or link:https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging[git subtree]. These can pull the correct version of the third party code into your repository on initialisation / update.  
 
 # Examples
 

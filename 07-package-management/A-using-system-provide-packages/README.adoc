@@ -10,4 +10,4 @@ Using your system provided packages is one of the oldest and most common form of
 
 # Examples
 
-I have already show how to do this in the link:https://github.com/ttroy50/cmake-examples/tree/master/01-basic/H-third-party-library[third party libray] example from the basic section and the link:https://github.com/ttroy50/cmake-examples/tree/master/05-unit-testing/boost[boost unit test] example.
+I have already shown how to do this in the link:https://github.com/ttroy50/cmake-examples/tree/master/01-basic/H-third-party-library[third party library] example from the basic section and the link:https://github.com/ttroy50/cmake-examples/tree/master/05-unit-testing/boost[boost unit test] example.

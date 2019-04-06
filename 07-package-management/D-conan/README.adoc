@@ -67,7 +67,7 @@ If you are using GCC compiler >= 5.1, Conan will set the compiler.libcxx to the 
 
 [source,bash]
 ----
-$ conan profile update settings.compiler.libcxx=libstdc++11 default  # Sets libcxx to C++11 ABI
+$ conan profile update settings.compiler.libcxx=libstdc++11 default
 ----
 
 [source,bash]
@@ -89,7 +89,7 @@ build_type=Release
 You can find more information about this link:https://docs.conan.io/en/latest/howtos/manage_gcc_abi.html#manage-gcc-abi[here].
 ====
 
-All examples provided will assume that the ABI being used for libstdc++ is the C++11 ABI.
+All examples provided will assume that the ABI being used for libstdc++ is the Cpp11 ABI.
 
 # Finding Packages
 
