@@ -150,3 +150,10 @@ default_options:
 ----
 
 This shows details about the package including what link:https://docs.conan.io/en/latest/using_packages/conanfile_txt.html#options[options] can be set when including the package. In the case of fmtlib there are 4 options which allow you to specify the type of installion you want.
+
+# Examples
+
+The examples included are:
+
+  - link:i-basic[Basic]. A basic example linking against one library.
+  - link:ii-basic-targets[Using Targets]. The basic example, except using modern CMake targets.
