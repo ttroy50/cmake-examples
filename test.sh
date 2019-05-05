@@ -36,7 +36,8 @@ dirs=(./01-basic/A-hello-cmake \
 ./05-unit-testing/google-test-download \
 ./05-unit-testing/catch2-vendored \
 ./06-installer/deb \
-./07-package-management/D-conan/basic \
+./07-package-management/D-conan/i-basic \
+./07-package-management/D-conan/ii-basic-targets \
 )
 
 ROOT_DIR=`pwd`
