@@ -95,7 +95,7 @@ to some of these which I have found helpful in my CMake journey.
   * http://www.kdab.com/~stephen/moderncmake.pdf[Modern CMake Slides]
   * https://rix0r.nl/blog/2015/08/13/cmake-guide/[rix0r Modern CMake Blog]
   * https://cmake.org/cmake-tutorial/[Official CMake Tutorial]
-  * https://cmake.org/Wiki/Main_Page[Official CMake Wiki]
+  * https://gitlab.kitware.com/cmake/community/wikis/home[Official CMake Wiki]
   * https://cmake.org/Wiki/CMake_Useful_Variables[CMake Useful Variables]
   * http://derekmolloy.ie/hello-world-introductions-to-cmake/[Derek Molloy - Intro to CMake]
   * http://techminded.net/blog/modular-c-projects-with-cmake.html[Modular C++ Projects]
