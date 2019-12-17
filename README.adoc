@@ -80,8 +80,9 @@ To build the full set of cmake-examples test cases you can run:
 [source,bash]
 ----
 docker run -it matrim/cmake-examples:3.5.1
-git clone https://github.com/ttroy50/cmake-examples.git
-cd cmake-examples
+cd ~ 
+git clone https://github.com/ttroy50/cmake-examples.git code
+cd code
 ./test.sh
 ----
 
