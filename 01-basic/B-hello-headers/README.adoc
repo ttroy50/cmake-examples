@@ -106,7 +106,7 @@ target_include_directories(target
 )
 ----
 
-The +PRIVATE+ identifier specifies the scope of the include. This is important for libraries and is exlpained in the next example. More details on the function is available link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[here]
+The +PRIVATE+ identifier specifies the scope of the include. This is important for libraries and is explained in the next example. More details on the function is available link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[here]
 
 # Building the Example
 
