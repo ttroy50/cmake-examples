@@ -29,7 +29,7 @@ In this example the tag is created as follows
 
   <docker user>/<repository>:<cmake version>
 
-This will tag the container as belong to my repositry with the label of the container being the version of cmake installed.
+This will tag the container as belong to my repository with the label of the container being the version of cmake installed.
 
 ## Pre-build Images
 

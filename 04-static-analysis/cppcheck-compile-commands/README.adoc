@@ -61,7 +61,7 @@ $ wget https://github.com/danmar/cppcheck/archive/1.79.tar.gz \
 
 ## Adding Custom Package Modules
 
-As with the previous example I use a custom module to find CppCheck. This version is slightly different to the pervious one and 
+As with the previous example I use a custom module to find CppCheck. This version is slightly different to the previous one and 
 will automatically add a `make cppcheck-analysis` target.
 
 [source,cmake]

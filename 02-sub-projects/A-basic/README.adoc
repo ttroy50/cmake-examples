@@ -124,7 +124,7 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 When creating the target you can also include directories for that target using
 the +INTERFACE+ scope. The +INTERFACE+ scope is use to make target requirements that are used in any Libraries
-that link this target but not in the complation of the target itself.
+that link this target but not in the compilation of the target itself.
 
 [source,cmake]
 ----
@@ -171,7 +171,7 @@ target_link_libraries(subbinary
 ## Include directories from sub-projects
 
 When adding the libraries from the sub-projects, starting from cmake v3, there is
-no need to add the projects include directores in the include directories of the
+no need to add the projects include directories in the include directories of the
 binary using them.
 
 This is controlled by the scope in the `target_include_directories()` command when creating
