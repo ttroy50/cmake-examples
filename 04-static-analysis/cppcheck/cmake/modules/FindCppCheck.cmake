@@ -12,11 +12,11 @@
 find_program(CPPCHECK_BIN NAMES cppcheck)
 
 #
-# Arugments are 
+# Arguments are 
 # -j use multiple threads (and thread count)
 # --quite only show errors / warnings etc
 # --error-exitcode The code to exit with if an error shows up
-# --enabled  Comman seperated list of the check types. Can include warning,performance,style
+# --enabled  Comma separated list of the check types. Can include warning,performance,style
 # Note nightly build on earth changes error-exitcode to 0
 set (CPPCHECK_THREADS "-j 4" CACHE STRING "The -j argument to have cppcheck use multiple threads / cores")
 

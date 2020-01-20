@@ -67,7 +67,7 @@ $ cd build
 $ conan install ..
 ----
 
-This will tell conan to read the +conanfile.txt+ from your root folder and install any required package configurations. If the package is not availabe in your package cache it will be downloaded.
+This will tell conan to read the +conanfile.txt+ from your root folder and install any required package configurations. If the package is not available in your package cache it will be downloaded.
 
 As per our requires section, `conan install` will download a static library version of fmtlib along with all required headers. On my system with default configuration, this cached library is as follows:
 

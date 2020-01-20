@@ -49,7 +49,7 @@ the sources in the +add_library+ call.
 
 [NOTE]
 ====
-As mentioned in the prevoius example, we pass the source files directly to the
+As mentioned in the previous example, we pass the source files directly to the
 +add_library+ call, as recommended for modern CMake.
 ====
 
@@ -73,7 +73,7 @@ This will cause the included directory used in the following places:
 The meaning of scopes are:
 
 * +PRIVATE+ - the directory is added to this target's include directories
-* +INTERFACE+ - the directory is added to the include directores for any targets that link this library.
+* +INTERFACE+ - the directory is added to the include directories for any targets that link this library.
 * +PUBLIC+ - As above, it is included int his library and also any targets that link this library.
 
 
@@ -113,7 +113,7 @@ target_link_libraries( hello_binary
 ----
 
 This tells CMake to link the hello_library against the hello_binary executable
-during link time. It will also propogate any include directries with +PUBLIC+ or +INTERFACE+ scope
+during link time. It will also propagate any include directories with +PUBLIC+ or +INTERFACE+ scope
  from the linked library target.
 
 An example of this being called by the compiler is

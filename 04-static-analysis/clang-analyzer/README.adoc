@@ -84,7 +84,7 @@ $ tree
 1 directory, 4 files
 ----
 
-By defaut these are output to +/tmp/scanbuildout/{run folder}+. You can change this using `scan-build -o /output/folder`.
+By default these are output to +/tmp/scanbuildout/{run folder}+. You can change this using `scan-build -o /output/folder`.
 
 # Building the example
 

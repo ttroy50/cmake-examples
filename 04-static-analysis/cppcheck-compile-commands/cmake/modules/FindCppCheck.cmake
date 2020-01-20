@@ -41,7 +41,7 @@ if(CPPCHECK_BIN)
     set(CPPCHECK_THREADS_ARG "-j4" CACHE STRING "The number of threads to use")
     set(CPPCHECK_PROJECT_ARG "--project=${PROJECT_BINARY_DIR}/compile_commands.json")
     set(CPPCHECK_BUILD_DIR_ARG "--cppcheck-build-dir=${PROJECT_BINARY_DIR}/analysis/cppcheck" CACHE STRING "The build directory to use")
-    # Don't show thise errors
+    # Don't show these errors
     if(EXISTS "${CMAKE_SOURCE_DIR}/.cppcheck_suppressions")
         set(CPPCHECK_SUPPRESSIONS "--suppressions-list=${CMAKE_SOURCE_DIR}/.cppcheck_suppressions" CACHE STRING "The suppressions file to use")
     else()

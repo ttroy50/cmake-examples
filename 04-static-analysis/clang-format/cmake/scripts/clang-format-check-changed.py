@@ -142,7 +142,7 @@ def cli():
                                      description='Checks if files chagned in git match the .clang-format specification')
     parser.add_argument("--file-extensions", type=str,
                         default=".cpp,.h,.cxx,.hxx,.hpp,.cc,.ipp",
-                        help="Comma seperated list of file extensions to check")
+                        help="Comma separated list of file extensions to check")
     parser.add_argument('--exclude', action='append', default=[],
                         help='Will not match the files / directories with these in the name')
     parser.add_argument('--clang-format-bin', type=str, default="clang-format",

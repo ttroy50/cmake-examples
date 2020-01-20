@@ -95,7 +95,7 @@ Most modern CMake libraries link:https://cmake.org/cmake/help/v3.6/prop_tgt/IMPO
 The benefit of imported targets are that they can also populate include directories and linked libraries.
 
 For example, starting from v3.5+ of CMake, the
-Boost module supports this. Similar to using your own ALIAS target for libraires, an +ALIAS+ in a module can make referencing found targets eaiser.
+Boost module supports this. Similar to using your own ALIAS target for libraires, an +ALIAS+ in a module can make referencing found targets easier.
 
 In the case of Boost, all targets are exported using the `Boost::` identifier and then the name 
 of the subsystem. For example you can use:

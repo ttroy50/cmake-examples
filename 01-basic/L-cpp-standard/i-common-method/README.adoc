@@ -6,7 +6,7 @@ toc::[]
 
 # Introduction
 
-This example shows a common method to set the C++ Standard. This can be used with most versions of CMake. However, if you are targetting a recent version of CMake there are more convenient methods available.
+This example shows a common method to set the C++ Standard. This can be used with most versions of CMake. However, if you are targeting a recent version of CMake there are more convenient methods available.
 
 The files in this tutorial are below:
 

@@ -6,7 +6,7 @@ set compile flags, create and link executables and libraries, and install them.
 The examples included are
 
   - link:A-hello-cmake[hello-cmake]. A hello world example.
-  - link:B-hello-headers[hello-headers]. A slightly more complicated hello world example, using seperate source and include folders.
+  - link:B-hello-headers[hello-headers]. A slightly more complicated hello world example, using separate source and include folders.
   - link:C-static-library[static-library]. An example using a static library.
   - link:D-shared-library[shared-library]. An example using a shared library.
   - link:E-installing[installing]. Shows how to create a 'make install' target that will install binaries and libraries.

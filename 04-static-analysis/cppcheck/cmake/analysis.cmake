@@ -23,7 +23,7 @@ macro(add_analysis _target _sources)
         set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
 
         # This is used to make the command run correctly on the command line.
-        # The COMMAND argumetn expects a list and this does the change
+        # The COMMAND argument expects a list and this does the change
         # I need to check which version works with 2.7
         if (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VESION} GREATER 2.7)
             separate_arguments(tmp_args UNIX_COMMAND ${CPPCHECK_ARG})
