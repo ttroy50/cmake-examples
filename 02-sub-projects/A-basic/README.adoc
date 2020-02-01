@@ -42,7 +42,7 @@ $ tree
   * link:subbinary/main.cpp[] - source for the executable
   * link:sublibrary1/CMakeLists.txt[] - to make a static library
   * link:sublibrary1/include/sublib1/sublib1.h[]
-  * link:sublibrary1/src/sublib2.cpp[]
+  * link:sublibrary1/src/sublib1.cpp[]
   * link:sublibrary2/CMakeLists.txt[] - to setup header only library
   * link:sublibrary2/include/sublib2/sublib2.h[]
 
