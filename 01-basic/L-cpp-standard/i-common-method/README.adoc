@@ -34,7 +34,7 @@ include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 ----
 
-This example will attempt to compile a program with the flag `=std=c++11` and store the result in the variable `COMPILER_SUPPORTS_CXX11`.
+This example will attempt to compile a program with the flag `-std=c++11` and store the result in the variable `COMPILER_SUPPORTS_CXX11`.
 
 The line `include(CheckCXXCompilerFlag)` tells CMake to include this function to make it available for use.
 
