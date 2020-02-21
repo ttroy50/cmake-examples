@@ -74,7 +74,7 @@ The meaning of scopes are:
 
 * +PRIVATE+ - the directory is added to this target's include directories
 * +INTERFACE+ - the directory is added to the include directories for any targets that link this library.
-* +PUBLIC+ - As above, it is included int his library and also any targets that link this library.
+* +PUBLIC+ - As above, it is included in this library and also any targets that link this library.
 
 
 [TIP]
