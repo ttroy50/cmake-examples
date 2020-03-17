@@ -1,4 +1,4 @@
-= CppCheck Static Analysis using Compile Commands
+= clang-analyzer
 :toc:
 :toc-placement!:
 
