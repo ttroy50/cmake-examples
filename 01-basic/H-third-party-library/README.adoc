@@ -60,7 +60,7 @@ More complex setups are provided in later examples.
 
 ## Checking if the package is found
 
-Most included packages will set a variable `XXX_FOUND`, which can used to check
+Most included packages will set a variable `XXX_FOUND`, which can be used to check
 if the package is available on the system.
 
 In this example the variable is `Boost_FOUND`:
@@ -122,7 +122,7 @@ To link against an imported target you can use the following:
 While most modern libraries use imported targets, not all modules have been updated. In the
 case where a library hasn't been updated you will often find the following variables available:
 
-  * xxx_INCLUDE_DIRS - A varialble pointing to the include directory for the library.
+  * xxx_INCLUDE_DIRS - A variable pointing to the include directory for the library.
   * xxx_LIBRARY - A variable pointing to the library path.
 
 These can then be added to your +target_include_directories+ and +target_link_libraries+ as:
