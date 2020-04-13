@@ -98,7 +98,7 @@ you use multiple libraries in your project.
 ## Linking a Library
 
 When creating an executable that will use your library you must tell the compiler
-about the library. This can be done using the +target_link_library()+ function.
+about the library. This can be done using the +target_link_libraries()+ function.
 
 [source,cmake]
 ----
