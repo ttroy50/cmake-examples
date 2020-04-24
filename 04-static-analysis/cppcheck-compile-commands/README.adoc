@@ -37,7 +37,7 @@ $ tree
   * link:CMakeLists.txt[] - Top level CMakeLists.txt
   * link:cmake/modules/FindCppCheck.cmake[] - A custom package module to find CppCheck
   * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
-  * link:subproject1/main.cpp[] - source for a subproject with no errors
+  * link:subproject1/main1.cpp[] - source for a subproject with no errors
   * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
   * link:subproject2/main2.cpp[] - source for a subproject that includes errors
 

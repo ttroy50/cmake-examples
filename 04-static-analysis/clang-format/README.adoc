@@ -38,7 +38,7 @@ $ tree
   * link:cmake/scripts/clang-format-check-changed.py[] - A helper script to check against changed files in git
   * link:cmake/scripts/clang-format-check-changed.py[] - An old simplified version of the above helper script
   * link:subproject1/CMakeLists.txt[] - CMake commands for subproject 1
-  * link:subproject1/main.cpp[] - source for a subproject with no style errors
+  * link:subproject1/main1.cpp[] - source for a subproject with no style errors
   * link:subproject2/CMakeLists.txt[] - CMake commands for subproject 2
   * link:subproject2/main2.cpp[] - source for a subproject that includes style errors
 
