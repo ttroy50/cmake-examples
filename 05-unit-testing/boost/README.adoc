@@ -130,15 +130,6 @@ Test project /home/matrim/workspace/cmake-examples/05-unit-testing/boost/build
 100% tests passed, 0 tests failed out of 1
 
 Total Test time (real) =   0.01 sec
-$ make test
-Running tests...
-Test project /home/matrim/workspace/cmake-examples/05-unit-testing/boost/build
-    Start 1: test_all
-1/1 Test #1: test_all .........................   Passed    0.00 sec
-
-100% tests passed, 0 tests failed out of 1
-
-Total Test time (real) =   0.01 sec
 ----
 
 If the code is changed and it causes the unit tests to produce an error.
