@@ -4,10 +4,9 @@ project(googletest-download NONE)
 
 include(ExternalProject)
 
-# Version bfc0ffc8a698072c794ae7299db9cb6866f4c0bc happens to be master when I set this up.
-# To prevent an issue with accidentally installing GTest / GMock with your project you should use a
-# commit after 9469fb687d040b60c8749b7617fee4e77c7f6409
-# Note: This is after the release of v1.8
+# Note: This is the release of v1.10.0
+# You can select the alternative version of googletest by overwrite the `URL` below.
+
 ExternalProject_Add(googletest
   URL               https://github.com/google/googletest/archive/bfc0ffc8a698072c794ae7299db9cb6866f4c0bc.tar.gz
   SOURCE_DIR        "${CMAKE_CURRENT_BINARY_DIR}/googletest-src"
