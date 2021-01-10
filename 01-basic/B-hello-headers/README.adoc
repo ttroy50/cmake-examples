@@ -33,7 +33,7 @@ B-hello-headers$ tree
 
 ## Directory Paths
 
-CMake syntax specifies a number of https://cmake.org/Wiki/CMake_Useful_Variables[variables]
+CMake syntax specifies a number of https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Useful-Variables[variables]
 which can be used to help find useful directories in your project or source tree.
 Some of these include:
 
