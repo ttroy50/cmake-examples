@@ -39,7 +39,7 @@ target_compile_definitions(cmake_examples_compile_flags
 
 This will cause the compiler to add the definition +-DEX3+ when compiling the target.
 
-In the target was a library, and the scope +PUBLIC+ or +INTERFACE+ has been chosen the definition would also be included in any executables that link this target.
+If the target was a library and the scope +PUBLIC+ or +INTERFACE+ has been chosen the definition would also be included in any executables that link this target.
 
 For compiler options you can also use the +target_compile_options()+ link:https://cmake.org/cmake/help/v3.0/command/target_compile_options.html[function].
 
