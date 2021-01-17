@@ -17,8 +17,14 @@ endif()
 # Add an executable
 add_executable(third_party_include main.cpp)
 
+# Include the boost headers
+target_include_directories( third_party_include
+    PRIVATE ${Boost_INCLUDE_DIRS}
+)
+
 # link against the boost libraries
 target_link_libraries( third_party_include
     PRIVATE
-        Boost::filesystem
+    ${Boost_SYSTEM_LIBRARY}
+    ${Boost_FILESYSTEM_LIBRARY}
 )
