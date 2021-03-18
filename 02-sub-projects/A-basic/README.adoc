@@ -78,7 +78,7 @@ add_subdirectory(subbinary)
 
 When a project is created using the `project()` command, CMake will automatically
 create a number of variables which can be used to reference details about the project.
-These variables can then be used by other sub-projects or the main project. For exampe,
+These variables can then be used by other sub-projects or the main project. For example,
 to reference the source directory for a different project you can use.
 
 [source,cmake]
