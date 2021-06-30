@@ -137,7 +137,7 @@ target_include_directories(${PROJECT_NAME}
 ## Referencing Libraries from Sub-Projects
 
 If a sub-project creates a library, it can be referenced by other projects by
-calling the name of the project in the `target_link_libraries()` command. This
+calling the name of the target in the `target_link_libraries()` command. This
 means that you don't have to reference the full path of the new library and it
 is added as a dependency.
 
