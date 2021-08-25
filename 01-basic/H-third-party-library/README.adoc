@@ -51,7 +51,7 @@ The arguments are:
 
   * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake
   * 1.46.1 - The minimum version of boost to find
-  * REQUIRED - Tells the module that this is required and to fail it it cannot be found
+  * REQUIRED - Tells the module that this is required and to fail if it cannot be found
   * COMPONENTS - The list of libraries to find.
 
 Boost includes can take more arguments and also make use of other variables.
