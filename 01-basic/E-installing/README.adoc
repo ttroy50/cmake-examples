@@ -176,7 +176,7 @@ Extra Notes
 Overriding the default install location
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned the default install location is set from the +CMAKE_INSTALL_PERFIX+,
+As mentioned the default install location is set from the +CMAKE_INSTALL_PREFIX+,
 which defaults to `/usr/local/`
 
 If you want to change this default location for all users you can add the
