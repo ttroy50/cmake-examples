@@ -78,7 +78,7 @@ add_subdirectory(subbinary)
 
 When a project is created using the `project()` command, CMake will automatically
 create a number of variables which can be used to reference details about the project.
-These variables can then be used by other sub-projects or the main project. For exampe,
+These variables can then be used by other sub-projects or the main project. For example,
 to reference the source directory for a different project you can use.
 
 [source,cmake]
@@ -137,7 +137,7 @@ target_include_directories(${PROJECT_NAME}
 ## Referencing Libraries from Sub-Projects
 
 If a sub-project creates a library, it can be referenced by other projects by
-calling the name of the project in the `target_link_libraries()` command. This
+calling the name of the target in the `target_link_libraries()` command. This
 means that you don't have to reference the full path of the new library and it
 is added as a dependency.
 
@@ -176,8 +176,8 @@ binary using them.
 
 This is controlled by the scope in the `target_include_directories()` command when creating
 the libraries. In this example because the subbinary executable links the sublibrary1
-and sublibrary2 libraries it will automatically include the `${sublibrary1_SOURCE_DIR}/inc`
-and `${sublibrary2_SOURCE_DIR}/inc` folders as they are exported with the
+and sublibrary2 libraries it will automatically include the `${sublibrary1_SOURCE_DIR}/include`
+and `${sublibrary2_SOURCE_DIR}/include` folders as they are exported with the
  +PUBLIC+ and +INTERFACE+ scopes of the libraries.
 
 # Building the example
