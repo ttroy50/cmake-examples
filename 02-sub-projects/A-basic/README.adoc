@@ -176,8 +176,8 @@ binary using them.
 
 This is controlled by the scope in the `target_include_directories()` command when creating
 the libraries. In this example because the subbinary executable links the sublibrary1
-and sublibrary2 libraries it will automatically include the `${sublibrary1_SOURCE_DIR}/inc`
-and `${sublibrary2_SOURCE_DIR}/inc` folders as they are exported with the
+and sublibrary2 libraries it will automatically include the `${sublibrary1_SOURCE_DIR}/include`
+and `${sublibrary2_SOURCE_DIR}/include` folders as they are exported with the
  +PUBLIC+ and +INTERFACE+ scopes of the libraries.
 
 # Building the example
