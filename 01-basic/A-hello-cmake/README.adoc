@@ -170,8 +170,6 @@ A-hello-cmake$ mkdir build
 
 A-hello-cmake$ cd build/
 
-A-hello-cmake/build$ make ..
-make: Nothing to be done for `..'.
 matrim@freyr:~/workspace/cmake-examples/01-basic/A-hello-cmake/build$ cmake ..
 -- The C compiler identification is GNU 4.8.4
 -- The CXX compiler identification is GNU 4.8.4
