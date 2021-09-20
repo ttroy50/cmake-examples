@@ -62,7 +62,7 @@ As shown below, this allows you to reference the target using the alias name whe
 ## Linking a Shared Library
 
 Linking a shared library is the same as linking a static library. When creating your
-executable use the the +target_link_library()+ function to point to your library
+executable use the the +target_link_libraries()+ function to point to your library
 
 [source,cmake]
 ----
