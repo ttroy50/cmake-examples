@@ -94,7 +94,7 @@ $ mkdir build
 
 $ cd build/
 
-$ scan-build-3.6 -o ./scanbuildout make
+$ scan-build-3.6 -o ./scanbuildout cmake ..
 scan-build: Using '/usr/lib/llvm-3.6/bin/clang' for static analysis
 make: *** No targets specified and no makefile found.  Stop.
 scan-build: Removing directory '/data/code/clang-analyzer/build/scanbuildout/2017-07-03-211632-937-1' because it contains no reports.
