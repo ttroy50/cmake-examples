@@ -122,9 +122,9 @@ link:https://cmake.org/cmake/help/v3.4/command/add_library.html#interface-librar
 add_library(${PROJECT_NAME} INTERFACE)
 ----
 
-When creating the target you can also include directories for that target using
-the +INTERFACE+ scope. The +INTERFACE+ scope is use to make target requirements that are used in any Libraries
-that link this target but not in the compilation of the target itself.
+When you create the target, you can also include directories for that target using
+the +INTERFACE+ scope. The +INTERFACE+ scope defines requirements for any library
+that links this target but not the compilation of the target itself.
 
 [source,cmake]
 ----
