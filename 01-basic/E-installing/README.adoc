@@ -37,7 +37,7 @@ $ tree
 
 CMake offers the ability to add a `make install` target to allow a user to
 install binaries, libraries and other files. The base install location is controlled
-by the variable +CMAKE_INSTALL_PREFIX+ which can be set using ccmake or by calling
+by the variable +CMAKE_INSTALL_PREFIX+ which can be set using cmake or by calling
 cmake with `cmake .. -DCMAKE_INSTALL_PREFIX=/install/location`
 
 The files that are installed are controlled by the https://cmake.org/cmake/help/v3.0/command/install.html[+install()+] function.
