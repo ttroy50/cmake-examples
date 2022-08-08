@@ -9,10 +9,10 @@ fi
 conan profile show default || {
     conan profile new default --detect
 }
-conan profile update settings.compiler.libcxx=libstdc++11 default
+conan profile update settings.compiler.libcxx=libstdc++11  default
 
 echo "correct version of cmake"
-mkdir -p build && cd build && conan install .. && cmake .. && make
+mkdir -p build && cd build && conan install .. --remote=conancenter && cmake .. && make
 if [ $? -ne 0 ]; then
     echo "Error running example"
     exit 1

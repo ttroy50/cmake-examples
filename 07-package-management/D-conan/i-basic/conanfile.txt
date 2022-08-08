@@ -1,5 +1,5 @@
 [requires]
-fmt/5.3.0@bincrafters/stable
+fmt/9.0.0
 
 [generators]
 cmake
