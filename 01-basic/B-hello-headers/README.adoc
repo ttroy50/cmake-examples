@@ -98,6 +98,8 @@ correct results if you add a new source file.
 When you have different include folders, you can make your compiler aware of them using the
 +target_include_directories()+ link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[function]. When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
 
+（*编译此目标时，将把该目录添加到编译器中，故这里的target应该指的是可执行程序，而目录指的是头文件所在目录*）
+
 [source,cmake]
 ----
 target_include_directories(target
