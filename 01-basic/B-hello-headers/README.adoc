@@ -55,7 +55,7 @@ directory where you ran the cmake command.（二进制文件所在的根目录�
 |PROJECT_BINARY_DIR |The build directory for the current project.（当前工程所创建的build目录）
 |=======================================================================
 
-## Source Files Variable
+## Source Files Variable（给需要多个一起编译的源文件设置一个统一变量名）
 
 Creating a variable which includes the source files allows you to be
 clearer about these files and easily add them to multiple commands, for example,
