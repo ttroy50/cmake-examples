@@ -40,19 +40,19 @@ Some of these include:
 [cols=",",options="header",]
 |=======================================================================
 |Variable |Info
-|CMAKE_SOURCE_DIR |The root source directory
+|CMAKE_SOURCE_DIR |The root source directory（最外层CMakeLists.txt所在目录）
 
 |CMAKE_CURRENT_SOURCE_DIR |The current source directory if using
-sub-projects and directories.
+sub-projects and directories.（当前处理的CMakeLists.txt所在的目录）
 
-|PROJECT_SOURCE_DIR |The source directory of the current cmake project.
+|PROJECT_SOURCE_DIR |The source directory of the current cmake project.（包含PROJECT()命令的最近一个CMakeLists.txt所在文件夹路径）
 
 |CMAKE_BINARY_DIR |The root binary / build directory. This is the
-directory where you ran the cmake command.
+directory where you ran the cmake command.（二进制文件所在的根目录）
 
-|CMAKE_CURRENT_BINARY_DIR |The build directory you are currently in.
+|CMAKE_CURRENT_BINARY_DIR |The build directory you are currently in.（当前正在处理的二进制目录路径）
 
-|PROJECT_BINARY_DIR |The build directory for the current project.
+|PROJECT_BINARY_DIR |The build directory for the current project.（当前工程所创建的build目录）
 |=======================================================================
 
 ## Source Files Variable
