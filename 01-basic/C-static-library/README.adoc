@@ -61,9 +61,9 @@ In this example, we include directories in the library using the +target_include
 
 （*这里的target目标，为hello_library,其实是库target名*）
 
-（*为target包含的目录为～/include,所以库的源文件只需#include "static/Hello.h",而不需使用绝对路径*）
+（*为target包含的目录为～/include,所以库的源文件只需#include "static/Hello.h"（这就是target's include directory）,而不需使用绝对路径*）
 
-（*这里的范围属性scope，设置成PUBIC,表示当编译这个target或连接link了这个target的其他target,所以这也是为什么连接了库的源文件只需#include "static/Hello.h"*）
+（*这里的范围属性scope，设置成PUBIC,表示当编译这个target或连接link了这个target的其他target时，将该目录添加到target或连接了该target的其他target的包含目录中，所以这也是为什么连接了库的源文件只需#include "static/Hello.h"*）
 
 [source,cmake]
 ----
@@ -80,9 +80,9 @@ This will cause the included directory used in the following places:
 
 The meaning of scopes are:
 
-* +PRIVATE+ - the directory is added to this target's include directories
-* +INTERFACE+ - the directory is added to the include directories for any targets that link this library.
-* +PUBLIC+ - As above, it is included in this library and also any targets that link this library.
+* +PRIVATE+ - the directory is added to this target's include directories（将目录添加到该target的包含目录中）
+* +INTERFACE+ - the directory is added to the include directories for any targets that link this library.（该目录将添加到连接此target的任何其他target的包含目录中,不包括本target）
+* +PUBLIC+ - As above, it is included in this library and also any targets that link this library.（如上所述，它包括在此target中，也包括连接此target的任何其他target）
 
 
 [TIP]
@@ -107,6 +107,10 @@ you use multiple libraries in your project.
 
 When creating an executable that will use your library you must tell the compiler
 about the library. This can be done using the +target_link_libraries()+ function.
+
+(*创建可执行文件，之传递了一个main.cpp，我们还需建可执行文件与库连接起来，我们使用target_link_libraries函数来告诉编译器*)
+
+（*这里只需将范围属性设置成PRIVATE*）
 
 [source,cmake]
 ----
