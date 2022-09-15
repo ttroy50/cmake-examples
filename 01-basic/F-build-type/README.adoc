@@ -15,9 +15,20 @@ to be included in the binary.
 The levels provided are:
 
   * Release - Adds the `-O3 -DNDEBUG` flags to the compiler
+  
+  （*发行版，顾名思义，程序完成开发后的发布版本，对代码做了优化，速度快，但无法跟踪代码，不能打断点调试*）
+  
   * Debug - Adds the `-g` flag
+  
+  （*调试版，即对代码不做任何优化，但可以调试项目中的任意文件。速度相对较慢、体积也更大*）
+  
   * MinSizeRel - Adds `-Os -DNDEBUG`
+  
+  （*Release的近似版，代码也同样记过优化，但同时也支持添加断点进行调试*）
+  
   * RelWithDebInfo - Adds `-O2 -g -DNDEBUG` flags
+  
+  （最小体积版本，与Release版近似，但更偏重于优化文件大小，而非运行速度）
 
 The files in this tutorial are below:
 
@@ -33,11 +44,11 @@ $ tree
 
 # Concepts
 
-## Set Build Type
+## Set Build Type （构建类型，也可以叫做编译类型）
 
 The build type can be set using the following methods.
 
-  - Using a gui tool such as ccmake / cmake-gui
+  - Using a gui tool such as ccmake / cmake-gui （CMake图形界面）
 
 image::cmake-gui-build-type.png[cmake-gui build type]
 
