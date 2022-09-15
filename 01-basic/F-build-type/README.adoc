@@ -10,6 +10,8 @@ CMake has a number of built in build configurations which can be used to compile
 your project. These specify the optimization levels and if debug information is
 to be included in the binary.
 
+(*CMake中有许多内置的构建配置，用来编译你的工程project。它们指定了优化级别以及是否将调试信息包含在二进制文件中*)
+
 The levels provided are:
 
   * Release - Adds the `-O3 -DNDEBUG` flags to the compiler
