@@ -39,6 +39,8 @@ This is called as follows:
 
 （*使用关键字STATIC-静态，这里的target为hello_library,不必与工程同名，只是声明一个静态库target名,这将创建一个名为libhello_library.a的静态库（在二进制文件目录下）*）
 
+（*使用的源文件目录，默认以CMakeLists.txt所在目录为起点*）
+
 [source,cmake]
 ----
 add_library(hello_library STATIC 
