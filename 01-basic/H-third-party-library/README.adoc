@@ -13,7 +13,11 @@ the `find_package()` function. This will search for CMake modules in the format
 default search path will include `/usr/share/cmake/Modules`. On my system this
 includes support for approximately 142 common third party libraries.
 
-（*几乎所有非平凡的项目都要求包含第三方库、头文件或程序。CMake提供了find_package()函数来执行此操作。*）
+（*几乎所有非平凡的项目都要求包含第三方库、头文件或程序。CMake支持使用find_package()函数查找这些工具的路径*）
+
+（*这将从CMAKE_MODULE_PATH中的文件夹列表搜索文件格式为FindXXX.cmake的CMake模块，在linux中默认搜索路径将是/usr/share/cmake/Modules*）
+
+（*在我的系统中，包含对大约142个通用第三方库的支持*）
 
 
 The files in this tutorial are below:
@@ -42,6 +46,8 @@ As mentioned above the `find_package()` function will search for CMake modules i
 format of the arguments to `find_package` will depend on the module you are looking
 for. This is typically documented at the top of the `FindXXX.cmake` file.
 
+（*find_package()参数的确切格式取决于要查找的模块，这通常记录在FindXXX.cmake文件的顶部*）
+
 A basic example of finding boost is below:
 
 [source,cmake]
@@ -52,6 +58,7 @@ find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 The arguments are:
 
   * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake
+  adf
   * 1.46.1 - The minimum version of boost to find
   * REQUIRED - Tells the module that this is required and to fail if it cannot be found
   * COMPONENTS - The list of components to find in the library.
