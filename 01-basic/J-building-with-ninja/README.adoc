@@ -24,12 +24,16 @@ $ tree
 
 # Concepts
 
-### Generators
+### Generators（生成器）
 
 CMake https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html[generators] are
 responsible for writing the input files (e.g. Makefiles) for the underlying build system. Running `cmake --help`
 will show the generators available. For cmake v2.8.12.2 the generators supported
 on my system include:
+
+（*CMake生成器就是通过CMakelists.txt文件生成适用于不同项目类型的makefile文件，然后makefile文件被不同的编译器使用进行编译*）
+
+（*当然C/C++有许多开发环境，故也有多种生成器*）
 
 [source,bash]
 ----
