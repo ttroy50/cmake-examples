@@ -1,4 +1,4 @@
-= Including Third Party Library
+= Including Third Party Library（包含第三方库）
 :toc:
 :toc-placement!:
 
@@ -12,6 +12,8 @@ the `find_package()` function. This will search for CMake modules in the format
 "FindXXX.cmake" from the list of folders in `CMAKE_MODULE_PATH`. On linux the
 default search path will include `/usr/share/cmake/Modules`. On my system this
 includes support for approximately 142 common third party libraries.
+
+（*几乎所有非平凡的项目都要求包含第三方库、头文件或程序。CMake提供了find_package()函数来执行此操作。*）
 
 
 The files in this tutorial are below:
