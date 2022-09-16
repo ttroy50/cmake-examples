@@ -44,7 +44,7 @@ $ tree
 
 # Concepts
 
-## Set Build Type （构建类型，也可以叫做编译类型）
+## Set Build Type （构建类型）
 
 The build type can be set using the following methods.
 
