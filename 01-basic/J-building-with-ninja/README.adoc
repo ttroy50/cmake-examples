@@ -96,6 +96,8 @@ The supported generators include:
 
 These are generators create a configuration to work with an alternative IDE tool and must be included with either an IDE or Command-Line generator.
 
+（*这些生成器创建一个配置来使用一个可选的IDE工具，并且必须包含在IDE或命令行生成器中。 *）
+
 The supported generators include:
 
  * CodeBlocks
