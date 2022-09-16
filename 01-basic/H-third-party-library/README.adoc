@@ -57,11 +57,21 @@ find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 
 The arguments are:
 
-  * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake
-  adf
+  * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake（是用于查找模块文件FindBoost.cmake的一部分）
+  
+  *Boost库是为C++语言标准库提供扩展的一些程序库的总称，由Boost社区组织开发、维护。Boost库可以与C++标准库完美共同工作，并为其提供扩展功能*
+  
   * 1.46.1 - The minimum version of boost to find
+  
+  *需要的boost库的最低版本*
+  
   * REQUIRED - Tells the module that this is required and to fail if it cannot be found
+  
+  *告诉模块这是必须的，如果找不到回报错*
+  
   * COMPONENTS - The list of components to find in the library.
+  
+  *在库中要找的部分*
 
 Boost includes can take more arguments and also make use of other variables.
 More complex setups are provided in later examples.
