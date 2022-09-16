@@ -61,6 +61,8 @@ CMake includes different types of generators such as Command-Line, IDE, and Extr
 
 These generators are for command-line build tools, like Make and Ninja. The chosen tool chain must be configured prior to generating the build system with CMake.
 
+(*这些生成器用于命令行构建工具。在使用CMake生成构建系统之前，须配置所选的工具链*)
+
 The supported generators include:
 
   * Borland Makefiles
@@ -75,6 +77,8 @@ The supported generators include:
 #### IDE Build Tool Generators
 
 These generators are for Integrated Development Environments that include their own compiler. Examples are Visual Studio and Xcode which include a compiler natively.
+
+（*这些生成器用于含有自己的编译器的IDE（集成开发环境），不需自己配置工具链*）
 
 The supported generators include:
 
