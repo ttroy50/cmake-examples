@@ -51,6 +51,9 @@ $ tree
 In this example I have moved the header files to a subfolder under each projects +include+
 directory, while leaving the target include as the root +include+ folder. This is a good idea to prevent 
 filename clashes because you have to include a file like below:
+
+*不是直接将头文件放在include下，而是放在include/header/header.h,并且将target的包含目录设置为～/include，这样在一个项目含有多个头文件时可以有效防止文件名冲突*
+
 [source,cpp]
 ----
 #include "sublib1/sublib1.h"
