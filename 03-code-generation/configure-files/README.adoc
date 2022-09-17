@@ -8,7 +8,7 @@ toc::[]
 
 During the call to cmake it is possible to create files that use variables from
 the CMakeLists.txt and cmake cache. During CMake generation the file is copied to a
-new location and any cmake variables are replaced.(在调用cmake命令期间，可以创建使用来自CMakeLists.txt和cmake cache(cmake内存)中的变量的文件。并且在CMake生成过程中，该文件被复制到新位置，并替换任何cmake变量)
+new location and any cmake variables are replaced.(可以创建使用来自CMakeLists.txt和cmake cache(cmake内存)中的变量的文件。并且在CMake生成过程中，该文件被复制到新位置，并替换任何cmake变量)
 
 The files in this tutorial are below:
 
@@ -44,6 +44,7 @@ configure_file(path.h.in ${PROJECT_BINARY_DIR}/path.h @ONLY)
 The first example above, allows the variable to be defined like a CMake variables using
 the `${}` syntax or an `@@` in the ver.h.in file. After generation a new file ver.h will be available
 in the `PROJECT_BINARY_DIR`.
+（上面的第一个例子，源文件是ver.h.in，目标文件是ver.h(省略路径)，只做变量替换，其他内容不变。第二个例子有一个参数 @ONLY，意思是识别带有 @@ 形式的变量。）
 
 ```
 const char* ver = "${cf_example_VERSION}";
