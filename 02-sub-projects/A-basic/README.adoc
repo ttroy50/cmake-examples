@@ -68,7 +68,7 @@ This also means that if you install your library for other users the default ins
 ## Adding a Sub-Directory
 
 A CMakeLists.txt file can include and call sub-directories which include a CMakeLists.txt
-files.(利用*add_subdirectory()函数*一个CMakeLists.txt文件可以包含和调用一个含有CMakeLists.txt文件的子目录)
+files.(利用`add_subdirectory()`函数一个CMakeLists.txt文件可以包含和调用一个含有CMakeLists.txt文件的子目录)
 
 [source,cmake]
 ----
@@ -83,7 +83,7 @@ When a project is created using the `project()` command, CMake will automaticall
 create a number of variables which can be used to reference details about the project.
 These variables can then be used by other sub-projects or the main project. For example,
 to reference the source directory for a different project you can use.
-（当使用project()创建一个项目时，CMake会自动创建一系列可以用来引用该项目相关信息的变量。这些变量可以被子项目或主项目使用）
+（当使用 `project()` 创建一个项目时，CMake会自动创建一系列可以用来引用该项目相关信息的变量。这些变量可以被子项目或主项目使用）
 
 [source,cmake]
 ----
@@ -101,7 +101,7 @@ The variables created by CMake include:
 |CMAKE_PROJECT_NAME |the name of the first project set by the `project()`
 command, i.e. the top level project.
 
-|PROJECT_SOURCE_DIR |The source director of the current project.
+|PROJECT_SOURCE_DIR |The source directory of the current project.
 
 |PROJECT_BINARY_DIR |The build directory for the current project.
 
