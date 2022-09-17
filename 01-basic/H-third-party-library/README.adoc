@@ -15,11 +15,11 @@ includes support for approximately 142 common third party libraries.
 
 （*几乎所有非平凡的项目都要求包含第三方库、头文件或程序。CMake支持使用find_package()函数（间接）查找这些工具的路径*）
 
-（*这将从CMAKE_MODULE_PATH中的文件夹列表搜索格式为FindXXX.cmake的CMake模块，如果没找到将会查找XXXConfig.cmake或XXX-config.cmake*）
+（*这将从CMAKE_MODULE_PATH中的文件夹列表搜索格式为FindXXX.cmake的CMake模块，如果没找到将会查找XXXConfig.cmake或XXX-config.cmake,在这些格式的文件里定义了许多变量，用于指定要包含的库和头文件的路径*）
 
-（*在这些格式的文件里定义了许多变量，用于指定要包含的库的路径*）
+（*CMAKE_MODULE_PATH指定的默认路径为/usr/share/cmake-<version>/Modules;在我的系统中，包含对大约142个通用第三方库的支持*）
 
-（*CMAKE_MODULE_PATH指定的默认路径为/usr/share/cmake/Modules;在我的系统中，包含对大约142个通用第三方库的支持*）
+（*find_package()支持两种模式，一是Module模式，二是Config模式；如果Module模式搜索失败，则会转入Config模式，搜索路径是/usr/local/lib/cmake/<libraryname>(find_package的搜索路径是一系列的集合)*）
 
 
 The files in this tutorial are below:
