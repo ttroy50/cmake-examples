@@ -68,7 +68,7 @@ This also means that if you install your library for other users the default ins
 ## Adding a Sub-Directory
 
 A CMakeLists.txt file can include and call sub-directories which include a CMakeLists.txt
-files.(利用`add_subdirectory()`函数一个CMakeLists.txt文件可以包含和调用一个含有CMakeLists.txt文件的子目录)
+files.(利用 `add_subdirectory()` 函数一个CMakeLists.txt文件可以包含和调用一个含有CMakeLists.txt文件的子目录)
 
 [source,cmake]
 ----
