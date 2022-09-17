@@ -115,7 +115,7 @@ In this example the binary directories created would be `sublibrary1_BINARY_DIR`
 
 |=======================================================================
 
-## Header only Libraries
+## Header only Libraries（*只含头文件的库，利用INTERFACE*）
 
 If you have a library that is created as a header only library, cmake supports the +INTERFACE+
 target to allow creating a target without any build output. More details can be found from
@@ -138,12 +138,12 @@ target_include_directories(${PROJECT_NAME}
 )
 ----
 
-## Referencing Libraries from Sub-Projects
+## Referencing Libraries from Sub-Projects（*引用子目录中的库*）
 
 If a sub-project creates a library, it can be referenced by other projects by
 calling the name of the target in the `target_link_libraries()` command. This
 means that you don't have to reference the full path of the new library and it
-is added as a dependency.
+is added as a dependency.（*在某项目中创建的target名，可在子目录或主目录中调用，可以说其作用域为整个项目*）
 
 [source,cmake]
 ----
@@ -154,7 +154,7 @@ target_link_libraries(subbinary
 ----
 
 Alternatively, you can create an alias target which allows you to reference the
-target in read only contexts.
+target in read only contexts.（*当然target的别名同样是全局作用域，只不过是只读的*）
 
 To create an alias target run:
 
