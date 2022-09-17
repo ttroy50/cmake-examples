@@ -44,7 +44,7 @@ configure_file(path.h.in ${PROJECT_BINARY_DIR}/path.h @ONLY)
 The first example above, allows the variable to be defined like a CMake variables using
 the `${}` syntax or an `@@` in the ver.h.in file. After generation a new file ver.h will be available
 in the `PROJECT_BINARY_DIR`.
-（上面的第一个例子，源文件是ver.h.in，目标文件是ver.h(省略路径)，只做变量替换，其他内容不变。第二个例子有一个参数 @ONLY，意思是识别带有 @@ 形式的变量。）
+（上面的第一个例子，源文件是ver.h.in，目标文件是ver.h(省略路径)，只做变量替换，其他内容不变。第二个例子有一个参数 @ONLY，意思是只识别带有 @@ 形式的变量。）
 
 ```
 const char* ver = "${cf_example_VERSION}";
