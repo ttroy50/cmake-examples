@@ -1,4 +1,4 @@
-= Including Third Party Library
+= Including Third Party Library（包含第三方库）
 :toc:
 :toc-placement!:
 
@@ -12,6 +12,14 @@ the `find_package()` function. This will search for CMake modules in the format
 "FindXXX.cmake" from the list of folders in `CMAKE_MODULE_PATH`. On linux the
 default search path will include `/usr/share/cmake/Modules`. On my system this
 includes support for approximately 142 common third party libraries.
+
+（*几乎所有非平凡的项目都要求包含第三方库、头文件或程序。CMake支持使用find_package()函数（间接）查找这些工具的路径*）
+
+（*这将从CMAKE_MODULE_PATH中的文件夹列表搜索格式为FindXXX.cmake的CMake模块，如果没找到将会查找XXXConfig.cmake或XXX-config.cmake,在这些格式的文件里定义了许多变量，用于指定要包含的库和头文件的路径*）
+
+（*CMAKE_MODULE_PATH指定的默认路径为/usr/share/cmake-<version>/Modules;在我的系统中，包含对大约142个通用第三方库的支持*）
+
+（*find_package()支持两种模式，一是Module模式，二是Config模式；如果Module模式搜索失败，则会转入Config模式，搜索路径是/usr/local/lib/cmake/<libraryname>(find_package的搜索路径是一系列的集合)*）
 
 
 The files in this tutorial are below:
@@ -40,6 +48,8 @@ As mentioned above the `find_package()` function will search for CMake modules i
 format of the arguments to `find_package` will depend on the module you are looking
 for. This is typically documented at the top of the `FindXXX.cmake` file.
 
+（*find_package()参数的确切格式取决于要查找的模块，这通常记录在FindXXX.cmake文件的顶部*）
+
 A basic example of finding boost is below:
 
 [source,cmake]
@@ -49,10 +59,21 @@ find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 
 The arguments are:
 
-  * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake
+  * Boost - Name of the library. This is part of used to find the module file FindBoost.cmake（是用于查找模块文件FindBoost.cmake的一部分）
+  
+  *Boost库是为C++语言标准库提供扩展的一些程序库的总称，由Boost社区组织开发、维护。Boost库可以与C++标准库完美共同工作，并为其提供扩展功能*
+  
   * 1.46.1 - The minimum version of boost to find
+  
+  *需要的boost库的最低版本*
+  
   * REQUIRED - Tells the module that this is required and to fail if it cannot be found
+  
+  *告诉模块这是必须的，如果找不到会报错*
+  
   * COMPONENTS - The list of components to find in the library.
+  
+  *在Boost中要找的部分*
 
 Boost includes can take more arguments and also make use of other variables.
 More complex setups are provided in later examples.
@@ -62,6 +83,8 @@ More complex setups are provided in later examples.
 
 Most included packages will set a variable `XXX_FOUND`, which can be used to check
 if the package is available on the system.
+
+(*大多数被包含（被找到）的包将设置变量XXX_FOUND，用于检查软件包在系统上是否可用*)
 
 In this example the variable is `Boost_FOUND`:
 
@@ -75,12 +98,14 @@ else()
 endif()
 ----
 
-## Exported Variables
+## Exported Variables（导出变量）
 
 After a package is found it will often export variables which can inform the user
 where to find the library, header, or executable files. Similar to the `XXX_FOUND`
 variable, these are package specific and are typically documented at the top of the
 `FindXXX.cmake` file.
+
+（*找到包后，将自动导出变量，这些变量通常记录在FindXXX.cmake文件的顶部。这些变量可以通知用户在哪里可以找到库、头文件或可执行文件*）
 
 The variables exported in this example include:
 
@@ -89,10 +114,12 @@ The variables exported in this example include:
 In some cases you can also check these variables by examining the cache using
 ccmake or cmake-gui.
 
-## Alias / Imported targets
+## Alias / Imported targets（别名/导入目标）
 
 Most modern CMake libraries link:https://cmake.org/cmake/help/v3.6/prop_tgt/IMPORTED.html#prop_tgt:IMPORTED[export] +ALIAS+ targets in their module files. 
 The benefit of imported targets are that they can also populate include directories and linked libraries.
+
+（*大多数现代CMake库在其模块文件（FindXXX.cmake）导出别名目标。导入目标的好处是它们也可以填充包含目录和链接的库。*）
 
 For example, starting from v3.5+ of CMake, the
 Boost module supports this. Similar to using your own ALIAS target for libraires, an +ALIAS+ in a module can make referencing found targets easier.
@@ -104,7 +131,7 @@ of the subsystem. For example you can use:
   * `Boost::system` for the boost system library.
   * `Boost::filesystem` for filesystem library.
 
-As with your own targets, these targets include their dependencies, so linking against
+As with your own targets, these targets include their dependencies（依赖关系）, so linking against
 `Boost::filesystem` will automatically add `Boost::boost` and `Boost::system` dependencies.
 
 To link against an imported target you can use the following:

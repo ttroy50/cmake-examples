@@ -51,6 +51,9 @@ $ tree
 In this example I have moved the header files to a subfolder under each projects +include+
 directory, while leaving the target include as the root +include+ folder. This is a good idea to prevent 
 filename clashes because you have to include a file like below:
+
+*不是直接将头文件放在include下，而是放在include/header/header.h,并且将target的包含目录设置为～/include，这样在一个项目含有多个头文件时可以有效防止文件名冲突*
+
 [source,cpp]
 ----
 #include "sublib1/sublib1.h"
@@ -65,7 +68,7 @@ This also means that if you install your library for other users the default ins
 ## Adding a Sub-Directory
 
 A CMakeLists.txt file can include and call sub-directories which include a CMakeLists.txt
-files.
+files.(利用 `add_subdirectory()` 函数一个CMakeLists.txt文件可以包含和调用一个含有CMakeLists.txt文件的子目录)
 
 [source,cmake]
 ----
@@ -80,6 +83,7 @@ When a project is created using the `project()` command, CMake will automaticall
 create a number of variables which can be used to reference details about the project.
 These variables can then be used by other sub-projects or the main project. For example,
 to reference the source directory for a different project you can use.
+（当使用 `project()` 创建一个项目时，CMake会自动创建一系列可以用来引用该项目相关信息的变量。这些变量可以被子项目或主项目使用）
 
 [source,cmake]
 ----
@@ -97,7 +101,7 @@ The variables created by CMake include:
 |CMAKE_PROJECT_NAME |the name of the first project set by the `project()`
 command, i.e. the top level project.
 
-|PROJECT_SOURCE_DIR |The source director of the current project.
+|PROJECT_SOURCE_DIR |The source directory of the current project.
 
 |PROJECT_BINARY_DIR |The build directory for the current project.
 
@@ -111,7 +115,7 @@ In this example the binary directories created would be `sublibrary1_BINARY_DIR`
 
 |=======================================================================
 
-## Header only Libraries
+## Header only Libraries（*只含头文件的库，利用INTERFACE*）
 
 If you have a library that is created as a header only library, cmake supports the +INTERFACE+
 target to allow creating a target without any build output. More details can be found from
@@ -134,12 +138,12 @@ target_include_directories(${PROJECT_NAME}
 )
 ----
 
-## Referencing Libraries from Sub-Projects
+## Referencing Libraries from Sub-Projects（*引用子目录中的库*）
 
 If a sub-project creates a library, it can be referenced by other projects by
 calling the name of the target in the `target_link_libraries()` command. This
 means that you don't have to reference the full path of the new library and it
-is added as a dependency.
+is added as a dependency.（*在某项目中创建的target名，可在子目录或主目录中调用，可以说其作用域为整个项目*）
 
 [source,cmake]
 ----
@@ -150,7 +154,7 @@ target_link_libraries(subbinary
 ----
 
 Alternatively, you can create an alias target which allows you to reference the
-target in read only contexts.
+target in read only contexts.（*当然target的别名同样是全局作用域，只不过是只读的*）
 
 To create an alias target run:
 
