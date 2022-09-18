@@ -40,22 +40,22 @@ Some of these include:
 [cols=",",options="header",]
 |=======================================================================
 |Variable |Info
-|CMAKE_SOURCE_DIR |The root source directory
+|CMAKE_SOURCE_DIR |The root source directory（最外层CMakeLists.txt所在目录）
 
 |CMAKE_CURRENT_SOURCE_DIR |The current source directory if using
-sub-projects and directories.
+sub-projects and directories.（当前处理的CMakeLists.txt所在的目录）
 
-|PROJECT_SOURCE_DIR |The source directory of the current cmake project.
+|PROJECT_SOURCE_DIR |The source directory of the current cmake project.（包含PROJECT()命令的最近一个CMakeLists.txt所在文件夹路径）
 
 |CMAKE_BINARY_DIR |The root binary / build directory. This is the
-directory where you ran the cmake command.
+directory where you ran the cmake command.（二进制文件所在的根目录）
 
-|CMAKE_CURRENT_BINARY_DIR |The build directory you are currently in.
+|CMAKE_CURRENT_BINARY_DIR |The build directory you are currently in.（当前正在处理的二进制目录路径）
 
-|PROJECT_BINARY_DIR |The build directory for the current project.
+|PROJECT_BINARY_DIR |The build directory for the current project.（当前工程所创建的build目录）
 |=======================================================================
 
-## Source Files Variable
+## Source Files Variable（给需要多个一起编译的源文件设置一个统一变量名）
 
 Creating a variable which includes the source files allows you to be
 clearer about these files and easily add them to multiple commands, for example,
@@ -97,6 +97,8 @@ correct results if you add a new source file.
 
 When you have different include folders, you can make your compiler aware of them using the
 +target_include_directories()+ link:https://cmake.org/cmake/help/v3.0/command/target_include_directories.html[function]. When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
+
+（*编译此目标时，将把该目录添加到编译器中，故这里的target应该指的是可执行程序，而目录指的是头文件所在目录*）
 
 [source,cmake]
 ----

@@ -10,6 +10,8 @@ When building with CMake it is possible to set the C and C++ compiler. This exam
 is the same as the link:../A-hello-cmake[hello-cmake] example except that it shows the most basic
 method of changing the compiler from the default gcc to http://clang.llvm.org/[clang].
 
+（*以下介绍了将编译器从默认的gcc更改为clang的最基本的方式*）
+
 The files in this tutorial are below:
 
 ```

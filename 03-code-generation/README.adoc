@@ -1,6 +1,6 @@
 = Code Generation
 
-Code generation can be useful to create source code in different languages from a common description file. This can reduce the amount of manual code to write and increase interoperability.
+Code generation can be useful to create source code in different languages from a common description file. This can reduce the amount of manual code to write and increase interoperability.（代码生成对于从公共描述文件创建不同语言的源代码非常有用。这可以减少要编写的手动代码量，并提高互操作性。）
 
 Examples showing code generation using variables from CMake and also using some common tools.
 

@@ -6,6 +6,8 @@ toc::[]
 
 # Introduction
 
+（*compile flags——编译标志。可执行文件的生成离不开编译，那么如何编译，如使用C++或C的那个版本？这就要用到编译标志了*）
+
 CMake supports setting compile flags in a number of different ways:
 
   * using +target_compile_definitions()+ function
