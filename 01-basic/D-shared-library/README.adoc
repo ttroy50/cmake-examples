@@ -32,11 +32,13 @@ $ tree
 
 # Concepts
 
-## Adding a Shared Library
+## Adding a Shared Library（创建一个动态库）
 
 As with the previous example on static libraries, the +add_library()+ function
 is also used to create a shared library from some source files.
 This is called as follows:
+
+（*使用关键自SHARED-动态，这将创建一个名为libhello_library.so的动态库文件*）
 
 [source,cmake]
 ----
@@ -58,6 +60,12 @@ add_library(hello::library ALIAS hello_library)
 ----
 
 As shown below, this allows you to reference the target using the alias name when linking it against other targets.
+
+## 添加包含目录
+
+----
+target_include_directories(hello_library PUBLIC {PROJECT_SOURCE_DIR}/include)
+----
 
 ## Linking a Shared Library
 

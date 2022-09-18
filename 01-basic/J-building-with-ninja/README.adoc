@@ -24,12 +24,16 @@ $ tree
 
 # Concepts
 
-### Generators
+### Generators（生成器）
 
 CMake https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html[generators] are
 responsible for writing the input files (e.g. Makefiles) for the underlying build system. Running `cmake --help`
 will show the generators available. For cmake v2.8.12.2 the generators supported
 on my system include:
+
+（*CMake生成器就是通过CMakelists.txt文件生成适用于不同项目类型的makefile文件，然后makefile文件被不同的编译器使用进行编译*）
+
+（*当然C/C++有许多开发环境，故也有多种生成器*）
 
 [source,bash]
 ----
@@ -57,6 +61,8 @@ CMake includes different types of generators such as Command-Line, IDE, and Extr
 
 These generators are for command-line build tools, like Make and Ninja. The chosen tool chain must be configured prior to generating the build system with CMake.
 
+(*这些生成器用于命令行构建工具。在使用CMake生成构建系统之前，须配置所选的工具链*)
+
 The supported generators include:
 
   * Borland Makefiles
@@ -71,6 +77,8 @@ The supported generators include:
 #### IDE Build Tool Generators
 
 These generators are for Integrated Development Environments that include their own compiler. Examples are Visual Studio and Xcode which include a compiler natively.
+
+（*这些生成器用于含有自己的编译器的IDE（集成开发环境），不需自己配置工具链*）
 
 The supported generators include:
 
@@ -87,6 +95,8 @@ The supported generators include:
 #### Extra Generators
 
 These are generators create a configuration to work with an alternative IDE tool and must be included with either an IDE or Command-Line generator.
+
+（*这些生成器创建一个配置来使用一个可选的IDE工具，并且必须包含在IDE或命令行生成器中。 *）
 
 The supported generators include:
 

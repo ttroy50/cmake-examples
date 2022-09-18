@@ -43,6 +43,7 @@ cmake_minimum_required(VERSION 3.5)
 
 A CMake build can include a project name to make referencing certain
 variables easier when using multiple projects.
+(**CMake构建可以包含一个项目名称，以确保使用多个项目时，引用变量更容易**)
 
 [source,cmake]
 ----
@@ -56,6 +57,7 @@ The +add_executable()+ command specifies that an executable should be
 build from the specified source files, in this example main.cpp. The
 first argument to the +add_executable()+ function is the name of the
 executable to be built, and the second argument is the list of source files to compile.
+（**这将创建一个可执行程序，但不一定需要与项目同名**）
 
 [source,cmake]
 ----
@@ -88,6 +90,8 @@ The root or top level folder that you run the cmake command from is known as you
 CMAKE_BINARY_DIR and is the root folder for all your binary files.
 CMake supports building and generating your binary files both in-place and also
 out-of-source.
+（**CMAKE_BINARY_DIR,为运行cmake命令的工作目录，是二进制目标文件的根文件目录，即二进制中间目标文件存放位置的顶级目录**）
+（**cmake支持在本地或源文件之外，构建您的二进制文件**）
 
 
 #### In-Place Build
@@ -153,7 +157,7 @@ A-hello-cmake$ tree
 ----
 
 
-#### Out-of-Source Build
+#### Out-of-Source Build（**推荐**）
 
 Out-of-source builds allow you to create a single build folder that can be anywhere on
 your file system. All temporary build and object files are located in this directory keeping
