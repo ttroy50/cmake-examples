@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.5)
 
-project(cppcheck_analysis)
+project(clang_format)
 
 # Add a custom CMake Modules directory
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules
