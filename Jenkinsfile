@@ -1,24 +1,26 @@
 pipeline {
   agent any
   stages {
-      stage('Startup')
+    stage('Startup'){
         steps {
               echo 'Building is started'
               }
           }
-       stage('Pre-building')
+  }
+  stage('Pre-building'){
         steps{
           echo 'Building the project..'
           sh 'cmake...'
           sh 'make'
              }
-        stage('Test')
+  }
+  stage('Test'){
           steps{
             echo 'Testing the project..'
             
           }
        }
     }
-        
+}   
           
       
