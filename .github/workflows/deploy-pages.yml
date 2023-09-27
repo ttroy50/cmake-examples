@@ -25,12 +25,13 @@ jobs:
       - uses: jcbhmr/configure-pages@jcbhmr-patch-1
       - run: |
           pushd "$(mktemp -d)"
-          unset GITHUB_TOKEN
           gh release download -R rust-lang/mdBook -p 'mdbook-v*-x86_64-unknown-linux-gnu.tar.gz'
           tar -xzf mdbook-v*-x86_64-unknown-linux-gnu.tar.gz
           sudo mv mdbook /usr/local/bin/
           rm -rf "$PWD"
           popd
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: mdbook build
       - uses: actions/upload-pages-artifact@v2
         with:
