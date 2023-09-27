@@ -1,0 +1,40 @@
+name: deploy-pages
+on:
+  push:
+    branches: "main"
+    paths:
+      - Doxyfile
+      - README.md
+      - src/**
+      - include/**
+      - docs/**
+      - .github/workflows/deploy-pages.yml
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+  deploy-pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy-pages.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jcbhmr/configure-pages@jcbhmr-patch-1
+      - run: |
+          pushd "$(mktemp -d)"
+          gh release download -R rust-lang/mdBook -p 'mdbook-v*-x86_64-unknown-linux-gnu.tar.gz'
+          tar -xzf mdbook-v*-x86_64-unknown-linux-gnu.tar.gz
+          sudo mv mdbook /usr/local/bin/
+          rm -rf "$PWD"
+          popd
+      - run: mdbook build
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: book
+      - id: deploy-pages
+        uses: actions/deploy-pages@v2
