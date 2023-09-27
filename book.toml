@@ -1,0 +1,16 @@
+[book]
+authors = ["Jacob Hummer"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CMake by Example"
+
+[preprocessor]
+
+[preprocessor.catppuccin]
+assets_version = "1.0.0" # DO NOT EDIT: Managed by `mdbook-catppuccin install`
+
+[output]
+
+[output.html]
+additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-admonish.css"]
