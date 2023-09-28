@@ -16,6 +16,12 @@ export default defineConfig({
       pattern: "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/:path",
     },
 
+    // Doesn't show when sidebar is present. This site relies on sidebar.
+    // footer: {
+    //   message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
+    //   copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>'
+    // },
+
     logo: "/cmake-favicon.ico",
 
     nav: [
@@ -29,10 +35,14 @@ export default defineConfig({
       { text: "CMake in GitHub Actions", link: "/github-actions.html" },
 
       // prettier-ignore
-      { text: "Examples", items: [
+      { text: "Basic examples", items: [
         { text: "Hello world!", link: "/hello-world/" },
         { text: "Two executable targets", link: "/two-executables/" },
         { text: "Add an include folder", link: "/add-include-folder/" },
+      ] },
+
+      // prettier-ignore
+      { text: "Advanced examples", items: [
         { text: "Using cpr via FetchContent", link: "/cpr-fetchcontent/" },
         { text: "Using {fmt} via CPM.cmake", link: "/fmt-cpm/" },
         { text: "Using GTest via Conan", link: "/gtest-conan/" },
