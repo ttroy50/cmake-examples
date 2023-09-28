@@ -69,32 +69,15 @@ Licensed under [CC0 1.0 Universal](https://github.com/jcbhmr/cmakebyexample.dev/
 <!-- For some reason it thinks this is a SFC. This is just a dummy. -->
 </template>
 
-<style>
+<style scoped>
 @media (min-width: 600px) {
   .responsive-columns {
     column-count: 2;
   }
 }
-
 .emoji-font {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.VPDoc {
-  padding-bottom: 0 !important;
-}
-.aside + .content {
-  padding-bottom: 1em !important;
-}
-.VPDocFooter {
-  margin-top: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.prev-next {
-  display: none !important;
 }
 #footer {
   padding-top: 1em;
@@ -113,5 +96,23 @@ Licensed under [CC0 1.0 Universal](https://github.com/jcbhmr/cmakebyexample.dev/
   color: unset;
   text-decoration: none;
   border-bottom: 1px dashed currentColor;
+}
+</style>
+
+<style>
+body:has(h1#cmake-by-example) .VPDoc {
+  padding-bottom: 0 !important;
+}
+body:has(h1#cmake-by-example) .aside + .content {
+  padding-bottom: 1em !important;
+}
+body:has(h1#cmake-by-example) .VPDocFooter {
+  margin-top: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body:has(h1#cmake-by-example) .prev-next {
+  display: none !important;
 }
 </style>
