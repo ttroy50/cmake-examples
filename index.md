@@ -22,6 +22,7 @@ hero:
 
 features:
   - title: <a href="/hello-world/">Hello world!</a>
+  - title: <a href="/add-include-folder/">Add an include folder</a>
   - title: <a href="/two-executables/">Two executable targets</a>
   - title: <a href="/cpr-fetchcontent/">Using cpr via FetchContent</a>
   - title: <a href="/fmt-cpm/">Using {fmt} via CPM.cmake</a>
