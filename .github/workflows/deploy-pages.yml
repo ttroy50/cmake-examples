@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: "20"
           cache: npm
+      - run: npm ci
       - uses: jcbhmr/configure-pages@jcbhmr-patch-1
       - run: npm run build
       - uses: actions/upload-pages-artifact@v2
