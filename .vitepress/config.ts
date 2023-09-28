@@ -12,6 +12,10 @@ export default defineConfig({
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
+    editLink: {
+      pattern: "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/:path",
+    },
+
     logo: "/cmake-favicon.ico",
 
     nav: [
