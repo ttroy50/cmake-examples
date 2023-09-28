@@ -56,8 +56,6 @@ Example].
 - [Conan: C/C++ Package Manager](https://conan.io/)
 - [Vcpkg: C++ Library Manager](https://vcpkg.io/en/index.html)
 
-<br />
-
 <footer id="footer">
 
 <!-- prettier-ignore -->
@@ -99,7 +97,7 @@ Licensed under [CC0 1.0 Universal](https://github.com/jcbhmr/cmakebyexample.dev/
   display: none !important;
 }
 #footer {
-  padding-top: 0.66em;
+  padding-top: 1em;
   max-width: 800px;
   text-align: center;
   margin-inline: auto;
