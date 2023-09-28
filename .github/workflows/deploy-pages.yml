@@ -22,19 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: npm
       - uses: jcbhmr/configure-pages@jcbhmr-patch-1
-      - run: |
-          pushd "$(mktemp -d)"
-          gh release download -R rust-lang/mdBook -p 'mdbook-v*-x86_64-unknown-linux-gnu.tar.gz'
-          tar -xzf mdbook-v*-x86_64-unknown-linux-gnu.tar.gz
-          sudo mv mdbook /usr/local/bin/
-          rm -rf "$PWD"
-          popd
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: mdbook build
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v2
         with:
-          path: book
+          path: .vitepress/dist
       - id: deploy-pages
         uses: actions/deploy-pages@v2

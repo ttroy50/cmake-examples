@@ -1,0 +1,40 @@
+name: tools/test-examples.sh
+on:
+  push:
+    branches: "main"
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .gitignore
+      - "**.js"
+      - "**.ts"
+      - "**.md"
+      - package.json
+      - package-lock.json
+      - .github/**
+      - "!.github/workflows/test-examples.yml"
+  pull_request:
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .gitignore
+      - "**.js"
+      - "**.ts"
+      - "**.md"
+      - package.json
+      - package-lock.json
+      - .github/**
+      - "!.github/workflows/test-examples.yml"
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+  test-examples:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash tools/test-examples.sh
