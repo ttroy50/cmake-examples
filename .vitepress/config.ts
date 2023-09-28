@@ -22,14 +22,18 @@ export default defineConfig({
 
     sidebar: [
       { text: "Home", link: "/" },
+      { text: "CMake in GitHub Actions", link: "/github-actions.html" },
+
       // prettier-ignore
       { text: "Examples", items: [
         { text: "Hello world!", link: "/hello-world/" },
+        { text: "Two executable targets", link: "/two-executables/" },
         { text: "Using cpr via FetchContent", link: "/cpr-fetchcontent/" },
         { text: "Using {fmt} via CPM.cmake", link: "/fmt-cpm/" },
         { text: "Using GTest via Conan", link: "/gtest-conan/" },
         { text: "Using FTXUI via Vcpkg", link: "/ftxui-vcpkg/" },
       ] },
+
       { text: "CMake.org", link: "https://cmake.org/" },
       { text: "GitHub", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
     ],

@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e
 
-npm install -g prettier
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get update -y
 
+sudo apt-get install -y clang-format
 pip install conan
+pip install cmake-format
 
 git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg
 pushd ~/vcpkg
@@ -14,16 +17,12 @@ export PATH="$PATH:$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake"
 echo 'export PATH="$PATH:$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake"' >> ~/.bashrc
 popd
 
-pushd "$(mktemp -d)"
-gh release download -R rust-lang/mdBook -p 'mdbook-v*-x86_64-unknown-linux-gnu.tar.gz'
-tar -xzf mdbook-v*-x86_64-unknown-linux-gnu.tar.gz
-sudo mv mdbook /usr/local/bin/
+pushd $(mktemp -d)
+# v1.9.8 latest as of 2023-09-26
+wget https://github.com/doxygen/doxygen/releases/download/Release_1_9_8/doxygen-1.9.8.linux.bin.tar.gz
+tar -xzf doxygen-1.9.8.linux.bin.tar.gz
+sudo mv doxygen-1.9.8/bin/doxygen /usr/local/bin/
 rm -rf "$PWD"
 popd
 
-pushd "$(mktemp -d)"
-gh release download -R catppuccin/mdBook -p mdbook-catppuccin-x86_64-unknown-linux-gnu.tar.gz
-tar -xzf mdbook-catppuccin-x86_64-unknown-linux-gnu.tar.gz
-sudo mv mdbook-catppuccin-x86_64-unknown-linux-gnu/mdbook-catppuccin /usr/local/bin/
-rm -rf "$PWD"
-popd
+rm -rf /var/lib/apt/lists/*

@@ -5,11 +5,14 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "format": "prettier -w .",
+    "format": "run-p format:*",
+    "format:clang-format-all": "bash tools/clang-format-all.sh",
+    "format:prettier": "prettier -w .",
     "lint": "vue-tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.7.1",
+    "npm-run-all2": "^6.0.6",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "vitepress": "^1.0.0-rc.20",

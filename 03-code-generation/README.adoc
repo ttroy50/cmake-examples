@@ -1,8 +1,0 @@
-= Code Generation
-
-Code generation can be useful to create source code in different languages from a common description file. This can reduce the amount of manual code to write and increase interoperability.
-
-Examples showing code generation using variables from CMake and also using some common tools.
-
-  * link:configure-files[configure-file] - Using the CMake configure_file function to inject CMake variables.
-  * link:protobuf[Protocol Buffers] - Using Google Protocol Buffers to generate C++ source.
