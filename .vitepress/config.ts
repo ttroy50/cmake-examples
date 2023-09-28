@@ -32,6 +32,7 @@ export default defineConfig({
       { text: "Examples", items: [
         { text: "Hello world!", link: "/hello-world/" },
         { text: "Two executable targets", link: "/two-executables/" },
+        { text: "Add an include folder", link: "/add-include-folder/" },
         { text: "Using cpr via FetchContent", link: "/cpr-fetchcontent/" },
         { text: "Using {fmt} via CPM.cmake", link: "/fmt-cpm/" },
         { text: "Using GTest via Conan", link: "/gtest-conan/" },

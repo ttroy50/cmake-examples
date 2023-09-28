@@ -137,4 +137,7 @@
  * Custom CSS!
  * -------------------------------------------------------------------------- */
 
-/* Nothing here yet... */
+.vp-doc summary {
+  margin: 0.3em 0;
+  cursor: pointer;
+}

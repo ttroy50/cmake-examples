@@ -1,5 +1,5 @@
 #include <greet.h>
 #include <stdio.h>
-void greet(const char* name) {
+void greet(char* name) {
   printf("Hello, %s!\n", name);
 }
