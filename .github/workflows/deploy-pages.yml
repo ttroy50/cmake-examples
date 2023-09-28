@@ -2,11 +2,12 @@ name: deploy-pages
 on:
   push:
     branches: "main"
-    paths:
-      - book.toml
-      - src/**
-      - theme/**
-      - .github/workflows/deploy-pages.yml
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .gitignore
+      - .github/**
+      - "!.github/workflows/deploy-pages.yml"
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}
