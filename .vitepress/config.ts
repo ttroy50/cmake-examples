@@ -40,6 +40,7 @@ export default defineConfig({
           { text: "Hello world!", link: "/hello-world/" },
           { text: "Two executable targets", link: "/two-executables/" },
           { text: "Add an include folder", link: "/add-include-folder/" },
+          { text: "CMakePresets.json", link: "/cmakepresets-json/" },
         ],
       },
 

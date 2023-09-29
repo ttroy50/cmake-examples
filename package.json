@@ -12,7 +12,12 @@
     "test": "run-p test:*",
     "test:hello-world": "cd hello-world && cmake -B build && cmake --build build",
     "test:two-executables": "cd two-executables && cmake -B build && cmake --build build",
-    "test:ftxui-vcpkg": "cd ftxui-vcpkg && cmake --preset debug && cmake --build --preset debug"
+    "test:add-include-folder": "cd add-include-folder && cmake -B build && cmake --build build",
+    "test:cmakepresets-json": "cd cmakepresets-json && cmake --preset my-preset && cmake --build --preset my-preset",
+    "test:cpr-fetchcontent": "cd cpr-fetchcontent && cmake -B build && cmake --build build",
+    "test:gtest-conan": "echo \"TODO\" && exit 1",
+    "test:fmt-cpm": "cd fmt-cpm && cmake -B build && cmake --build build",
+    "test:ftxui-vcpkg": "cd ftxui-vcpkg && cmake --preset my-preset && cmake --build build"
   },
   "devDependencies": {
     "@types/node": "^20.7.1",

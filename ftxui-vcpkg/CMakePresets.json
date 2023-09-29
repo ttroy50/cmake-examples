@@ -2,15 +2,9 @@
   "version": 3,
   "configurePresets": [
     {
-      "name": "debug",
+      "name": "my-preset",
       "binaryDir": "${sourceDir}/build",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-    }
-  ],
-  "buildPresets": [
-    {
-      "name": "debug",
-      "configurePreset": "debug"
     }
   ]
 }

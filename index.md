@@ -20,6 +20,7 @@ these examples into your own projects as needed.
 - [Hello world!](/hello-world/)
 - [Add an include folder](/add-include-folder/)
 - [Two executable targets](/two-executables/)
+- [CMakePresets.json](/cmakepresets-json/)
 
 </div>
 

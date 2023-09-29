@@ -1,6 +1,12 @@
 # Using FTXUI via Vcpkg
 
+::: code-group
+
 <<< ./CMakeLists.txt{4,6 cmake}
+
+<<< ./CMakePresets.json
+
+:::
 
 <<< ./vcpkg.json
 
@@ -8,13 +14,10 @@
 
 ```sh
 vcpkg install
-cmake -B build -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+cmake --preset my-preset
 cmake --build build
 ./build/myui
 ```
-
-💡 Don't want to specify `-DCMAKE_TOOLCHAIN_FILE` every time? Check out [the
-`CMakePresets.json` example]!
 
 <details><summary>How to install Vcpkg</summary>
 
@@ -43,5 +46,3 @@ cd vcpkg
 </details>
 
 [📚 Learn more about Vcpkg](https://learn.microsoft.com/vcpkg)
-
-[the `CMakePresets.json` example]: /cmakepresets/
