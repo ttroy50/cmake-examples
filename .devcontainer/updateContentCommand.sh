@@ -11,10 +11,10 @@ pip install cmake-format
 git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg
 pushd ~/vcpkg
 ./bootstrap-vcpkg.sh
-export PATH="$PATH:$HOME/vcpkg"
-echo 'export PATH="$PATH:$HOME/vcpkg"' >> ~/.bashrc
-export PATH="$PATH:$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake"
-echo 'export PATH="$PATH:$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake"' >> ~/.bashrc
+export VCPKG_ROOT="$HOME/vcpkg"
+echo 'export VCPKG_ROOT="$HOME/vcpkg"' >> ~/.bashrc
+export PATH="$PATH:$VCPKG_ROOT"
+echo 'export PATH="$PATH:$VCPKG_ROOT"' >> ~/.bashrc
 popd
 
 pushd $(mktemp -d)

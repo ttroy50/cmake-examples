@@ -13,6 +13,7 @@ recent C++ standard**, it's just that C++17 is the minimum required to use cpr.
 ```sh
 cmake -B build
 cmake --build build
+./build/my-app
 ```
 
 Expect this to take some time to build! It has to build cpr, which includes

@@ -59,9 +59,9 @@ Example].
 <footer id="footer">
 
 <!-- prettier-ignore -->
-Made with <span class="emoji-font">❤️</span> by [Jacob Hummer](https://jcbhmr.me/) \
-Licensed under [CC0 1.0 Universal](https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE) \
-[Source code available on GitHub](https://github.com/jcbhmr/cmakebyexample.dev)
+Made with <span class="emoji-font">❤️</span> by you! \
+Licensed under <a href="/LICENSE" target="_self">0BSD License</a> \
+[Source code](https://github.com/jcbhmr/cmakebyexample.dev) available on GitHub
 
 </footer>
 

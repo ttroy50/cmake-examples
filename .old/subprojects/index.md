@@ -77,14 +77,14 @@ ${sublibrary2_SOURCE_DIR}
 
 The variables created by CMake include:
 
-| Variable             | Info                                                  |
-|----------------------|-------------------------------------------------------|
-| PROJECT_NAME         | The name of the project set by the current `project()`. |
-| CMAKE_PROJECT_NAME   | The name of the first project set by the `project()` command, i.e. the top-level project. |
-| PROJECT_SOURCE_DIR   | The source directory of the current project.         |
-| PROJECT_BINARY_DIR   | The build directory for the current project.         |
-| name_SOURCE_DIR      | The source directory of the project called "name". In this example, the source directories created would be `sublibrary1_SOURCE_DIR`, `sublibrary2_SOURCE_DIR`, and `subbinary_SOURCE_DIR`. |
-| name_BINARY_DIR      | The binary directory of the project called "name". In this example, the binary directories created would be `sublibrary1_BINARY_DIR`, `sublibrary2_BINARY_DIR`, and `subbinary_BINARY_DIR`. |
+| Variable           | Info                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PROJECT_NAME       | The name of the project set by the current `project()`.                                                                                                                                     |
+| CMAKE_PROJECT_NAME | The name of the first project set by the `project()` command, i.e. the top-level project.                                                                                                   |
+| PROJECT_SOURCE_DIR | The source directory of the current project.                                                                                                                                                |
+| PROJECT_BINARY_DIR | The build directory for the current project.                                                                                                                                                |
+| name_SOURCE_DIR    | The source directory of the project called "name". In this example, the source directories created would be `sublibrary1_SOURCE_DIR`, `sublibrary2_SOURCE_DIR`, and `subbinary_SOURCE_DIR`. |
+| name_BINARY_DIR    | The binary directory of the project called "name". In this example, the binary directories created would be `sublibrary1_BINARY_DIR`, `sublibrary2_BINARY_DIR`, and `subbinary_BINARY_DIR`. |
 
 ### Header-only Libraries
 
@@ -171,6 +171,8 @@ Scanning dependencies of target subbinary
 Linking CXX executable subbinary
 [100%] Built target subbinary
 ```
+
 ```
 
 Please note that the rendering of AsciiDoc to Markdown may not capture all formatting nuances, and you may need to adjust the formatting as needed for your specific Markdown rendering tool or platform.
+```

@@ -1,4 +1,2 @@
 #include <greet.h>
-int main() {
-  greet("George Washington");
-}
+int main() { greet("George Washington"); }

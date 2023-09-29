@@ -1,12 +1,22 @@
 # Using {fmt} via CPM.cmake
 
-🚧 Under construction 👷‍♂️
+<<< ./CMakeLists.txt{7-12,13,16,4 cmake}
 
-<!-- <<< ./CMakeLists.txt{7-12,13,16,4 cmake}
+<details><summary>Install CPM.cmake</summary>
 
-<<< ./main.cpp
+> ```sh
+> mkdir -p cmake
+> wget -O cmake/CPM.cmake https://github.com/cpm-cmake/CPM.cmake/releases/latest/download/get_cpm.cmake
+> ```
+
+&mdash; [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake)
+
+</details>
+
+<<< ./main.cpp{8}
 
 ```sh
 cmake -B build
 cmake --build build
-``` -->
+./build/greet
+```

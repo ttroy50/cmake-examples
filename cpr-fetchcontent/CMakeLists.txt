@@ -8,8 +8,7 @@ FetchContent_Declare(
   cpr
   GIT_REPOSITORY https://github.com/libcpr/cpr.git
   # https://github.com/libcpr/cpr/releases
-  GIT_TAG 1.10.4
-)
+  GIT_TAG 1.10.4)
 FetchContent_MakeAvailable(cpr)
 
 add_executable(my-app main.cpp)

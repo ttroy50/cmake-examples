@@ -16,6 +16,8 @@ on Windows and is placed (somewhere) in the `build` directory.
 cmake -B build
 # Run the Ninja, Make, or Visual Studio build system:
 cmake --build build
+# Run the executable:
+./build/hello-world
 ```
 
 <iframe frameborder="0" height="400" style="width: 100%" src="https://replit.com/@jcbhmr/cmakebyexampledev-hello-world?embed=1#CMakeLists.txt"></iframe>

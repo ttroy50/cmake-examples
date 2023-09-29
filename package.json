@@ -6,12 +6,17 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "format": "run-p format:*",
-    "format:clang-format-all": "bash tools/clang-format-all.sh",
+    "format:clang-format": "node glob.js -c\"clang-format -i --verbose\" \"**/*.{h,c,cpp}\" --ignore-file .gitignore",
+    "format:cmake-format": "node glob.js -c\"cmake-format -i\" \"**/CMakeLists.txt\" --ignore-file .gitignore",
     "format:prettier": "prettier -w .",
-    "lint": "vue-tsc --noEmit"
+    "test": "run-p test:*",
+    "test:hello-world": "cd hello-world && cmake -B build && cmake --build build",
+    "test:two-executables": "cd two-executables && cmake -B build && cmake --build build",
+    "test:ftxui-vcpkg": "cd ftxui-vcpkg && cmake --preset debug && cmake --build --preset debug"
   },
   "devDependencies": {
     "@types/node": "^20.7.1",
+    "glob": "^10.3.10",
     "npm-run-all2": "^6.0.6",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",

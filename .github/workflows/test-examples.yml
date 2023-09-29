@@ -7,10 +7,11 @@ on:
       - LICENSE
       - .gitignore
       - "**.js"
+      - "!glob.js"
       - "**.ts"
       - "**.md"
-      - package.json
-      - package-lock.json
+      - .vitepress/**
+      - public/**
       - .github/**
       - "!.github/workflows/test-examples.yml"
   pull_request:
@@ -19,10 +20,11 @@ on:
       - LICENSE
       - .gitignore
       - "**.js"
+      - "!glob.js"
       - "**.ts"
       - "**.md"
-      - package.json
-      - package-lock.json
+      - .vitepress/**
+      - public/**
       - .github/**
       - "!.github/workflows/test-examples.yml"
 concurrency:
@@ -37,4 +39,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - run: bash tools/test-examples.sh
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - run: npm test

@@ -5,27 +5,20 @@ simplest way to do this is with the `include_directories` command.
 
 <<< ./CMakeLists.txt{3 cmake}
 
-<details><summary><code>include/greet.h</code></summary>
+::: code-group
 
-<<< ./include/greet.h{c}
+<<< ./include/greet.h{2 c} [include/greet.h]
 
-</details>
+<<< ./src/greet.c{1,3} [src/greet.c]
 
-<details><summary><code>src/greet.c</code></summary>
+<<< ./src/main.c{1} [src/main.c]
 
-<<< ./src/greet.c{1}
-
-</details>
-
-<details open><summary><code>src/main.c</code></summary>
-
-<<< ./src/main.c{1}
-
-</details>
+:::
 
 ```sh
 cmake -B build
 cmake --build build
+./build/my-app
 ```
 
 <iframe frameborder="0" height="400" style="width: 100%" src="https://replit.com/@jcbhmr/cmakebyexampledev-add-include-folder?embed=1#CMakeLists.txt"></iframe>

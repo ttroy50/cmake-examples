@@ -1,7 +1,7 @@
-#include <iostream>
 #include <cpr/cpr.h>
+#include <iostream>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
   auto url = cpr::Url{"https://api.github.com/repos/libcpr/cpr"};
   cpr::Response r = cpr::Get(url);
   std::cout << r.status_code << "\n";
