@@ -30,6 +30,8 @@ jobs:
       - run: npm ci
       - uses: jcbhmr/configure-pages@jcbhmr-patch-1
       - run: npm run build
+        env:
+          GA_TRACKING_ID: ${{ vars.GA_TRACKING_ID }}
       - uses: actions/upload-pages-artifact@v2
         with:
           path: .vitepress/dist

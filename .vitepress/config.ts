@@ -23,7 +23,16 @@ export default defineConfig({
   title: "CMake by Example",
   description: "Starter CMake examples",
 
-  head: [["link", { rel: "icon", href: "/cmake-favicon.ico" }]],
+  head: [
+    // https://github.com/vuejs/vitepress/issues/560
+    ["link", { rel: "icon", href: "/cmake-favicon.ico" }],
+
+    // https://github.com/vuejs/vitepress/issues/1131
+    // prettier-ignore
+    ["script", { async: "", src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}` }],
+    // prettier-ignore
+    ["script", {}, `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${process.env.GA_TRACKING_ID}');`],
+  ],
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
