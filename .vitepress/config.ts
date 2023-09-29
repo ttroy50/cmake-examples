@@ -21,8 +21,15 @@ export default defineConfig({
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
+    // https://vitepress.dev/reference/default-theme-search#search
+    search: {
+      provider: "local",
+    },
+
+    // https://vitepress.dev/reference/default-theme-edit-link
     editLink: {
-      pattern: "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/:path",
+      pattern:
+        "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/src/:path",
     },
 
     // Doesn't show when sidebar is present. This site relies on sidebar.
