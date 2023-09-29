@@ -1,37 +1,19 @@
-name: tools/test-examples.sh
+name: npm-test
 on:
   push:
     branches: "main"
-    paths-ignore:
-      - README.md
-      - LICENSE
-      - .gitignore
-      - "**.js"
-      - "!glob.js"
-      - "**.ts"
-      - "**.md"
-      - .vitepress/**
-      - public/**
-      - .github/**
-      - "!.github/workflows/test-examples.yml"
+    paths:
+      - src/*/**
+      - .github/workflows/npm-test.yml
   pull_request:
-    paths-ignore:
-      - README.md
-      - LICENSE
-      - .gitignore
-      - "**.js"
-      - "!glob.js"
-      - "**.ts"
-      - "**.md"
-      - .vitepress/**
-      - public/**
-      - .github/**
-      - "!.github/workflows/test-examples.yml"
+    paths:
+      - src/*/**
+      - .github/workflows/npm-test.yml
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 jobs:
-  test-examples:
+  npm-test:
     strategy:
       fail-fast: false
       matrix:
