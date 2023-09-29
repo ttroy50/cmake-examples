@@ -2,6 +2,10 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // https://vitepress.dev/guide/routing
+  // https://vitepress.dev/reference/site-config#srcdir
+  srcDir: "src",
+
   // https://vitejs.dev/config/
   vite: {},
 
