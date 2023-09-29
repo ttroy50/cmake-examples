@@ -54,7 +54,7 @@ export default defineConfig({
 
     sidebar: [
       { text: "Home", link: "/" },
-      { text: "CMake in GitHub Actions", link: "/github-actions.html" },
+      // { text: "CMake in GitHub Actions", link: "/github-actions.html" },
 
       {
         text: "Basic examples",
