@@ -20,4 +20,11 @@ cmake --build build
 
 Use `npm run dev` to spin up the Vitepress dev server.
 
+Interesting links for development:
+
+- https://vitepress.dev/guide/routing
+- https://vitepress.dev/guide/markdown#code-groups
+- https://vitepress.dev/guide/markdown#import-code-snippets
+- https://vitepress.dev/guide/extending-default-theme
+
 <sup>Yes, the root folder is very messy. That's just how Vitepress is. 🤷‍♂️</sup>

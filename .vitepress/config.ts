@@ -5,6 +5,11 @@ export default defineConfig({
   // https://vitejs.dev/config/
   vite: {},
 
+  // https://vitepress.dev/guide/sitemap-generation
+  sitemap: {
+    hostname: "https://example.com",
+  },
+
   title: "CMake by Example",
   description: "Starter CMake examples",
 
