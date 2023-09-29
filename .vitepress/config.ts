@@ -7,7 +7,13 @@ export default defineConfig({
   srcDir: "src",
 
   // https://vitejs.dev/config/
-  vite: {},
+  vite: {
+    // Force-extract public folder to the root of the project, not the root of
+    // the src (which it is by default in VitePress).
+    // https://vitepress.dev/guide/asset-handling#the-public-directory
+    // https://vitejs.dev/config/shared-options.html#publicdir
+    publicDir: "../public",
+  },
 
   // https://vitepress.dev/guide/sitemap-generation
   sitemap: {
