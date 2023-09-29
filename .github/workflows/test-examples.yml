@@ -39,6 +39,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: cpp-actions/setup-vcpkg@v1
+      - uses: cpp-actions/setup-clang-format@v1
+      - uses: cpp-actions/setup-doxygen@v1
+      - run: pip install cmake-format
+      - run: pip install conan
       - uses: actions/setup-node@v3
         with:
           node-version: "20"

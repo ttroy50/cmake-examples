@@ -2,8 +2,9 @@
 .vitepress/cache
 .vitepress/dist
 
-# CMake out-of-source build folder
+# Extra CMake stuff
 build
+CMakeUserPresets.json
 
 #region https://github.com/github/gitignore/blob/main/Node.gitignore
 # Logs
