@@ -1,4 +1,5 @@
 ---
+# https://vitepress.dev/reference/frontmatter-config#titletemplate
 titleTemplate: false
 ---
 
