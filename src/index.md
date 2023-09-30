@@ -1,3 +1,7 @@
+---
+titleTemplate: false
+---
+
 # <img src="/cmake-favicon.ico" style="display:inline; height: 0.8em;">&#8201;CMake by example
 
 > CMake is the de-facto standard for building C++ code, with over 2 million
