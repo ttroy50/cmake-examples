@@ -17,7 +17,7 @@ export default defineConfig({
 
   // https://vitepress.dev/guide/sitemap-generation
   sitemap: {
-    hostname: "https://example.com",
+    hostname: "https://cmakebyexample.dev",
   },
 
   title: "CMake by Example",
