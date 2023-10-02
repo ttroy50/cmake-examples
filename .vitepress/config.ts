@@ -19,6 +19,7 @@ export default defineConfig({
   sitemap: {
     hostname: "https://cmakebyexample.dev",
   },
+  lastUpdated: true,
 
   title: "CMake by Example",
   description: "Starter CMake examples",
