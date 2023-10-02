@@ -22,10 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cpp-actions/setup-vcpkg@v1
-      - uses: cpp-actions/setup-clang-format@v1
+      - uses: cpp-actions/setup-llvm@v1
       - uses: cpp-actions/setup-doxygen@v1
       - run: pip install cmake-format
-      - run: pip install conan
+      - uses: cpp-actions/setup-conan@v1
       - uses: actions/setup-node@v3
         with:
           node-version: "20"
