@@ -53,7 +53,7 @@ jobs:
                 --disable-wiki \
                 --disable-issues
               gh repo edit \
-                -R "jcbhmr/cmakebyexample.dev__$d" \
+                "jcbhmr/cmakebyexample.dev__$d" \
                 --enable-projects=false
               popd
             fi
