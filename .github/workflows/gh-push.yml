@@ -6,6 +6,7 @@ on:
       - "*/**"
       - "!.devcontainer/**"
       - "!.github/**"
+      - .github/workflows/gh-push.yml
       - "!.vitepress/**"
       - "!public/**"
   workflow_dispatch:
