@@ -15,6 +15,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   gh-push:
+    if: github.repository == 'jcbhmr/cmakebyexample.dev'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,30 +30,30 @@ jobs:
             [[ $d == .vitepress ]] && continue
             [[ $d == public ]] && continue
 
-            if gh repo clone "${{ github.repository }}__$d" "/tmp/${{ github.repository }}__$d"; then
-              rsync -av --delete --exclude .git "$d/" "/tmp/${{ github.repository }}__$d/"
-              pushd "/tmp/${{ github.repository }}__$d"
+            if gh repo clone "cmakebyexample.dev__$d" "/tmp/cmakebyexample.dev__$d"; then
+              rsync -av --delete --exclude .git "$d/" "/tmp/cmakebyexample.dev__$d/"
+              pushd "/tmp/cmakebyexample.dev__$d"
               git add -A
-              git commit --allow-empty -m "Update from ${{ github.repository }}"
+              git commit --allow-empty -m "Update from cmakebyexample.dev"
               git push
               popd
             else
-              rsync -av --delete --exclude .git "$d/" "/tmp/${{ github.repository }}__$d/"
-              pushd "/tmp/${{ github.repository }}__$d"
+              rsync -av --delete --exclude .git "$d/" "/tmp/cmakebyexample.dev__$d/"
+              pushd "/tmp/cmakebyexample.dev__$d"
               git init -b main
               git add -A
-              git commit -m "Update from ${{ github.repository }}"
+              git commit -m "Update from cmakebyexample.dev"
               gh repo create \
-                "${{ github.repository }}__$d" \
+                "cmakebyexample.dev__$d" \
                 --public \
-                -d "https://github.com/${{ github.repository }}/tree/main/$d" \
+                -d "https://github.com/cmakebyexample.dev/tree/main/$d" \
                 -h "https://cmakebyexample.dev/$d/" \
                 -s . \
                 --push \
                 --disable-wiki \
                 --disable-issues
               gh repo edit \
-                "${{ github.repository }}__$d" \
+                "cmakebyexample.dev__$d" \
                 --enable-projects=false
               popd
             fi
