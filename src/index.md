@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/frontmatter-config#titletemplate
 titleTemplate: false
+lastUpdated: false
 ---
 
 # <img src="/cmake-favicon.ico" style="display:inline; height: 0.8em;">&#8201;CMake by example
