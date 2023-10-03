@@ -30,7 +30,7 @@ jobs:
             [[ $d == .vitepress ]] && continue
             [[ $d == public ]] && continue
 
-            if gh repo clone "cmakebyexample.dev__$d" "/tmp/cmakebyexample.dev__$d"; then
+            if gh repo clone "jcbhmr/cmakebyexample.dev__$d" "/tmp/cmakebyexample.dev__$d"; then
               rsync -av --delete --exclude .git "$d/" "/tmp/cmakebyexample.dev__$d/"
               pushd "/tmp/cmakebyexample.dev__$d"
               git add -A
@@ -44,7 +44,7 @@ jobs:
               git add -A
               git commit -m "Update from cmakebyexample.dev"
               gh repo create \
-                "cmakebyexample.dev__$d" \
+                "jcbhmr/cmakebyexample.dev__$d" \
                 --public \
                 -d "https://github.com/cmakebyexample.dev/tree/main/$d" \
                 -h "https://cmakebyexample.dev/$d/" \
@@ -53,7 +53,7 @@ jobs:
                 --disable-wiki \
                 --disable-issues
               gh repo edit \
-                "cmakebyexample.dev__$d" \
+                -R "jcbhmr/cmakebyexample.dev__$d" \
                 --enable-projects=false
               popd
             fi
