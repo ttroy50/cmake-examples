@@ -29,23 +29,23 @@ jobs:
             [[ $d == public ]] && continue
 
             if gh repo clone "${{ github.repository }}-$d" "/tmp/$d"; then
-              rsync -av --delete --exclude .git ./ "/tmp/$d/"
+              rsync -av --delete --exclude .git "$d/" "/tmp/$d/"
               pushd "/tmp/$d"
               git add -A
               git commit --allow-empty -m "Update from ${{ github.repository }}"
               git push
               popd
             else
-              rsync -av --delete --exclude .git ./ "/tmp/$d/"
+              rsync -av --delete --exclude .git "$d/" "/tmp/$d/"
               pushd "/tmp/$d"
               git init -b main
               git add -A
               git commit -m "Update from ${{ github.repository }}"
               gh repo create \
                 "${{ github.repository }}-$d" \
-                -d "https://github.com/${{ github.repository }}/tree/main/$d"
-                -h "https://cmakebyexample.dev/$d/" \
                 --public \
+                -d "https://github.com/${{ github.repository }}/tree/main/$d" \
+                -h "https://cmakebyexample.dev/$d/" \
                 -s . \
                 --push \
                 --disable-wiki \
