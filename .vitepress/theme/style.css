@@ -141,3 +141,35 @@
   margin: 0.3em 0;
   cursor: pointer;
 }
+
+/* This little section makes it so that on small screens the GitHub icon and
+   the theme switcher don't get hidden in a dropdown menu. */
+.VPFlyout {
+  display: none !important;
+}
+.VPNavBarHamburger {
+  display: none !important;
+}
+.VPNavBarAppearance {
+  display: flex !important;
+  align-items: center !important;
+}
+.VPNavBarSocialLinks {
+  display: flex !important;
+  align-items: center !important;
+}
+@media (max-width: 767px) {
+  .VPNavBar .content-body {
+    padding-right: 1em;
+  }
+}
+@media (max-width: 397px) {
+  .VPNavBarTitle .title {
+    font-size: 0.8em !important;
+  }
+}
+@media (max-width: 363px) {
+  .VPNavBarTitle .title {
+    font-size: 0 !important;
+  }
+}

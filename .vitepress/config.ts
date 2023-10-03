@@ -19,14 +19,30 @@ export default defineConfig({
     ["link", { rel: "icon", href: "/favicon.ico" }],
 
     // https://github.com/vuejs/vitepress/issues/1131
-    // prettier-ignore
-    ["script", { async: "", src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}` }],
-    // prettier-ignore
-    ["script", {}, `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${process.env.GA_TRACKING_ID}');`],
+    [
+      "script",
+      {
+        async: "",
+        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`,
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${process.env.GA_TRACKING_ID}');`,
+    ],
 
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel#license
-    // prettier-ignore
-    ["link", { rel: "license", href: "https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE" }],
+    [
+      "link",
+      {
+        rel: "license",
+        href: "https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE",
+      },
+    ],
   ],
 
   // https://vitepress.dev/reference/default-theme-config
@@ -36,27 +52,14 @@ export default defineConfig({
       provider: "local",
     },
 
-    // https://vitepress.dev/reference/default-theme-edit-link
-    editLink: {
-      pattern: "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/:path",
-    },
-
-    // https://github.com/vuejs/vitepress/issues/1037
-    footer: {
-      message: 'Released under the <a href="https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE">0BSD License</a>.',
-      copyright: 'Copyright © 2023 <a href="https://jcbhmr.me/">Jacob Hummer</a>'
-    },
-
     logo: "/favicon.ico",
 
-    nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/hello-world/" },
-      { text: "CMake.org", link: "https://cmake.org/" },
+    socialLinks: [
+      { icon: "github", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
     ],
 
     sidebar: [
-      { text: "Home", link: "/" },
+      { text: "🏡 Home", link: "/" },
       // { text: "CMake in GitHub Actions", link: "/github-actions.html" },
 
       {
@@ -84,8 +87,17 @@ export default defineConfig({
       { text: "GitHub", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
     ],
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
-    ],
+    // https://vitepress.dev/reference/default-theme-edit-link
+    editLink: {
+      pattern: "https://github.com/jcbhmr/cmakebyexample.dev/edit/main/:path",
+    },
+
+    // https://github.com/vuejs/vitepress/issues/1037
+    footer: {
+      message:
+        'Released under the <a href="https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE">0BSD License</a>.',
+      copyright:
+        'Copyright © 2023 <a href="https://jcbhmr.me/">Jacob Hummer</a>',
+    },
   },
 });
