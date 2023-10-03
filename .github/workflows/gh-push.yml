@@ -1,0 +1,60 @@
+name: gh-push
+on:
+  push:
+    branches: "main"
+    paths:
+      - "*/**"
+      - "!.devcontainer/**"
+      - "!.github/**"
+      - "!.vitepress/**"
+      - "!public/**"
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+  gh-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'actions@github.com'
+      - run: |
+          for d in *; do
+            [[ -f $d ]] && continue
+            [[ $d == .devcontainer ]] && continue
+            [[ $d == .github ]] && continue
+            [[ $d == .vitepress ]] && continue
+            [[ $d == public ]] && continue
+
+            if gh repo clone "${{ github.repository }}-$d" "/tmp/$d"; then
+              rsync -av --delete --exclude .git ./ "/tmp/$d/"
+              pushd "/tmp/$d"
+              git add -A
+              git commit --allow-empty -m "Update from ${{ github.repository }}"
+              git push
+              popd
+            else
+              rsync -av --delete --exclude .git ./ "/tmp/$d/"
+              pushd "/tmp/$d"
+              git init -b main
+              git add -A
+              git commit -m "Update from ${{ github.repository }}"
+              gh repo create \
+                "${{ github.repository }}-$d" \
+                -d "https://github.com/${{ github.repository }}/tree/main/$d"
+                -h "https://cmakebyexample.dev/$d/" \
+                --public \
+                -s . \
+                --push \
+                --disable-wiki \
+                --disable-issues
+              gh repo edit \
+                "${{ github.repository }}-$d" \
+                ----enable-projects=false
+              popd
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.POLYREPO_GITHUB_TOKEN }}
