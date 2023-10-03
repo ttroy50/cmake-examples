@@ -29,21 +29,21 @@ jobs:
             [[ $d == .vitepress ]] && continue
             [[ $d == public ]] && continue
 
-            if gh repo clone "${{ github.repository }}-$d" "/tmp/$d"; then
-              rsync -av --delete --exclude .git "$d/" "/tmp/$d/"
-              pushd "/tmp/$d"
+            if gh repo clone "${{ github.repository }}__$d" "/tmp/${{ github.repository }}__$d"; then
+              rsync -av --delete --exclude .git "$d/" "/tmp/${{ github.repository }}__$d/"
+              pushd "/tmp/${{ github.repository }}__$d"
               git add -A
               git commit --allow-empty -m "Update from ${{ github.repository }}"
               git push
               popd
             else
-              rsync -av --delete --exclude .git "$d/" "/tmp/$d/"
-              pushd "/tmp/$d"
+              rsync -av --delete --exclude .git "$d/" "/tmp/${{ github.repository }}__$d/"
+              pushd "/tmp/${{ github.repository }}__$d"
               git init -b main
               git add -A
               git commit -m "Update from ${{ github.repository }}"
               gh repo create \
-                "${{ github.repository }}-$d" \
+                "${{ github.repository }}__$d" \
                 --public \
                 -d "https://github.com/${{ github.repository }}/tree/main/$d" \
                 -h "https://cmakebyexample.dev/$d/" \
@@ -52,8 +52,8 @@ jobs:
                 --disable-wiki \
                 --disable-issues
               gh repo edit \
-                "${{ github.repository }}-$d" \
-                ----enable-projects=false
+                "${{ github.repository }}__$d" \
+                --enable-projects=false
               popd
             fi
           done
