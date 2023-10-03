@@ -1,10 +1,9 @@
 ---
-# https://vitepress.dev/reference/frontmatter-config#titletemplate
+# https://vitepress.dev/reference/frontmatter-config
 titleTemplate: false
-lastUpdated: false
 ---
 
-# <img src="/cmake-favicon.ico" style="display:inline; height: 0.8em;">&#8201;CMake by example
+# <img src="/favicon.ico" style="display:inline; height: 0.8em;">&#8201;CMake by example
 
 > CMake is the de-facto standard for building C++ code, with over 2 million
 > downloads a month. It’s a powerful, comprehensive solution for managing the
@@ -64,18 +63,7 @@ Example].
 - [Conan: C/C++ Package Manager](https://conan.io/)
 - [Vcpkg: C++ Library Manager](https://vcpkg.io/en/index.html)
 
-<footer id="footer">
-
-<!-- prettier-ignore -->
-Made with <span class="emoji-font">❤️</span> by you! \
-Licensed under <a href="/LICENSE" target="_self">0BSD License</a> \
-[Source code](https://github.com/jcbhmr/cmakebyexample.dev) available on GitHub
-
-</footer>
-
-<template>
-<!-- For some reason it thinks this is a SFC. This is just a dummy. -->
-</template>
+<template><!-- Dummy Vue SFC --></template>
 
 <style scoped>
 @media (min-width: 600px) {
@@ -86,41 +74,5 @@ Licensed under <a href="/LICENSE" target="_self">0BSD License</a> \
 .emoji-font {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-#footer {
-  padding-top: 1em;
-  max-width: 800px;
-  text-align: center;
-  margin-inline: auto;
-  font-size: smaller;
-  line-height: 1.65;
-  color: var(--vp-c-text-2);
-}
-#footer p {
-  line-height: unset;
-  margin-bottom: 0.3em;
-}
-#footer a {
-  color: unset;
-  text-decoration: none;
-  border-bottom: 1px dashed currentColor;
-}
-</style>
-
-<style>
-body:has(h1#cmake-by-example) .VPDoc {
-  padding-bottom: 0 !important;
-}
-body:has(h1#cmake-by-example) .aside + .content {
-  padding-bottom: 1em !important;
-}
-body:has(h1#cmake-by-example) .VPDocFooter {
-  margin-top: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body:has(h1#cmake-by-example) .prev-next {
-  display: none !important;
 }
 </style>
