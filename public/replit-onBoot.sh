@@ -8,7 +8,7 @@ shopt -s extglob
 shopt -s dotglob
 
 rsync_-av_--delete() {
-  cp -av "$1" "$2"
+  cp -avf "$1"/* "$2"
   find "$2" -type f -not -exec test -e "$1/{}" \; -exec rm -f {} \; -print
   find "$2" -type d -empty -delete -print
 }
