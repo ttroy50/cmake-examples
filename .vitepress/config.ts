@@ -2,7 +2,12 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // Remove this once all links are valid. This is just so that CI passes and
+  // the site gets deployed as-is to GitHub Pages.
   ignoreDeadLinks: true,
+
+  // Surprised this isn't the default. 🤷‍♂️
+  srcExclude: ["**/README.md", "**/CONTRIBUTING.md"],
 
   // https://vitejs.dev/config/
   vite: {},
