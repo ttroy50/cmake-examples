@@ -4,6 +4,8 @@ on:
     branches: "main"
     paths-ignore:
       - README.md
+      - CONTRIBUTING.md
+      - .devcontainer/**
       - LICENSE
       - .gitignore
       - .github/**
