@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://github.com/jcbhmr/cmakebyexample.dev
-set -e
+set -ex
 
 # https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 shopt -s nullglob
@@ -9,8 +9,8 @@ shopt -s dotglob
 
 rsync_-av_--delete() {
   cp -av "$1" "$2"
-  find "$2" -type f -not -exec test -e "$1/{}" \; -exec rm -f {} \;
-  find "$2" -type d -empty -delete
+  find "$2" -type f -not -exec test -e "$1/{}" \; -exec rm -f {} \; -print
+  find "$2" -type d -empty -delete -print
 }
 
 declare -A repls=(
