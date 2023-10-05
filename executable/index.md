@@ -18,6 +18,10 @@ cmake --build build
 ./build/myapp
 ```
 
+<iframe frameborder="0" style="width: 100%; height: 500px" src="https://replit.com/@jcbhmr/cmakebyexampledev-executable?embed=1"></iframe>
+
+<hr style="margin-top: 2.3em;" />
+
 ### What is a <dfn id="target">target</dfn>?
 
 > Probably the most important item is targets. Targets represent executables,
