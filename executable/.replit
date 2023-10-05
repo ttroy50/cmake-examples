@@ -1,0 +1,6 @@
+onBoot = "curl -fsSL https://cmakebyexample.dev/replit-onBoot.sh | bash"
+compile = "cmake -B build && cmake --build build"
+run = "./build/myapp"
+
+[nix]
+channel = "unstable"
