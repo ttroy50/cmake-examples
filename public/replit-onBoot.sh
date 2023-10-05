@@ -7,6 +7,12 @@ shopt -s nullglob
 shopt -s extglob
 shopt -s dotglob
 
+rsync_-av_--delete() {
+  cp -av "$1" "$2"
+  find "$2" -type f -not -exec test -e "$1/{}" \; -exec rm -f {} \;
+  find "$2" -type d -empty -delete
+}
+
 declare -A repls=(
   ["@jcbhmr/cmakebyexampledev-executable"]="executable"
   ["@jcbhmr/cmakebyexampledev-static"]="static"
@@ -15,14 +21,6 @@ declare -A repls=(
 example=${repls["@$REPL_OWNER/$REPL_SLUG"]}
 [[ -n $example ]] || exit
 
-# https://www.tecmint.com/delete-all-files-in-directory-except-one-few-file-extensions/
-rm -rf !(.replit|replit.nix)
-
-git clone https://github.com/jcbhmr/cmakebyexample.dev .git --bare
-git config --local --bool core.bare false
-
-# https://stackoverflow.com/a/15404733
-git restore -s@ -SW -- "$example"
-
-mv -f "$example"/* ./
-rm -rf .git "$example"
+temp_dir=$(mktemp -d)
+git clone https://github.com/jcbhmr/cmakebyexample.dev "$temp_dir"
+rsync_-av_--delete "$temp_dir/$example/" ./
