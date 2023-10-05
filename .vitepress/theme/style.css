@@ -134,16 +134,22 @@
 }
 
 /**
- * Custom CSS!
+ * Custom CSS! Yes, there's lots of '!important' because we are overriding the
+ * VitePress CSS which usually uses '.VPThing[data-abc123]' selectors. In order
+ * to have a higher specificity we need to use '!important'.
  * -------------------------------------------------------------------------- */
 
+/* It's debatable whether '<details>' things should have a cursor indicator. In
+   this case, I think it makes sense to have them. */
 .vp-doc summary {
   margin: 0.3em 0;
   cursor: pointer;
 }
 
-/* This little section makes it so that on small screens the GitHub icon and
-   the theme switcher don't get hidden in a dropdown menu. */
+/* When the screen width shrinks, VitePress will hide the navbar links inside a
+   hamburger menu that is obnoxious. The hamburger menu also includes the theme
+   toggle (dark/light) and the social links. This section of CSS edits the .VP*
+   components enough to get rid of the hamburger menu. */
 .VPFlyout {
   display: none !important;
 }
@@ -172,4 +178,92 @@
   .VPNavBarTitle .title {
     font-size: 0 !important;
   }
+}
+
+/* This app doesn't have a very useful navbar. To that end, I think the navbar
+   shouldn't be stickied at the top of the page. Instead, this CSS makes it so
+   that the navbar behaves like a normal in-page element. */
+.VPNav {
+  align-self: center;
+  position: unset !important;
+  left: unset !important;
+}
+@media (min-width: 960px) {
+  .VPNav {
+    max-width: 688px;
+  }
+  .VPNavBar {
+    padding: 0 8px !important;
+  }
+}
+@media (min-width: 1440px) {
+  .VPNav {
+    max-width: 720px;
+  }
+}
+.VPContent {
+  padding-top: 0 !important;
+}
+
+/* Since the "🔺 CMake by Example" logo is the de-facto home button, we want to
+   emphasize that it's supposed to be clicked on. */
+.VPNavBarTitle a {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--vp-c-brand-1) 80%, currentColor) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, currentColor 20%, var(--vp-c-bg));
+  transition:
+    color 0.25s,
+    opacity 0.25s;
+}
+.VPNavBarTitle a:hover {
+  color: color-mix(in srgb, var(--vp-c-brand-2) 80%, currentColor) !important;
+}
+
+/* '<h1>' and friends don't have margins but '<p>' does. This means that if a
+   '<p>' is the first content element on the page it has an extra top margin
+   that a normal heading wouldn't. */
+.vp-doc > div > p:first-child {
+  margin-top: 0 !important;
+}
+
+/* With no prev/next buttons at the bottom, it makes sense to shore up the extra
+   padding that is added by default to make it look better. */
+.content {
+  padding-bottom: 0 !important;
+}
+.VPDocFooter {
+  margin-top: 32px !important;
+}
+
+/* By default the '<footer>' at the bottom with the copyright/license text is a
+   bit too stark. This CSS will dim the text against the background and make it
+   less visually relevant. */
+.VPFooter {
+  padding: 14px 16px 16px !important;
+}
+.VPFooter p {
+  font-size: smaller !important;
+  color: color-mix(in srgb, var(--vp-c-text-2) 60%, var(--vp-c-bg)) !important;
+}
+
+/* ...but the '<a>' tags should still be visually clickable! */
+.VPFooter a {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--vp-c-brand-1) 60%, var(--vp-c-bg));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition:
+    color 0.25s,
+    opacity 0.25s;
+}
+.VPFooter a:hover {
+  color: color-mix(in srgb, var(--vp-c-brand-2) 60%, var(--vp-c-bg));
+}
+
+/* Since this site is deliberately simple and small, we don't need the '#' links
+   that permalink to '#my-header' on hover. */
+.header-anchor {
+  display: none;
 }

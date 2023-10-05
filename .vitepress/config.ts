@@ -9,7 +9,6 @@ export default defineConfig({
   sitemap: {
     hostname: "https://cmakebyexample.dev",
   },
-  lastUpdated: true,
 
   title: "CMake by Example",
   description: "Starter CMake examples",
@@ -47,45 +46,19 @@ export default defineConfig({
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-search#search
-    search: {
-      provider: "local",
-    },
-
     logo: "/favicon.ico",
+
+    // https://vitepress.dev/reference/default-theme-search#search
+    // search: {
+    //   provider: "local",
+    // },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
     ],
 
-    sidebar: [
-      { text: "🏡 Home", link: "/" },
-      // { text: "CMake in GitHub Actions", link: "/github-actions.html" },
-
-      {
-        text: "Basic examples",
-        items: [
-          { text: "Hello world!", link: "/hello-world/" },
-          { text: "Two executable targets", link: "/two-executables/" },
-          { text: "Add an include folder", link: "/add-include-folder/" },
-          { text: "Set C/C++ standard", link: "/set-standard/" },
-          { text: "CMakePresets.json", link: "/cmakepresets-json/" },
-        ],
-      },
-
-      {
-        text: "Advanced examples",
-        items: [
-          { text: "Using cpr via FetchContent", link: "/cpr-fetchcontent/" },
-          { text: "Using {fmt} via CPM.cmake", link: "/fmt-cpm/" },
-          { text: "Using GTest via Conan", link: "/gtest-conan/" },
-          { text: "Using FTXUI via Vcpkg", link: "/ftxui-vcpkg/" },
-        ],
-      },
-
-      { text: "CMake.org", link: "https://cmake.org/" },
-      { text: "GitHub", link: "https://github.com/jcbhmr/cmakebyexample.dev" },
-    ],
+    outline: false,
+    aside: false,
 
     // https://vitepress.dev/reference/default-theme-edit-link
     editLink: {
