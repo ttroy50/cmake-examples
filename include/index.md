@@ -21,7 +21,7 @@ cmake --build build
 ./build/my-app
 ```
 
-<iframe frameborder="0" height="400" style="width: 100%" src="https://replit.com/@jcbhmr/cmakebyexampledev-add-include-folder?embed=1#CMakeLists.txt"></iframe>
+<iframe frameborder="0" height="400" style="width: 100%" src="https://replit.com/@jcbhmr/cmakebyexampledev-include?embed=1#CMakeLists.txt"></iframe>
 
 ## `include_directories()` vs `target_include_directories()`
 
