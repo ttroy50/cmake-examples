@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0)
+project(myproject)
+message("Hello world!")
+if(WIN32)
+  message("Hello Windows!")
+elseif(UNIX)
+  message("Hello Unix!")
+endif()
