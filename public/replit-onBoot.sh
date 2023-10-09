@@ -18,6 +18,7 @@ declare -A repls=(
   ["@jcbhmr/cmakebyexampledev-executable"]="executable"
   ["@jcbhmr/cmakebyexampledev-static"]="static"
   ["@jcbhmr/cmakebyexampledev-shared"]="shared"
+  ["@jcbhmr/cmakebyexampledev-message"]="message"
 )
 example=${repls["@$REPL_OWNER/$REPL_SLUG"]}
 [[ -n $example ]] || exit
