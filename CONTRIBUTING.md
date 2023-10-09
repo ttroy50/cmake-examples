@@ -21,13 +21,8 @@ If you're contributing an example, **don't worry about creating a [Replit]
 `<iframe>`**. [@jcbhmr] will handle that. It's a bit of a weird setup to sync
 GitHub folders to Replit instances.
 
-👩‍⚖️ When contributing code to this project, you must agree that you have authored
-100% of the content, that you have the necessary rights to the content and that
-the content you contribute may be provided under [the project license].
-
 <!-- prettier-ignore-start -->
 [open an issue]: https://github.com/jcbhmr/cmakebyexample.dev/issues
-[the project license]: https://github.com/jcbhmr/cmakebyexample.dev/blob/main/LICENSE
 [replit]: https://replit.com/
 [@jcbhmr]: https://github.com/jcbhmr
 <!-- prettier-ignore-end -->

@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.0)
+project(myproject)
+
+if(WIN32)
+  message("Hello Windows!")
+elseif(UNIX)
+  message("Hello Unix!")
+endif()
+
+find_program(clang_format "clang-format")
+if(clang_format)
+  message("You have clang-format installed!")
+endif()
+
+execute_process(COMMAND "echo test" RESULT_VARIABLE exit_code)
+if(exit_code EQUAL "0")
+  message("echo test worked!")
+else()
+  message("echo test failed.")
+endif()
