@@ -18,8 +18,11 @@ declare -A repls=(
   ["@jcbhmr/cmakebyexampledev-executable"]="executable"
   ["@jcbhmr/cmakebyexampledev-static"]="static"
   ["@jcbhmr/cmakebyexampledev-shared"]="shared"
-  ["@jcbhmr/cmakebyexampledev-message"]="message"
   ["@jcbhmr/cmakebyexampledev-if-else"]="if-else"
+  ["@jcbhmr/cmakebyexampledev-message"]="message"
+  ["@jcbhmr/cmakebyexampledev-include"]="include"
+  ["@jcbhmr/cmakebyexampledev-set-standard"]="set-standard"
+  ["@jcbhmr/cmakebyexampledev-multiple-targets"]="multiple-targets"
 )
 example=${repls["@$REPL_OWNER/$REPL_SLUG"]}
 [[ -n $example ]] || exit
