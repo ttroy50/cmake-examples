@@ -8,6 +8,12 @@ library] example for the `SHARED` counterpart.
 
 <<< ./mylib.c
 
+```sh
+cmake -B build
+cmake --build build
+ls build
+```
+
 <iframe frameborder="0" style="width: 100%; height: 500px" src="https://replit.com/@jcbhmr/cmakebyexampledev-static?embed=1"></iframe>
 
 [build a shared library]: /shared/
