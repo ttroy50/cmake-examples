@@ -20,7 +20,7 @@ software build process.
 - [Build an executable](/executable/)
 - [Build a static library](/static/)
 - [Build a shared library](/shared/)
-- [Print messages](/print/)
+- [Print a message](/message/)
 - [Conditional if/else](/if-else/)
 - [Add an include folder](/include/)
 - [Set C/C++ standard](/set-standard/)
