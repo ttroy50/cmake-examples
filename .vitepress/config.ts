@@ -24,23 +24,6 @@ export default defineConfig({
     // https://github.com/vuejs/vitepress/issues/560
     ["link", { rel: "icon", href: "/favicon.ico" }],
 
-    // https://github.com/vuejs/vitepress/issues/1131
-    [
-      "script",
-      {
-        async: "",
-        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`,
-      },
-    ],
-    [
-      "script",
-      {},
-      `window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${process.env.GA_TRACKING_ID}');`,
-    ],
-
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel#license
     [
       "link",
