@@ -58,7 +58,10 @@ install_manifest.txt
 *.app
 
 /**/build
-/**/build.*
+/**/build.log
+/**/build.clang
+/**/build.ninja
+
 
 .tags
 .vscode
