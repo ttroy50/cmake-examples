@@ -97,7 +97,7 @@ The variables created by CMake include:
 |CMAKE_PROJECT_NAME |the name of the first project set by the `project()`
 command, i.e. the top level project.
 
-|PROJECT_SOURCE_DIR |The source director of the current project.
+|PROJECT_SOURCE_DIR |The source directory of the current project.
 
 |PROJECT_BINARY_DIR |The build directory for the current project.
 
