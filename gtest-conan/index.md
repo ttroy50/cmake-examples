@@ -17,10 +17,10 @@
 :::
 
 ```sh
-conan install . -s build_type=Debug
+conan install . -s build_type=Debug --build=missing
 cmake --preset conan-debug
 cmake --build --preset conan-debug
-./build/hi
+./build/Debug/hi
 ctest --preset conan-debug
 ```
 
