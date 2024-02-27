@@ -25,17 +25,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: latest
           cache: npm
       - run: npm ci
-      - uses: jcbhmr/configure-pages@jcbhmr-patch-1
+      - id: configure-pages
+        uses: actions/configure-pages@v4
       - run: npm run build
         env:
-          GA_TRACKING_ID: ${{ vars.GA_TRACKING_ID }}
-      - uses: actions/upload-pages-artifact@v2
+          BASE_PATH: ${{ steps.configure-pages.outputs.base_path }}/
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist
       - id: deploy-pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

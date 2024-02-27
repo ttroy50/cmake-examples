@@ -9,6 +9,8 @@ export default defineConfig({
   // Surprised this isn't the default. 🤷‍♂️
   srcExclude: ["**/README.md", "**/CONTRIBUTING.md"],
 
+  base: process.env.BASE_PATH,
+
   // https://vitejs.dev/config/
   vite: {},
 
