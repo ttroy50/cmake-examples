@@ -8,11 +8,10 @@
     "format": "prettier -w ."
   },
   "devDependencies": {
-    "@types/node": "^20.7.1",
+    "@types/node": "latest",
     "glob": "^10.3.10",
-    "npm-run-all2": "^6.0.6",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2",
+    "typescript": "latest",
     "vitepress": "^1.0.0-rc.20",
     "vue": "^3.3.4",
     "vue-tsc": "^1.8.15"
