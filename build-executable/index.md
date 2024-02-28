@@ -2,31 +2,31 @@
 
 The status quo "Hello world!" project for C and C++ looks something like this:
 
-```c
-#include <stdio.h>
-int main() {
-    puts("Hello world!\n");
-    return 0;
-}
-```
+<<< ./main.c
 
 ```sh
-cc main.c -o app
-./app
+cc main.c -o my-app
+./my-app
 #=> Hello world!
 ```
 
-Instead of running `cc main.c -o app`, a "Hello world!" CMake project is a bit more involved. You need to create an additional `CMakeLists.txt` file that tells CMake what to do to compile your application. Use the `add_executable()` function to define a `myapp` target that CMake implicitly knows how to build from the given `main.c` file.
-
-<<< ./CMakeLists.txt{cmake}
+Instead of running `cc main.c -o app`, a "Hello world!" CMake project is a bit more involved:
 
 <<< ./main.c
+
+<<< ./CMakeLists.txt{cmake}
 
 ```sh
 cmake -B build
 cmake --build build
 ./build/myapp
 ```
+
+- `cmake_minimum_required()` will error early if the CMake version is too outdated. This helps prevent weird "not found" error messages that are hard to debug from popping up 5 minutes into a long compilation process.
+
+- `project()` defines a project name for this particular collection of CMake scripts & targets. One project can have multiple libraries and binaries.
+
+- `add_executable()` tells CMake to create an executable using the C/C++ compiler with the given files as inputs. In this example that's just `main.c` but it could include more `.c` files or additional `.a` static libraries or `.o` object files.
 
 In `CMakeLists.txt` there is a `cmake_minimum_required()` declaration that is there to help developers by indicating a minimum required CMake version. This is incredibly helpful to avoid more obscure error messages later like "could not find function do_thing_in_modern 
 
