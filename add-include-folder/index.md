@@ -27,7 +27,7 @@ The `include_directories()` command adds the specified directories to the includ
 For example, this `CMakeLists.txt` file is equivalent to the one above:
 
 ```cmake{4}
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.28)
 project(my-project)
 add_executable(my-app src/main.c src/greet.c)
 target_include_directories(my-app PRIVATE include)

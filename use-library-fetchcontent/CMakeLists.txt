@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.28)
 project(my-project)
-
-set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -12,4 +10,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(cpr)
 
 add_executable(my-app main.cpp)
+target_compile_features(my-app PUBLIC cxx_std_20)
 target_link_libraries(my-app PRIVATE cpr::cpr)

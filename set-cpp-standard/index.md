@@ -32,7 +32,7 @@ add_executable(app1 src/main1.c)
 The newer way to set the C++ standard for a specific target (like `add_executable()`) is to use `target_compile_features()` to only switch on/off C++XY version features per-target instead of globally.
 
 ```cmake
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.28)
 project(my-project)
 add_executable(my-app main.cpp)
 target_compile_features(my-app PUBLIC cxx_std_20)
@@ -43,7 +43,7 @@ Note that now we have to declare the target up-front and then switch on C++20 fo
 You can use `target_compile_features()` for C standard versions too:
 
 ```cmake
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.28)
 project(my-project)
 add_executable(my-app main.c)
 target_compile_features(my-app PUBLIC c_std_17)

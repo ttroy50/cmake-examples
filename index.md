@@ -16,6 +16,7 @@ your own projects as needed.
 - [Build an executable](/build-executable/)
 - [Build a static library](/build-library/)
 - [Build a shared library](/build-library/)
+- [Build multiple targets](/build-multiple-targets/)
 - [Conditional if/else](/if-else/)
 - [Print a message](/print-message/)
 - [Print a warning](/print-message/)
@@ -23,7 +24,6 @@ your own projects as needed.
 - [Add an include folder](/add-include-folder/)
 - [Set C++ standard](/set-cpp-standard/)
 - [Set C standard](/set-cpp-standard/)
-- [Build multiple targets](/build-multiple-targets/)
 
 </div><div :class="$style.gridItem">
 
