@@ -9,25 +9,23 @@ your own projects as needed.
 
 [CMake](https://cmake.org/) is the de-facto standard for building C++ code, with over 2 million downloads a month. It’s a powerful, comprehensive solution for managing the software build process.
 
-<div class="mygrid">
-<div class="mygrid-item">
+<div :class="$style.grid"><div :class="$style.gridItem">
 
 ### 🚩 Basics
 
 - [Build an executable](/build-executable/)
-- [Build a static library](/build-static-library/)
-- [Build a shared library](/build-shared-library/)
+- [Build a static library](/build-library/)
+- [Build a shared library](/build-library/)
 - [Conditional if/else](/if-else/)
 - [Print a message](/print-message/)
-- [Print a warning](/print-message/#print-a-warning)
-- [Print an error](/print-message/#print-an-error)
+- [Print a warning](/print-message/)
+- [Print an error](/print-message/)
 - [Add an include folder](/add-include-folder/)
 - [Set C++ standard](/set-cpp-standard/)
-- [Set C standard](/set-cpp-standard/#set-c-standard)
+- [Set C standard](/set-cpp-standard/)
 - [Build multiple targets](/build-multiple-targets/)
 
-</div>
-<div class="mygrid-item">
+</div><div :class="$style.gridItem">
 
 ### 📚 Using libraries
 
@@ -38,7 +36,7 @@ your own projects as needed.
 - ~~[Use FTXUI via Vcpkg](/ftxui-vcpkg/)~~
 - ~~[Use GTK via APT](/gtk-apt/)~~
 
-</div><div class="mygrid-item">
+</div><div :class="$style.gridItem">
 
 ### 🧪 Testing & analysis
 
@@ -48,7 +46,7 @@ your own projects as needed.
 - ~~[Format with clang-format](/clang-format/)~~
 - ~~[Lint with clang-tidy](/clang-tidy/)~~
 
-</div><div class="mygrid-item">
+</div><div :class="$style.gridItem">
 
 ### ⚙️ Advanced
 
@@ -70,13 +68,13 @@ This project is inspired by [Go by Example](https://gobyexample.com/), [JavaScri
 
 👀 Want more CMake? Check out [onqtam/awesome-cmake](https://github.com/onqtam/awesome-cmake)!
 
-<style scoped>
+<style module>
 @media screen and (min-width: 600px) {
-  .mygrid {
+  .grid {
     display: flex;
     flex-wrap: wrap;
   }
-  .mygrid-item {
+  .gridItem {
     flex: 0 0 calc(50% - 20px); /* Adjust the width as needed */
     margin: 10px;
   }
