@@ -27,23 +27,23 @@ your own projects as needed.
 
 </div><div :class="$style.gridItem">
 
-### 📚 Using libraries
+### 📚 Libraries
 
-- [Use a library via Git submodule](/use-library-submodule/)
+- ~~[Use a library via Git submodule](/use-library-submodule/)~~
 - [Use a library via FetchContent](/use-library-fetchcontent/)
-- [Use a library via CPM](/use-library-cpm/)
-- [Use a library via Conan](/use-library-conan/)
+- [Use a library via CPM.cmake](/use-library-cpm/)
+- ~~[Use a library via Conan](/use-library-conan/)~~
 - [Use a library via Vcpkg](/use-library-vcpkg/)
-- [Use a library via APT](/use-library-apt/)
+- ~~[Use a library via APT](/use-library-apt/)~~
 
 </div><div :class="$style.gridItem">
 
-### 🧪 Testing & analysis
+### 🧰 Tooling
 
-- ~~[Test with GTest via CPM](/gtest-cpm/)~~
-- ~~[Test with CTest via CPM](/unity-cpm/)~~
-- ~~[Test with Boost.Test via CPM](/boost-test-cpm/)~~
-- ~~[Format with clang-format](/clang-format/)~~
+- ~~[Test with GTest](/gtest/)~~
+- ~~[Test with CTest](/ctest/)~~
+- ~~[Test with Boost.Test](/boost-test/)~~
+- [Format with clang-format](/clang-format/)
 - ~~[Lint with clang-tidy](/clang-tidy/)~~
 
 </div><div :class="$style.gridItem">

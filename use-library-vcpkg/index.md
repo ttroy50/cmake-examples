@@ -1,25 +1,31 @@
-# Using FTXUI via Vcpkg
+# Using a library via Vcpkg
+
+<<< ./CMakeLists.txt{4,6 cmake}
+
+<<< ./main.cpp{cpp}
 
 ::: code-group
 
-<<< ./CMakeLists.txt{4,6 cmake}
+<<< ./vcpkg.json
 
 <<< ./CMakePresets.json
 
 :::
 
-<<< ./vcpkg.json
-
-<<< ./main.cpp{cpp}
-
 ```sh
 vcpkg install
 cmake --preset my-preset
 cmake --build build
-./build/myui
+./build/my-app
 ```
 
-<details><summary>How to install Vcpkg</summary>
+## What is Vcpkg?
+
+> Vcpkg helps you manage C and C++ libraries on Windows, Linux and MacOS. This tool and ecosystem are constantly evolving, and we always appreciate contributions!
+
+&mdash; [microsoft/vcpkg](https://github.com/microsoft/vcpkg)
+
+Here's a quick installation guide:
 
 ::: code-group
 
@@ -33,16 +39,14 @@ echo 'export PATH="$PATH:$VCPKG_ROOT"' >> ~/.bashrc
 ```
 
 ```powershell [Windows]
-cd %USERPROFILE%
-git clone https://github.com/microsoft/vcpkg.git
+cd "$Env:USERPROFILE"
+git clone "https://github.com/microsoft/vcpkg.git"
 cd vcpkg
 ./bootstrap-vcpkg.bat
 # TODO: Add VCPKG_ROOT to env
-# TODO: Add vcpkg to PATH
+# TODO: Add VCPKG_ROOT to PATH
 ```
 
 :::
-
-</details>
 
 [📚 Learn more about Vcpkg](https://learn.microsoft.com/vcpkg)

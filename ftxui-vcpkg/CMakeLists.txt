@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 3.28)
-project(my-project)
-set(CMAKE_CXX_STANDARD 17)
-find_package(ftxui REQUIRED)
-add_executable(myui main.cpp)
-target_link_libraries(myui PRIVATE ftxui::dom ftxui::screen ftxui::component)
