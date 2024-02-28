@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-project(myproject)
+project(my-project)
 include_directories(include)
-add_executable(myapp src/main.c src/greet.c)
+add_executable(my-app src/main.c src/greet.c)

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project(my-project)
+add_executable(hello-world hello-world.c)
+add_executable(goodbye-world goodbye-world.cpp)
+add_library(greet STATIC greet.c)
+add_library(greet SHARED greet.c)
