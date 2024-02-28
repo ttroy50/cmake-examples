@@ -29,12 +29,12 @@ your own projects as needed.
 
 ### 📚 Using libraries
 
-- [Use SDL2 via Git submodule](/use-library-submodule/)
-- [Use cpr via FetchContent](/use-library-fetchcontent/)
-- [Use {fmt} via CPM](/use-library-cpm/)
-- [Use Boost via Conan](/use-library-conan/)
-- [Use FTXUI via Vcpkg](/use-library-vcpkg/)
-- [Use GTK via APT](/use-library-apt/)
+- [Use a library via Git submodule](/use-library-submodule/)
+- [Use a library via FetchContent](/use-library-fetchcontent/)
+- [Use a library via CPM](/use-library-cpm/)
+- [Use a library via Conan](/use-library-conan/)
+- [Use a library via Vcpkg](/use-library-vcpkg/)
+- [Use a library via APT](/use-library-apt/)
 
 </div><div :class="$style.gridItem">
 
