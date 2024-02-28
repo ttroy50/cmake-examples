@@ -26,6 +26,22 @@ cmake --build build
 
 The `cmake -B build` command tells CMake to generate the actual native C/C++ toolchain build scripts and other resources (for Visual Studio, Ninja, Make, or others) into the `build/` folder. That's what the `-B` flag does. If you just run `cmake` it will clutter your current directory with lots of generated toolchain files. The `cmake --build build` command tells CMake to execute the native toolchain (that's the `--build` flag) from the `build/` folder. `--build` is a distinct and different flag from `-B`.
 
+::: code-group
+
+```sh [Option A]
+# Puts all the generated build tooling files somewhere else
+cmake -B build
+cmake --build build
+```
+
+```sh [Option B]
+# Clutters your current directory with all the build tooling files
+cmake .
+cmake --build .
+```
+
+:::
+
 ### What is a target?
 
 > Probably the most important item is targets. Targets represent executables, libraries, and utilities built by CMake. Every `add_library`, `add_executable`, and `add_custom_target` command creates a target. For example, the following command will create a target named "foo" that is a static library, with `foo1.c` and `foo2.c` as source files.
