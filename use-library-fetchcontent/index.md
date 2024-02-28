@@ -1,12 +1,8 @@
-# Using cpr via `FetchContent`
+# Using a library via `FetchContent`
 
-<<< ./CMakeLists.txt{7-12,13,16,4 cmake}
+<sup>ℹ This example uses [cpr C++ Requests: Curl for People](https://docs.libcpr.org/) as the demo library.</sup>
 
-Note that the `set(CMAKE_CXX_STANDARD 17)` line sets the C++ standard mode to
-C++17. Why do we need to do this? Because `cpr/cpr.h` (which is `#include`-ed in
-our C++ file) uses some fancy C++17 features! If we don't set this, our
-`main.cpp` file won't compile. Try it! **You can set this number to a more
-recent C++ standard**, it's just that C++17 is the minimum required to use cpr.
+<<< ./CMakeLists.txt{4-10 cmake}
 
 <<< ./main.cpp
 
@@ -19,11 +15,11 @@ cmake --build build
 Expect this to take some time to build! It has to build cpr, which includes
 building curl from source. Fun fact: curl has 150,000+ lines of C code! 😱
 
-<iframe frameborder="0" height="500" style="width: 100%" src="https://replit.com/@jcbhmr/cmakebyexampledev-cpr-fetchcontent?embed=1#CMakeLists.txt"></iframe>
+## What is `FetchContent`?
 
-## What is <dfn>`FetchContent`</dfn>?
+<sup>**Introduced in CMake v3.11**</sup>
 
-**Introduced in CMake v3.11**
+**TL;DR:** It's like `wget` for CMake-based C/C++ Git repositories.
 
 `FetchContent` allows you to include external projects directly within your
 CMake project, making it easier to handle dependencies without requiring users
