@@ -40,7 +40,7 @@ your own projects as needed.
 
 ### 🧰 Tooling
 
-- ~~[Test with GTest](/gtest/)~~
+- [Test with GoogleTest](/googletest/)
 - ~~[Test with CTest](/ctest/)~~
 - ~~[Test with Boost.Test](/boost-test/)~~
 - [Format with clang-format](/clang-format/)
